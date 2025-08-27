@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Navbar from './components/NavBar'
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
+import Work from './components/Work';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Navbar/>
       <Hero/>
       <Grid/>
+      <Work/>
     </>
   )
 }

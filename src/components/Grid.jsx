@@ -85,6 +85,9 @@ const Grid = () => {
                                 </span>
                             </div>
                         </div>
+                        <div className="flex h-[50vh] pt-15 justify-start items-center">
+                <h1 className='text-4xl max-w-[70%]'><span className='font-black'>A selection of projects </span> where I solved real problem<span className='font-black'>s and crafted</span> user-friendly, impactful designs.</h1>
+            </div>
                     </div>
                 </div>
             </section>
