@@ -3,7 +3,7 @@ import React from "react";
 export default function Navbar() {
   return (
     <nav className="font-inter absolute top-0 left-0 w-full z-50">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between text-white">
+      <div className="container mx-auto px-6 py-7 flex items-center justify-between text-white">
         
         {/* Brand + Nav links */}
         <div className="flex items-center space-x-12">
@@ -14,13 +14,13 @@ export default function Navbar() {
 
           {/* Nav links */}
           <div className="hidden md:flex text-xs items-center space-x-8 font-regular">
-            <a href="#case-studies" className="hover:opacity-70 transition">
+            <a href="#case-studies" className="nav-hover-btn">
               Case Studies
             </a>
-            <a href="#experience" className="hover:opacity-70 transition">
+            <a href="#experience" className="nav-hover-btn">
               Experience
             </a>
-            <a href="#contact" className="hover:opacity-70 transition">
+            <a href="#contact" className="nav-hover-btn">
               Contact us
             </a>
           </div>
@@ -32,7 +32,7 @@ export default function Navbar() {
             href="https://www.linkedin.com"
             target="_blank"
             rel="noreferrer"
-            className="hover:opacity-70 transition"
+            className="nav-hover-btn"
           >
             LinkedIn
           </a>
@@ -40,7 +40,7 @@ export default function Navbar() {
             href="https://www.behance.net"
             target="_blank"
             rel="noreferrer"
-            className="hover:opacity-70 transition"
+            className="nav-hover-btn"
           >
             Behance
           </a>

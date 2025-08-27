@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import "@fontsource/inter/300.css";  // light
 import "@fontsource/inter/400.css";  // Regular
 import "@fontsource/inter/500.css";  // Medium
 import "@fontsource/inter/700.css";  // Bold

@@ -1,4 +1,5 @@
 import './App.css'
+import Grid from './components/Grid';
 import Hero from './components/Hero'
 import Navbar from './components/NavBar'
 import gsap from "gsap";
@@ -11,7 +12,7 @@ function App() {
     <>
       <Navbar/>
       <Hero/>
-      <div className="bg-black min-h-screen h-screen"></div>
+      <Grid/>
     </>
   )
 }

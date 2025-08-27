@@ -7,4 +7,83 @@ body{
   margin: 0;
   padding: 0;
   font-family: "Inter",sans-serif;
+  overflow-x: hidden;
+}
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-10px, 10px); /* move bottom-left */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}
+.nav-hover-btn {
+  @apply relative cursor-pointer
+         after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full
+         after:bg-neutral-800 dark:after:bg-white after:scale-x-0 after:origin-right
+         after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]
+         hover:after:scale-x-100 hover:after:origin-left;
+}
+.work-process {
+  
+  
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 13rem;
+
+}
+
+.grid-item {
+  border-bottom: 1px solid #f33;
+  padding: 1rem;
+  display: flex;           /* enable flexbox */
+  flex-direction: row;  /* stack heading and paragraph vertically */
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */     
+ 
+}
+.span-cols-2 {
+  grid-column: span 2;
+}
+
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  animation: marquee 20s linear infinite;
+  width: max-content;
+}
+
+/* Optional: Pause on hover */
+.marquee-container:hover {
+  animation-play-state: paused;
+}
+
+/* Performance optimization */
+.marquee-container {
+  will-change: transform;
+}
+
+/* Ensure smooth rendering */
+.marquee-wrapper {
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
