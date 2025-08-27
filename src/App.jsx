@@ -1,22 +1,17 @@
-import './App.css'
-import Grid from './components/Grid';
-import Hero from './components/Hero'
-import Navbar from './components/NavBar'
-import gsap from "gsap";
-import { ScrollTrigger, SplitText } from "gsap/all";
-import Work from './components/Work';
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Experience from './pages/Experience';
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
 function App() {
-
   return (
-    <>
-      <Navbar/>
-      <Hero/>
-      <Grid/>
-      <Work/>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/experience" element={<Experience />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

@@ -42,7 +42,7 @@ const Hero = () => {
             <div className="container mx-auto md:px:1 lg:px-6 text-white">
                 <div className="flex flex-col justify-start gap-5 leading-tight">
                 
-                    <div className='flex items-center justify-center text-[19vw] md:text-[9.5rem] lg:text-[12.9rem] xl:text-[16.2rem] 2xl:text-[19rem] text-start  md:pt-2 lg:pt-5 uppercase font-black tracking-tighter leading-none text-white'>
+                    <div className='flex items-center justify-center text-[19vw] md:text-[9.5rem] lg:text-[12.9rem] xl:text-[16.19rem] 2xl:text-[19rem] text-start  md:pt-2 lg:pt-5 uppercase font-black tracking-[-0.065em] leading-none text-white'>
                         <span>WELC</span>
                         <div className='inline-block aspect-square w-[0.8em]  -mx-[0.12em] flex-shrink-0 rounded-full bg-white overflow-hidden relative z-10 animate-float'>
                             <img

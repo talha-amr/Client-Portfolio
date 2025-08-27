@@ -146,7 +146,14 @@ const Work = () => {
                                 <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
                                     HOME
                                 </a>
-                                <a href="#" className="text-sm inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
+                                <a
+                                    href="/"
+                                    onClick={(e) => {
+                                        e.preventDefault(); // prevent default jump
+                                        window.scrollTo({ top: 0, behavior: "smooth" });
+                                    }}
+                                    className="text-sm inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]"
+                                >
                                     BACK TO TOP ↑
                                 </a>
                             </li>
