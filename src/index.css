@@ -31,6 +31,13 @@ body{
          after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]
          hover:after:scale-x-100 hover:after:origin-left;
 }
+.link-hover-btn {
+  @apply relative cursor-pointer
+         after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full
+         after:bg-neutral-800 dark:after:bg-[#E62222] after:scale-x-0 after:origin-right
+         after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]
+         hover:after:scale-x-100 hover:after:origin-left;
+}
 
 
 .grid-container {

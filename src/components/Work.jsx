@@ -90,35 +90,45 @@ const Work = () => {
                         {projects.map((project, index) => (
                             <div
                                 key={project.id}
-                                className={`project-card w-[796px] h-[530.667px] bg-[#f9f9f9] mb-8 transform transition-all duration-500 ease-in-out 
-        ${activeIndex === index
-                                        ? "scale-105 -translate-x-10 z-10"  // active image bigger + shift left
+                                className={`project-card relative w-[90%] h-auto mb-10 group transform transition-all duration-300 ease-in-out
+                            ${activeIndex === index
+                                        ? "scale-103 -translate-x-8 z-10"   // active image bigger + shift left
                                         : "scale-100 translate-x-0 opacity-70" // normal images
                                     }`}
                             >
+                                {/* Image */}
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-contain "
+                                    className="w-full h-full object-cover object-center"
                                 />
+
+                                {/* Overlay */}
+                                <div
+                                    className="absolute inset-0 bg-[#E52222]/60 flex items-center justify-center 
+                                    opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                >
+                                    <a href="#" className="text-white text-lg font-bold cursor-pointer">VIEW</a>
+                                </div>
                             </div>
                         ))}
                     </div>
+
                 </div>
                 <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-12 pb-17">
                     {/* Contact Column */}
                     <div>
-                        <h3 className="text-[#E52222] text-xl pb-2 border-b border-[#E52222] mb-4">
+                        <h3 className="text-[#E52222] text-2xl pb-2 border-b border-[#E52222] mb-4">
                             CONTACT
                         </h3>
-                        <ul className="space-y-2 text-[#E52222]">
+                        <ul className="space-y-2 text-lg text-[#E52222]">
                             <li>
-                                <a href="#" className="block hover:underline">
+                                <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
                                     LINKEDIN
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="block hover:underline">
+                                <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
                                     BEHANCE
                                 </a>
                             </li>
@@ -127,26 +137,26 @@ const Work = () => {
 
                     {/* Pages Column */}
                     <div className="col-span-2">
-                        <h3 className="text-[#E52222] text-xl pb-2 border-b border-[#E52222] mb-4">
+                        <h3 className="text-[#E52222] text-2xl pb-2 border-b border-[#E52222] mb-4">
                             PAGES
                         </h3>
 
-                        <ul className="space-y-2 text-[#E52222]">
+                        <ul className="space-y-2 text-[#E52222] text-lg">
                             <li className="flex justify-between items-center">
-                                <a href="#" className="block hover:underline">
+                                <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
                                     HOME
                                 </a>
-                                <a href="#" className="text-sm hover:underline">
+                                <a href="#" className="text-sm inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
                                     BACK TO TOP ↑
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="block hover:underline">
+                                <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
                                     CASESTUDIES
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="block hover:underline">
+                                <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
                                     EXPERIENCE
                                 </a>
                             </li>
