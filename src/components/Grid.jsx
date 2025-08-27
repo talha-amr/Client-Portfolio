@@ -53,45 +53,45 @@ const Grid = () => {
                             <div className="flex whitespace-nowrap marquee-container">
                                 {/* First set */}
                                 <span className="mr-25 text-lg flex items-center">
-                                    <span className="font-black text-4xl mr-8 leading-none relative -top-0.5">•</span>
+                                    <span className="font-black text-4xl mr-10 leading-none relative -top-[0.15rem]">•</span>
                                     MVP for Startups
                                 </span>
                                 <span className="mr-25 text-lg flex items-center">
-                                    <span className="font-black text-4xl mr-8 leading-none relative -top-0.5">•</span>
+                                    <span className="font-black text-4xl mr-10 leading-none relative -top-[0.15rem]">•</span>
                                     User Research
                                 </span>
                                 <span className="mr-25 text-lg flex items-center">
-                                    <span className="font-black text-4xl mr-8 leading-none relative -top-0.5">•</span>
+                                    <span className="font-black text-4xl mr-10 leading-none relative -top-[0.15rem]">•</span>
                                     Data-Driven Design
                                 </span>
                                 <span className="mr-25 text-lg flex items-center">
-                                    <span className="font-black text-4xl mr-8 leading-none relative -top-0.5">•</span>
+                                    <span className="font-black text-4xl mr-10 leading-none relative -top-[0.15rem]">•</span>
                                     Brand Audit UX/UI
                                 </span>
                                 <span className="mr-25 text-lg flex items-center">
-                                    <span className="font-black text-4xl mr-8 leading-none relative -top-0.5">•</span>
+                                    <span className="font-black text-4xl mr-10 leading-none relative -top-[0.15rem]">•</span>
                                     Design System
                                 </span>
 
                                 {/* Second set for seamless loop */}
                                 <span className="mr-25 text-lg flex items-center">
-                                    <span className="font-black text-4xl mr-8 leading-none relative -top-0.5">•</span>
+                                    <span className="font-black text-4xl mr-10 leading-none relative -top-[0.15rem]">•</span>
                                     MVP for Startups
                                 </span>
                                 <span className="mr-25 text-lg flex items-center">
-                                    <span className="font-black text-4xl mr-8 leading-none relative -top-0.5">•</span>
+                                    <span className="font-black text-4xl mr-10 leading-none relative -top-[0.15rem]">•</span>
                                     User Research
                                 </span>
                                 <span className="mr-25 text-lg flex items-center">
-                                    <span className="font-black text-4xl mr-8 leading-none relative -top-0.5">•</span>
+                                    <span className="font-black text-4xl mr-10 leading-none relative -top-[0.15rem]">•</span>
                                     Data-Driven Design
                                 </span>
                                 <span className="mr-25 text-lg flex items-center">
-                                    <span className="font-black text-4xl mr-8 leading-none relative -top-0.5">•</span>
+                                    <span className="font-black text-4xl mr-10 leading-none relative -top-[0.15rem]">•</span>
                                     Brand Audit UX/UI
                                 </span>
                                 <span className="mr-25 text-lg flex items-center">
-                                    <span className="font-black text-4xl mr-8 leading-none relative -top-0.5">•</span>
+                                    <span className="font-black text-4xl mr-10 leading-none relative -top-[0.15rem]">•</span>
                                     Design System
                                 </span>
                             </div>

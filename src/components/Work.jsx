@@ -69,13 +69,13 @@ const Work = () => {
                 <div className="flex py-20">
                     {/* Left Side - Sticky Navigation */}
                     <div className="w-1/4 bg-[#f9f9f9]  sticky top-0 h-screen flex flex-col justify-center items-start">
-                        <div className="space-y-6 text-center">
+                        <div className="space-y-6 text-start">
                             {projects.map((project, index) => (
                                 <div key={project.id} className="nav-item">
                                     <h2
-                                        className={`text-2xl font-black mb-2 transition-all duration-100 ${activeIndex === index
-                                                ? "text-[#E52222] scale-110"
-                                                : "text-gray-400 scale-100"
+                                        className={`text-3xl font-black mb-4 transition-all duration-200 ${activeIndex === index
+                                                ? "text-[#E52222] scale-110 translate-x-5"
+                                                : "text-gray-400 scale-100 translate-x-0"
                                             }`}
                                     >
                                         {project.title}
@@ -86,14 +86,15 @@ const Work = () => {
                     </div>
 
                     {/* Right Side - Scrollable Content */}
-                    <div className="w-3/4 ">
+                    <div className="w-3/4 flex flex-col items-end">
                         {projects.map((project) => (
-                            <Card
-                                key={project.id}
-                                image={project.image}
-                                title={project.title}
-                                desc={project.desc}
-                            />
+                            <div key={project.id} className="project-card w-[796px] h-[530.667px] mb-4">
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -130,7 +131,7 @@ const Work = () => {
                 <div className="flex justify-between items-center h-[30vh] text-[#E52222] py-40">
                     <p className="text-3xl font-bold"> <span className="font-black">Let’s Make</span><br/>
                         Something Amazing Together!</p>
-                    <p className='text-base mt-3 font-regular max-w-[45%] anim leading-tight me-8'>
+                    <p className='text-base mt-3 font-regular max-w-[40%] anim leading-tight me-8'>
                         I'm a UX/UI Product Designer and Design Consultant with 6 years of experience in crafting user-
                         <br />
                         centered digital products, and a total of 10 years in the design and creative industry.
