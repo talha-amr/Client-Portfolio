@@ -10,7 +10,7 @@ const Card = ({ image, title, desc }) => {
           <img
             src={image}
             alt={title}
-            className="object-cover w-full h-100" // h-64 ensures consistent height
+            className="object-cover w-full h-120" // h-64 ensures consistent height
           />
         </div>
       )}

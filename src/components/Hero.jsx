@@ -42,7 +42,7 @@ const Hero = () => {
             <div className="container mx-auto md:px:1 lg:px-6 text-white">
                 <div className="flex flex-col justify-start gap-5 leading-tight">
                 
-                    <div className='flex items-center justify-center text-[19vw] md:text-[9.5rem] lg:text-[12.9rem] xl:text-[16rem] 2xl:text-[19rem] text-start  md:pt-2 lg:pt-5 uppercase font-black tracking-tighter leading-none text-white'>
+                    <div className='flex items-center justify-center text-[19vw] md:text-[9.5rem] lg:text-[12.9rem] xl:text-[16.2rem] 2xl:text-[19rem] text-start  md:pt-2 lg:pt-5 uppercase font-black tracking-tighter leading-none text-white'>
                         <span>WELC</span>
                         <div className='inline-block aspect-square w-[0.8em]  -mx-[0.12em] flex-shrink-0 rounded-full bg-white overflow-hidden relative z-10 animate-float'>
                             <img
@@ -54,11 +54,11 @@ const Hero = () => {
                         <span>ME</span>
                     </div>
 
-                    <p className='md:text-[1rem] lg:text-[1.5rem] font-bold max-w-120 text-start leading-tight ms-10'>
-                        Hi Zubair S. here<br />
+                    <p className='md:text-[1rem] lg:text-[1.5rem] font-bold max-w-120 text-start leading-tight '>
+                       <span className='italic'> Hi Zubair S. here</span><br />
                         Connecting Product Design × Design Systems × AI | Lead UX/UI Designer @Rozeegpt / Rozee.pk
                     </p>
-                    <p className='self-end md:text-[1rem] lg:text-[1.5rem] mt-3 font-bold max-w-[45%] anim leading-tight me-8'>
+                    <p className='self-end md:text-[1rem] lg:text-[1.5rem] mt-3 font-bold max-w-[42%] anim leading-tight '>
                         I'm a UX/UI Product Designer and Design Consultant with 6 years of experience in crafting user-
                         <br />
                         centered digital products, and a total of 10 years in the design and creative industry.

@@ -97,10 +97,10 @@ const Work = () => {
                         ))}
                     </div>
                 </div>
-                <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] py-12">
+                <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-12 pb-17">
   {/* Contact Column */}
                 <div>
-                    <h3 className="text-[#E52222] font-bold border-b border-[#E52222] mb-4">
+                    <h3 className="text-[#E52222] text-xl pb-2 border-b border-[#E52222] mb-4">
                     CONTACT
                     </h3>
                     <ul className="space-y-2 text-[#E52222]">
@@ -110,19 +110,22 @@ const Work = () => {
                 </div>
 
                 {/* Pages Column */}
-                <div className="col-span-2">
-                    <h3 className="text-[#E52222] font-bold border-b border-[#E52222] mb-4 flex justify-between">
-                    <span>PAGES</span>
-                    <a href="#" className="text-sm">
-                        BACK TO TOP ↑
-                    </a>
-                    </h3>
-                    <ul className="space-y-2 text-[#E52222]">
-                    <li>HOME</li>
-                    <li>CASESTUDIES</li>
-                    <li>EXPERIENCE</li>
-                    </ul>
-                </div>
+<div className="col-span-2">
+  <h3 className="text-[#E52222] text-xl pb-2 border-b border-[#E52222] mb-4">
+    PAGES
+  </h3>
+
+  <ul className="space-y-2 text-[#E52222]">
+    <li className="flex justify-between items-center">
+      <span>HOME</span>
+      <a href="#" className="text-sm">
+        BACK TO TOP ↑
+      </a>
+    </li>
+    <li>CASESTUDIES</li>
+    <li>EXPERIENCE</li>
+  </ul>
+</div>
                 </div>
                 <div className="flex justify-between items-center h-[30vh] text-[#E52222] py-40">
                     <p className="text-3xl font-bold"> <span className="font-black">Let’s Make</span><br/>
