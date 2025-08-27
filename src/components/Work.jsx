@@ -55,8 +55,8 @@ const Work = () => {
         sections.forEach((section, i) => {
             ScrollTrigger.create({
                 trigger: section,
-              start: "top+=30% center", // waits until half of the card is inside
-    end: "bottom center",
+                start: "top+=30% center", // waits until half of the card is inside
+                end: "bottom center",
                 onEnter: () => setActiveIndex(i),
                 onEnterBack: () => setActiveIndex(i),
             });
@@ -74,8 +74,8 @@ const Work = () => {
                                 <div key={project.id} className="nav-item">
                                     <h2
                                         className={`text-3xl font-black mb-4 transition-all duration-200 ${activeIndex === index
-                                                ? "text-[#E52222] scale-110 translate-x-5"
-                                                : "text-gray-400 scale-100 translate-x-0"
+                                            ? "text-[#E52222] scale-110 translate-x-5"
+                                            : "text-gray-400 scale-100 translate-x-0"
                                             }`}
                                     >
                                         {project.title}
@@ -87,49 +87,75 @@ const Work = () => {
 
                     {/* Right Side - Scrollable Content */}
                     <div className="w-3/4 flex flex-col items-end">
-                        {projects.map((project) => (
-                            <div key={project.id} className="project-card w-[796px] h-[530.667px] mb-4">
+                        {projects.map((project, index) => (
+                            <div
+                                key={project.id}
+                                className={`project-card w-[796px] h-[530.667px] bg-[#f9f9f9] mb-8 transform transition-all duration-500 ease-in-out 
+        ${activeIndex === index
+                                        ? "scale-105 -translate-x-10 z-10"  // active image bigger + shift left
+                                        : "scale-100 translate-x-0 opacity-70" // normal images
+                                    }`}
+                            >
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-contain"
+                                    className="w-full h-full object-contain "
                                 />
                             </div>
                         ))}
                     </div>
                 </div>
                 <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-12 pb-17">
-  {/* Contact Column */}
-                <div>
-                    <h3 className="text-[#E52222] text-xl pb-2 border-b border-[#E52222] mb-4">
-                    CONTACT
-                    </h3>
-                    <ul className="space-y-2 text-[#E52222]">
-                    <li>LINKEDIN</li>
-                    <li>BEHANCE</li>
-                    </ul>
+                    {/* Contact Column */}
+                    <div>
+                        <h3 className="text-[#E52222] text-xl pb-2 border-b border-[#E52222] mb-4">
+                            CONTACT
+                        </h3>
+                        <ul className="space-y-2 text-[#E52222]">
+                            <li>
+                                <a href="#" className="block hover:underline">
+                                    LINKEDIN
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="block hover:underline">
+                                    BEHANCE
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Pages Column */}
+                    <div className="col-span-2">
+                        <h3 className="text-[#E52222] text-xl pb-2 border-b border-[#E52222] mb-4">
+                            PAGES
+                        </h3>
+
+                        <ul className="space-y-2 text-[#E52222]">
+                            <li className="flex justify-between items-center">
+                                <a href="#" className="block hover:underline">
+                                    HOME
+                                </a>
+                                <a href="#" className="text-sm hover:underline">
+                                    BACK TO TOP ↑
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="block hover:underline">
+                                    CASESTUDIES
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="block hover:underline">
+                                    EXPERIENCE
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                {/* Pages Column */}
-<div className="col-span-2">
-  <h3 className="text-[#E52222] text-xl pb-2 border-b border-[#E52222] mb-4">
-    PAGES
-  </h3>
-
-  <ul className="space-y-2 text-[#E52222]">
-    <li className="flex justify-between items-center">
-      <span>HOME</span>
-      <a href="#" className="text-sm">
-        BACK TO TOP ↑
-      </a>
-    </li>
-    <li>CASESTUDIES</li>
-    <li>EXPERIENCE</li>
-  </ul>
-</div>
-                </div>
                 <div className="flex justify-between items-center h-[30vh] text-[#E52222] py-40">
-                    <p className="text-3xl font-bold"> <span className="font-black">Let’s Make</span><br/>
+                    <p className="text-3xl font-bold"> <span className="font-black">Let’s Make</span><br />
                         Something Amazing Together!</p>
                     <p className='text-base mt-3 font-regular max-w-[40%] anim leading-tight me-8'>
                         I'm a UX/UI Product Designer and Design Consultant with 6 years of experience in crafting user-
