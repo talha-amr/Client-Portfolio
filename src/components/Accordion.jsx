@@ -2,47 +2,83 @@ import React, { useState } from "react";
 
 const AccordionItem = ({ title, content, isOpen, onToggle }) => {
   return (
-    <div className="w-full mx-auto md:px-1 lg:px-6 w-full border-b border-[#E52222]">
+    <div className="w-full mx-auto border-b border-[#E52222]">
       {/* Header */}
       <button
         onClick={onToggle}
-        className="w-full text-left py-6 flex justify-between items-center focus:outline-none"
+        className="w-full text-left py-3 flex justify-between items-center focus:outline-none"
       >
         <div className="flex justify-between items-center w-full">
           <span
-            className={`font-bold text-2xl text-[#E52222] transition-transform duration-300 ${
-              isOpen ? "scale-105 border-b-2 border-[#E52222]" : ""
-            }`}
+            className={`font-bold text-2xl text-[#E52222] transition-transform duration-300 ${isOpen ? "scale-105 border-b-2 border-[#E52222]" : ""
+              }`}
           >
             {title}
           </span>
-          <span className="text-2xl text-[#E52222]">{isOpen ? "-" : "+"}</span>
+          <span className="text-5xl font-thin text-[#E52222]">{isOpen ? "-" : "+"}</span>
         </div>
       </button>
 
       {/* Content */}
       <div
         className={`overflow-hidden transition-all duration-500 ease-in-out`}
-        style={{ maxHeight: isOpen ? "400px" : "0px" }}
+        style={{ maxHeight: isOpen ? "600px" : "0px" }}
       >
         <div className="py-6 text-gray-700 text-lg">
-          {content}
+          {/* ✅ Grid Layout for Content */}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-x-32 gap-y-6  w-full">
+  {content.map((text, idx) => (
+    <div
+      key={idx}
+      className="text-base text-[#E52222] text-start"
+    >
+      {text}
+    </div>
+  ))}
+</div>
         </div>
       </div>
     </div>
   );
 };
 
-
 export default function Accordion({ items }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const defaultItems = [
-    { title: "Product UX / UI Design", content: "Content for the first item" },
-    { title: "Methods", content: "Content for the second item" },
-    { title: "Development (Basic)", content: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nemo quos ex molestias et eos nostrum dolor harum cum iste maiores culpa minus delectus debitis quaerat error numquam, temporibus saepe?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque eveniet quisquam harum, exercitationem neque omnis alias assumenda, quia quas corrupti atque. Nihil, ullam corrupti." },
+    {
+      title: "Product UX / UI Design",
+      content: [
+        "User Research & Personas",
+        "Wireframing & Prototyping",
+        "Journey Mapping & Flows",
+        "High-Fidelity UI Design",
+        "Design Systems (Creation & Management)",
+        "Usability Testing & Iteration",
+        "Accessibility Design (WCAG)",
+        "Mobile & Web App Interfaces",
+        "Product Thinking & UX Audits"
+      ],
+    },
+    {
+      title: "Methods",
+      content: [
+        "Design Thinking",
+        "User-Centered Design (UCD)",
+        "Usability Testing & A/B Testing",
+        "Information Architecture Structuring",
+        "Accessibility & Inclusive Design"
+      ],
+    },
+    {
+      title: "Development (Basic)",
+      content: [
+        "HTML",
+        "CSS",
+        "JavaScript (Basic)"
+      ],
+    },
   ];
-
 
   const accordionItems = items || defaultItems;
 
