@@ -61,7 +61,7 @@ const Work = () => {
         sections.forEach((section, i) => {
             ScrollTrigger.create({
                 trigger: section,
-                start: "top+=35% center",
+                start: "top+=32% center",
                 end: "bottom center",
                 onEnter: () => setActiveIndex(i),
                 onEnterBack: () => setActiveIndex(i),
