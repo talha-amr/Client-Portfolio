@@ -92,11 +92,11 @@ body{
   perspective: 1000px;
 }
 .text-theme-red{
-  @apply text-[#e62222]
+  @apply text-[#e52222]
 }
 .bg-theme-red{
-  @apply bg-[#e62222]
+  @apply bg-[#e52222]
 }
 .border-theme-red{
-  @apply border-b-1 border-[#e62222]
+  @apply border-b-1 border-[#e52222]
 }
