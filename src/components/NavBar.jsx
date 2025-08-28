@@ -37,9 +37,6 @@ export default function Navbar({ activePage }) {
             <Link to="/experience" className={linkClass("experience")}>
               Experience
             </Link>
-            <Link to="/contact" className={linkClass("contact")}>
-              Contact us
-            </Link>
           </div>
         </div>
 
