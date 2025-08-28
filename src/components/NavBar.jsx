@@ -4,22 +4,25 @@ import { Link } from "react-router-dom";
 export default function Navbar({ activePage }) {
   // helper function to set link style
   const linkClass = (page) =>
-  `nav-hover-btn  ${
-    activePage === page ? "border-b-2 border-[#E52222] text-[#E52222]" : ""
-  }`;
+    `nav-hover-btn text-sm 2xl:text-lg ${
+      activePage === page ? "border-b-2 border-[#E52222] text-[#E52222]" : ""
+    }`;
 
   return (
     <nav
       className={`font-inter absolute top-0 py-7 left-0 w-full z-50 ${
-        activePage === "home" ? "bg-transparent text-white" : "bg-white text-[#E52222] border-b-1 border-[#e52222]"
+        activePage === "home"
+          ? "bg-transparent text-white"
+          : "bg-white text-[#E52222] border-b-1 border-[#e52222]"
       }`}
     >
       <div className="w-full mx-auto px-6 flex items-center justify-between">
         {/* Brand + Nav links */}
         <div className="flex items-center space-x-12">
           {/* Brand */}
-          <Link to='/'
-            className={`text-2xl font-black tracking-[-0.06em] italic ${
+          <Link
+            to="/"
+            className={`text-2xl 2xl:text-4xl font-black tracking-[-0.06em] italic ${
               activePage === "home" ? "text-white" : "text-[#E52222]"
             }`}
           >
@@ -27,7 +30,7 @@ export default function Navbar({ activePage }) {
           </Link>
 
           {/* Nav links */}
-          <div className="hidden md:flex text-xs items-center space-x-8 font-regular">
+          <div className="hidden md:flex items-center space-x-8 font-regular">
             <Link to="/casestudies" className={linkClass("casestudies")}>
               Case Studies
             </Link>
@@ -41,7 +44,7 @@ export default function Navbar({ activePage }) {
         </div>
 
         {/* Social links */}
-        <div className="flex items-center text-xs space-x-6 font-bold">
+        <div className="flex items-center space-x-6 font-bold text-sm 2xl:text-lg">
           <a
             href="https://www.linkedin.com"
             target="_blank"
