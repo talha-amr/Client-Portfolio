@@ -32,7 +32,7 @@ const Work = () => {
           {/* Small text row above main content */}
           <div
             className="flex justify-between items-center w-full text-red-600 text-[0.9vw] font-medium mb-8 absolute z-20"
-            style={{ top: `calc(8.1vw + 22vw)` }}
+            style={{ top: `calc(8.1vw + 10vw)` }}
           >
             <span className="flex-shrink-0 font-regular">AVAILABLE FOR WORK</span>
             <div className="flex items-center gap-25 flex-shrink-0 font-regular">
@@ -67,9 +67,10 @@ const Work = () => {
       {/* Projects grid inside container below held image */}
       <div className="w-full px-6 py-10">
         <ProjectsGrid />
+         <Footer />
       </div>
 
-      <Footer />
+     
     </div>
   );
 };

@@ -16,62 +16,7 @@ const Experience = () => {
                 </div>
             </div>
             <Accordion title="nothing" content="nothing" />
-                <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-50 pb-17 ">
-                    {/* Contact Column */}
-                    <div>
-                        <h3 className="text-[#E52222] text-2xl pb-2 border-b border-[#E52222] mb-4">
-                            CONTACT
-                        </h3>
-                        <ul className="space-y-2 text-lg text-[#E52222]">
-                            <li>
-                                <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
-                                    LINKEDIN
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
-                                    BEHANCE
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Pages Column */}
-                    <div className="col-span-2">
-                        <h3 className="text-[#E52222] text-2xl pb-2 border-b border-[#E52222] mb-4">
-                            PAGES
-                        </h3>
-
-                        <ul className="space-y-2 text-[#E52222] text-lg">
-                            <li className="flex justify-between items-center">
-                                <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
-                                    HOME
-                                </a>
-                                <a
-                                    href="/"
-                                    onClick={(e) => {
-                                        e.preventDefault(); // prevent default jump
-                                        window.scrollTo({ top: 0, behavior: "smooth" });
-                                    }}
-                                    className="text-sm inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]"
-                                >
-                                    BACK TO TOP ↑
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
-                                    CASESTUDIES
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="inline-block link-hover-btn border-b border-transparent hover:border-[#E52222]">
-                                    EXPERIENCE
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
+                
                 <Footer/>
             </div>
         </section>
