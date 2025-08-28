@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Card from "./Card"; // import Card component
 
 gsap.registerPlugin(ScrollTrigger);
 
