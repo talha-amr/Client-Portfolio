@@ -2,13 +2,13 @@ import React, { useState } from "react";
 
 const AccordionItem = ({ title, content, isOpen, onToggle }) => {
   return (
-    <div className="w-full border-b border-[#E52222]">
+    <div className="w-full mx-auto md:px-1 lg:px-6 w-full border-b border-[#E52222]">
       {/* Header */}
       <button
         onClick={onToggle}
         className="w-full text-left py-6 flex justify-between items-center focus:outline-none"
       >
-        <div className="container mx-auto md:px-1 lg:px-6 flex justify-between items-center">
+        <div className="flex justify-between items-center w-full">
           <span
             className={`font-bold text-2xl text-[#E52222] transition-transform duration-300 ${
               isOpen ? "scale-105 border-b-2 border-[#E52222]" : ""
@@ -25,13 +25,14 @@ const AccordionItem = ({ title, content, isOpen, onToggle }) => {
         className={`overflow-hidden transition-all duration-500 ease-in-out`}
         style={{ maxHeight: isOpen ? "400px" : "0px" }}
       >
-        <div className="container mx-auto md:px-1 lg:px-6 py-6 text-gray-700 text-lg">
+        <div className="py-6 text-gray-700 text-lg">
           {content}
         </div>
       </div>
     </div>
   );
 };
+
 
 export default function Accordion({ items }) {
   const [openIndex, setOpenIndex] = useState(null);

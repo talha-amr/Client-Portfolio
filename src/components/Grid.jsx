@@ -9,7 +9,7 @@ const Grid = () => {
     return (
         <>
             <section className="min-h-screen bg-[#F9F9F9] " id="grid">
-                <div className="container mx-auto md:px:1 lg:px-6  text-[#E52222] relative">
+                <div className="w-full mx-auto md:px:1 lg:px-6  text-[#E52222] relative">
                     <div className="work-process   ">
                         <div className="flex h-[65vh] flex-row items-center border-b-1 border-[#E52222]">
                             <p className="font-black text-4xl sm:text-3xl md:text-[38px] max-w-[70%] leading-none">

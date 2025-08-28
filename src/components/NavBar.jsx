@@ -14,7 +14,7 @@ export default function Navbar({ activePage }) {
         activePage === "home" ? "bg-transparent text-white" : "bg-white text-[#E52222] border-b-1 border-[#e52222]"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="w-full mx-auto px-6 flex items-center justify-between">
         {/* Brand + Nav links */}
         <div className="flex items-center space-x-12">
           {/* Brand */}
