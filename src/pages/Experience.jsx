@@ -8,7 +8,7 @@ const Experience = () => {
         <section className='min-h-dvh w-screen'>
             <Navbar activePage={"experience"} />
 <div className="w-full px-6 mx-auto">
-            <div className="flex justify-start items-center mt-35 pb-10 border-b-1 border-[#e52222]">
+            <div className="flex justify-start items-center mt-35 pb-10 border-b-2 border-[#e52222]">
                 
                     <div className='text-[#e52222] max-w-[70%] space-y-6 '>
                         <p className='text-3xl font-bold leading-tight'>Currently, I’m working at Rozee.pk / RozeeGPT as a Product UX/UI Designer (Team Lead).</p>

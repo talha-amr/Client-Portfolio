@@ -31,8 +31,8 @@ export default function Navbar({ activePage }) {
 
           {/* Nav links */}
           <div className="hidden md:flex items-center space-x-8 font-regular">
-            <Link to="/casestudies" className={linkClass("casestudies")}>
-              Case Studies
+            <Link to="/work" className={linkClass("work")}>
+              Work
             </Link>
             <Link to="/experience" className={linkClass("experience")}>
               Experience

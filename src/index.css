@@ -91,3 +91,12 @@ body{
   backface-visibility: hidden;
   perspective: 1000px;
 }
+.text-theme-red{
+  @apply text-[#e62222]
+}
+.bg-theme-red{
+  @apply bg-[#e62222]
+}
+.border-theme-red{
+  @apply border-b-1 border-[#e62222]
+}
