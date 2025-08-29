@@ -48,7 +48,7 @@ const ProjectsGrid = () => {
             }`}
           >
             {col.items.map((item) => (
-              <div key={item.id} className="flex flex-col gap-2 group">
+              <div key={item.id} className="flex flex-col gap-[0.5px] group">
                 {/* Flip Text (default -> view..., hover -> project name) */}
                 <div className="relative h-6 overflow-hidden">
                   <p className="absolute inset-0 text-black text-[8px] tracking-[0.15em] uppercase transition-transform duration-500 group-hover:-translate-y-6">

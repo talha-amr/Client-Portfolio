@@ -30,15 +30,12 @@ const Work = () => {
           </p>
 
           {/* Small text row above main content */}
-          <div
-            className="flex justify-between items-center w-[70%] text-red-600 text-[0.9vw] font-light mb-8 absolute z-20 "
+              <div
+            className="flex justify-between items-center w-[60%] text-red-600 text-[0.9vw] font-thin mb-8 absolute z-20"
             style={{ top: `calc(8.1vw + 10vw)` }}
           >
-            <span className="flex-shrink-0 ">AVAILABLE FOR WORK</span>
-            <div className="flex items-center gap-25 flex-shrink-0 font-light">
-              <p>SCROLL TO VIEW MORE</p>
-              <p>2025</p>
-            </div>
+            <span className="flex-shrink-0">AVAILABLE FOR WORK</span>
+            <p className="flex-shrink-0">SCROLL TO VIEW MORE</p>
           </div>
 
           {/* Monkey overlapping text */}
