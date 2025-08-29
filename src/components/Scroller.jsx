@@ -49,9 +49,9 @@ const Work = () => {
         },
         { id: 2, title: "IMC HEALTH APP", image: "/image-2.png", desc: "Description for IMC HEALTH APP" },
         { id: 3, title: "RIZQ FINANCIAL APP", image: "/image-3.png", desc: "Description for Rizq Financial App" },
-        { id: 4, title: "ASK TECHNOSE", image: "", desc: "Description for ASK TECHNOSE" },
-        { id: 5, title: "BSM DEVELOPER", image: "", desc: "Description for BSM Developer" },
-        { id: 6, title: "NEW METRO CITY", image: "", desc: "Description for New Metro City" },
+        { id: 4, title: "ASK TECHNOSE", image: "/image-4.png", desc: "Description for ASK TECHNOSE" },
+        { id: 5, title: "BSM DEVELOPER", image: "/image-5.png", desc: "Description for BSM Developer" },
+        { id: 6, title: "NEW METRO CITY", image: "image-6.png", desc: "Description for New Metro City" },
     ];
 
     // ScrollTrigger to update active project index

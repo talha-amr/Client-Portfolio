@@ -31,11 +31,11 @@ const Work = () => {
 
           {/* Small text row above main content */}
           <div
-            className="flex justify-between items-center w-full text-red-600 text-[0.9vw] font-medium mb-8 absolute z-20"
+            className="flex justify-between items-center w-full text-red-600 text-[0.9vw] font-light mb-8 absolute z-20"
             style={{ top: `calc(8.1vw + 10vw)` }}
           >
-            <span className="flex-shrink-0 font-regular">AVAILABLE FOR WORK</span>
-            <div className="flex items-center gap-25 flex-shrink-0 font-regular">
+            <span className="flex-shrink-0 ">AVAILABLE FOR WORK</span>
+            <div className="flex items-center gap-25 flex-shrink-0 font-light">
               <p>SCROLL TO VIEW MORE</p>
               <p>2025</p>
             </div>
