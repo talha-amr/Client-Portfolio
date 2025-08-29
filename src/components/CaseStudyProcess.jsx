@@ -109,41 +109,39 @@ const CaseStudyLayout = () => {
             />
           </div>
 
-          {/* RIGHT column: Steps with border-left */}
-          <div className="col-span-2 flex flex-col border-l border-[#7b7b7b]/20">
-            {processSteps.map((step, index) => {
-              const isRed = index === 1; // "Define the Problem"
+{/* RIGHT column: Steps with border-left */}
+<div className="col-span-2 flex flex-col border-l border-[#7b7b7b]/20">
+  {processSteps.map((step, index) => {
+    const isRed = index === 1; // "Define the Problem"
 
-              return (
-                <div
-                  key={index}
-                  className={`min-h-[50vh] flex flex-col justify-center px-16 py-12 
-                    border-[#7b7b7b]/20 
-                    ${index === 0 ? "" : "border-t"} `}
-                >
-                  <h2
-                    className={`text-3xl font-bold mb-8 ${
-                      isRed ? "text-[#e62222]" : "text-[#7b7b7b]"
-                    }`}
-                  >
-                    {step.title}
-                  </h2>
-                  <ul className="space-y-4">
-                    {step.items.map((item, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className={`mr-3 ${isRed ? "text-[#e62222]" : "text-[#7b7b7b]"}`}>
-                          •
-                        </span>
-                        <span className={`leading-relaxed ${isRed ? "text-[#e62222]" : "text-[#7b7b7b]"}`}>
-                          {item}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
+    return (
+      <div
+        key={index}
+        className={`min-h-[50vh] flex flex-col justify-center px-16 py-12 
+          border-[#7b7b7b]/20 
+          ${index === 0 ? "" : "border-t"} `}
+      >
+        <h2
+          className={`text-3xl font-bold mb-4 ${isRed ? "text-[#e62222]" : "text-[#7b7b7b]"}`}
+        >
+          {step.title}
+        </h2>
+        <ul className="space-y-2"> {/* reduced from space-y-4 to space-y-2 */}
+          {step.items.map((item, i) => (
+            <li key={i} className="flex items-start">
+              <span className={`mr-3 ${isRed ? "text-[#e62222]" : "text-[#7b7b7b]"}`}>
+                •
+              </span>
+              <span className={`leading-none ${isRed ? "text-[#e62222]" : "text-[#7b7b7b]"}`}>
+                {item}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  })}
+</div>
         </div>
       </div>
     </div>
