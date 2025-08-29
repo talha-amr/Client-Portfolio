@@ -100,3 +100,6 @@ body{
 .border-theme-red{
   @apply border-b-1 border-[#e52222]
 }
+.project-card {
+  will-change: transform;
+}

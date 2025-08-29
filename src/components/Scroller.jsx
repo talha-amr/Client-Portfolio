@@ -62,7 +62,7 @@ useGSAP(() => {
     sections.forEach((section, i) => {
         const trigger = ScrollTrigger.create({
             trigger: section,
-            start: "top+=15% center",
+            start: "top 60%",
             end: "bottom center",
           
             onEnter: () => setActiveIndex(i),
