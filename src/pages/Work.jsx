@@ -31,7 +31,7 @@ const Work = () => {
 
           {/* Small text row above main content */}
           <div
-            className="flex justify-between items-center w-full text-red-600 text-[0.9vw] font-light mb-8 absolute z-20"
+            className="flex justify-between items-center w-[70%] text-red-600 text-[0.9vw] font-light mb-8 absolute z-20 "
             style={{ top: `calc(8.1vw + 10vw)` }}
           >
             <span className="flex-shrink-0 ">AVAILABLE FOR WORK</span>
@@ -55,22 +55,26 @@ const Work = () => {
       </div>
 
       {/* Held image outside container */}
-      <div className="relative w-full">
-        <img
-          src="/Work-video-image.png"
-          alt="Held Image"
-          className="w-full relative z-10"
-          style={{ marginTop: `calc(-1.0vw - 0.25rem)` }}
+      <div className="relative w-full px-6">
+        <video
+          src="/Project-video.mp4"
+          autoPlay
+          loop
+          muted
+          preload="auto"
+          alt="Video"
+          className="w-full relative z-10 rounded-2xl shadow-md"
+          style={{ marginTop: `calc(-1.05vw - 0.20rem)` }}
         />
       </div>
 
       {/* Projects grid inside container below held image */}
       <div className="w-full px-6 py-10">
         <ProjectsGrid />
-         <Footer />
+        <Footer />
       </div>
 
-     
+
     </div>
   );
 };

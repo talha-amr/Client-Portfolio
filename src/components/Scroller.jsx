@@ -102,7 +102,7 @@ const Work = () => {
                   transform transition-all duration-800 ease-in-out overflow-hidden
                   ${activeIndex === index
                                         ? "scale-103 -translate-x-8 z-10"
-                                        : "scale-100 translate-x-0 opacity-70"}`}
+                                        : "scale-100 translate-x-0 opacity-100"}`}
                             >
                                 {/* Project Image */}
                                 <img

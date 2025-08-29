@@ -5,7 +5,7 @@ export default function Navbar({ activePage }) {
   // helper function to set link style
   const linkClass = (page) =>
     `nav-hover-btn text-sm 2xl:text-lg ${
-      activePage === page ? "border-b-2 border-[#E52222] text-[#E52222]" : ""
+      activePage === page ? " text-[#E52222]" : ""
     }`;
 
   return (
@@ -13,7 +13,7 @@ export default function Navbar({ activePage }) {
       className={`font-inter absolute top-0 py-7 left-0 w-full z-50 ${
         activePage === "home"
           ? "bg-transparent text-white"
-          : "bg-white text-[#E52222] border-b-1 border-[#e52222]"
+          : "bg-transparent text-[#E52222] "
       }`}
     >
       <div className="w-full mx-auto px-6 flex items-center justify-between">
