@@ -75,7 +75,7 @@ const CaseStudyLayout = () => {
   return (
     <div className="bg-[#141414] text-white min-h-screen">
       <div className="grid grid-cols-3">
-        {/* First row special layout */}
+        {/* First row: Profile Image */}
         <div className="col-span-1 relative">
           <img
             src="/CaseStudyPfp.png"
@@ -83,6 +83,8 @@ const CaseStudyLayout = () => {
             className="w-full h-full object-cover sticky top-0"
           />
         </div>
+
+        {/* First row: Intro Text */}
         <div className="col-span-2 flex flex-col justify-center px-16 py-20 bg-[#141414] border-l border-[#7b7b7b]/20">
           <h1 className="text-4xl font-bold text-[#e62222] mb-6">Design Process</h1>
           <p className="text-[#7b7b7b] leading-relaxed text-lg max-w-2xl">
@@ -94,9 +96,9 @@ const CaseStudyLayout = () => {
           </p>
         </div>
 
-        {/* Right side: process steps */}
+        {/* Right side: Process Steps */}
         <div className="col-span-3 grid grid-cols-3 relative" id="process-steps-container">
-          {/* LEFT column (spacing) - monkey will be positioned here absolutely */}
+          {/* LEFT column: Monkey image only, no border */}
           <div className="col-span-1 relative">
             <img
               ref={monkeyRef}
@@ -107,9 +109,10 @@ const CaseStudyLayout = () => {
             />
           </div>
 
-          <div className="col-span-2 flex flex-col">
+          {/* RIGHT column: Steps with border-left */}
+          <div className="col-span-2 flex flex-col border-l border-[#7b7b7b]/20">
             {processSteps.map((step, index) => {
-              const isRed = index === 1;
+              const isRed = index === 1; // "Define the Problem"
 
               return (
                 <div
