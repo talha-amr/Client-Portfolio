@@ -4,6 +4,8 @@ import CaseTag from '../components/CaseTag'
 import Footer from '../components/Footer'
 import CaseStudyProcess from '../components/CaseStudyProcess'
 import ProblemsAndSolutions from '../components/ProblemsAndSolutions'
+import ScreenShots from '../components/ScreenShots'
+import NextProjectBtn from '../components/NextProjectBtn'
 
 const CaseStudy = () => {
   return (
@@ -34,8 +36,8 @@ const CaseStudy = () => {
       {/* Project Overview */}
       <div className="w-full px-6 md:px-12 lg:px-20 py-20">
         <div className="space-y-6">
-          <p className="font-bold text-theme-red text-3xl">Project Overview</p>
-          <p className="text-theme-red text-lg leading-relaxed">
+          <p className="font-black text-theme-red text-4xl">Project Overview</p>
+          <p className="text-theme-red text-xl leading-tight">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium explicabo voluptatum accusantium necessitatibus delectus illo. 
             Odit soluta cum qui dolor rem nobis deleniti consectetur minima adipisci quia, ab dolore. Sed, aliquid est tempore odit facere 
             quibusdam consequatur laudantium id autem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, architecto fuga ipsa 
@@ -50,7 +52,11 @@ const CaseStudy = () => {
       {/* Process + Problems/Solutions + Footer */}
       <CaseStudyProcess />
       <ProblemsAndSolutions />
+      <ScreenShots/>
+      <NextProjectBtn/>
+      <div className="w-full px-6">
       <Footer />
+      </div>
     </section>
   )
 }

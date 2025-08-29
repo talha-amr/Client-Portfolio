@@ -5,7 +5,7 @@ export default function Navbar({ activePage }) {
   // helper function to set link style (removed nav-hover-btn)
   const linkClass = (page) =>
     `text-sm 2xl:text-lg ${
-      activePage === page ? " text-[#E52222]" : ""
+      activePage === page ? " text-[#E52222] font-bold" : ""
     }`;
 
   return (

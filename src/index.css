@@ -43,7 +43,7 @@ body{
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 13rem;
+  grid-auto-rows: 40vh;
 
 }
 

@@ -88,7 +88,7 @@ useGSAP(() => {
                             {projects.map((project, index) => (
                                 <div key={project.id} className="nav-item">
                                     <h2
-                                        className={`text-3xl font-black  transition-all duration-500 leading-tight
+                                        className={`text-[2.5vw] font-black  transition-all duration-500 leading-tight
                       ${activeIndex === index
                                                 ? "text-[#E52222] scale-110 translate-x-5"
                                                 : "text-gray-400 scale-100 translate-x-0"}`}

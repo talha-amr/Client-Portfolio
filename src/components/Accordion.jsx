@@ -6,36 +6,37 @@ const AccordionItem = ({ title, content, isOpen, onToggle }) => {
       {/* Header */}
       <button
         onClick={onToggle}
-        className="w-full text-left py-3 flex justify-between items-center focus:outline-none"
+        className="w-full text-left py-3 2xl:py-6 flex justify-between items-center focus:outline-none"
       >
         <div className="flex justify-between items-center w-full">
           <span
-            className={`font-bold text-2xl text-[#E52222] transition-transform duration-300 
-              `}
+            className={`font-bold text-2xl text-[#E52222] transition-transform duration-300`}
           >
             {title}
           </span>
-          <span className="text-5xl font-thin text-[#E52222]">{isOpen ? "-" : "+"}</span>
+          <span className="text-5xl font-thin text-[#E52222]">
+            {isOpen ? "-" : "+"}
+          </span>
         </div>
       </button>
 
       {/* Content */}
       <div
         className={`overflow-hidden transition-all duration-800 ease-none`}
-        style={{ maxHeight: isOpen ? "600px" : "0px" }}
+        style={{ maxHeight: isOpen ? "70vh" : "0vh" }}
       >
         <div className="py-6 text-gray-700 text-lg">
           {/* ✅ Grid Layout for Content */}
-<div className="grid grid-cols-1 md:grid-cols-3 gap-x-32 gap-y-6  w-full">
-  {content.map((text, idx) => (
-    <div
-      key={idx}
-      className="text-base text-[#E52222] text-start"
-    >
-      {text}
-    </div>
-  ))}
-</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-32 gap-y-6 w-full">
+            {content.map((text, idx) => (
+              <div
+                key={idx}
+                className="text-base text-[#E52222] text-start"
+              >
+                {text}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -57,7 +58,7 @@ export default function Accordion({ items }) {
         "Usability Testing & Iteration",
         "Accessibility Design (WCAG)",
         "Mobile & Web App Interfaces",
-        "Product Thinking & UX Audits"
+        "Product Thinking & UX Audits",
       ],
     },
     {
@@ -67,16 +68,12 @@ export default function Accordion({ items }) {
         "User-Centered Design (UCD)",
         "Usability Testing & A/B Testing",
         "Information Architecture Structuring",
-        "Accessibility & Inclusive Design"
+        "Accessibility & Inclusive Design",
       ],
     },
     {
       title: "Development (Basic)",
-      content: [
-        "HTML",
-        "CSS",
-        "JavaScript (Basic)"
-      ],
+      content: ["HTML", "CSS", "JavaScript (Basic)"],
     },
   ];
 
@@ -90,7 +87,9 @@ export default function Accordion({ items }) {
           title={item.title}
           content={item.content}
           isOpen={openIndex === index}
-          onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+          onToggle={() =>
+            setOpenIndex(openIndex === index ? null : index)
+          }
         />
       ))}
     </div>

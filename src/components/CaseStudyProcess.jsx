@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -28,7 +28,6 @@ const CaseStudyLayout = () => {
       items: [
         "Conducted fast brainstorming & sketching workshops",
         "Explored multiple solution approaches in short design sprints",
-        "Explored multiple solution approaches in short design sprints",
       ],
     },
     {
@@ -46,17 +45,21 @@ const CaseStudyLayout = () => {
   ];
 
   const monkeyRef = useRef(null);
+  const stepsRef = useRef([]);
+  const [activeStep, setActiveStep] = useState(null);
+  const introRef = useRef(null);
 
-  // GSAP + ScrollTrigger: toggle action version
+  // GSAP + ScrollTrigger: monkey animation
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#process-steps-container",
-        start: "top top",
-        end: "bottom bottom",
-        toggleActions: "play none none reverse", // play on enter, reverse on leave back
+        start: "-5% top",
+        end: "bottom 75%",
+        toggleActions: "play none none reverse",
         pin: monkeyRef.current,
         pinSpacing: false,
+        markers:true
       },
     });
 
@@ -72,77 +75,113 @@ const CaseStudyLayout = () => {
     };
   }, []);
 
+  // ScrollTrigger for active steps including intro
+  useEffect(() => {
+    // Track intro text as first step
+    if (introRef.current) {
+      ScrollTrigger.create({
+        trigger: introRef.current,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => setActiveStep(-1), // use -1 for intro
+        onEnterBack: () => setActiveStep(-1),
+      });
+    }
+
+    // Track process steps
+    stepsRef.current.forEach((stepEl, index) => {
+      ScrollTrigger.create({
+        trigger: stepEl,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => setActiveStep(index),
+        onEnterBack: () => setActiveStep(index),
+      });
+    });
+
+    ScrollTrigger.refresh();
+    return () => ScrollTrigger.getAll().forEach((st) => st.kill());
+  }, []);
+
   return (
-    <div className="bg-[#141414] text-white min-h-screen">
-      <div className="grid grid-cols-3">
-        {/* First row: Profile Image */}
-        <div className="col-span-1 relative">
-          <img
-            src="/CaseStudyPfp.png"
-            alt="Profile Case Study"
-            className="w-full h-full object-cover sticky top-0"
-          />
-        </div>
-
-        {/* First row: Intro Text */}
-        <div className="col-span-2 flex flex-col justify-center px-16 py-20 bg-[#141414] border-l border-[#7b7b7b]/20">
-          <h1 className="text-4xl font-bold text-[#e62222] mb-6">Design Process</h1>
-          <p className="text-[#7b7b7b] leading-relaxed text-lg max-w-2xl">
-            Our design process followed a structured approach — starting from
-            understanding user needs, defining the key problems, ideating with
-            rapid sketches, and finally building interactive prototypes. Each step
-            was focused on balancing usability, efficiency, and scalability while
-            keeping agents' workflows at the center.
-          </p>
-        </div>
-
-        {/* Right side: Process Steps */}
-        <div className="col-span-3 grid grid-cols-3 relative" id="process-steps-container">
-          {/* LEFT column: Monkey image only, no border */}
-          <div className="col-span-1 relative">
-            <img
-              ref={monkeyRef}
-              src="/PoppingMonkey.png"
-              alt="Popping Monkey"
-              className="absolute top-24 left-0 w-[220px] z-50 pointer-events-none"
-              style={{ transform: "translateX(-120%)", opacity: 0 }}
-            />
-          </div>
-
-{/* RIGHT column: Steps with border-left */}
-<div className="col-span-2 flex flex-col border-l border-[#7b7b7b]/20">
-  {processSteps.map((step, index) => {
-    const isRed = index === 1; // "Define the Problem"
-
-    return (
-      <div
-        key={index}
-        className={`min-h-[50vh] flex flex-col justify-center px-16 py-12 
-          border-[#7b7b7b]/20 
-          ${index === 0 ? "" : "border-t"} `}
-      >
-        <h2
-          className={`text-3xl font-bold mb-4 ${isRed ? "text-[#e62222]" : "text-[#7b7b7b]"}`}
-        >
-          {step.title}
-        </h2>
-        <ul className="space-y-2"> {/* reduced from space-y-4 to space-y-2 */}
-          {step.items.map((item, i) => (
-            <li key={i} className="flex items-start">
-              <span className={`mr-3 ${isRed ? "text-[#e62222]" : "text-[#7b7b7b]"}`}>
-                •
-              </span>
-              <span className={`leading-none ${isRed ? "text-[#e62222]" : "text-[#7b7b7b]"}`}>
-                {item}
-              </span>
-            </li>
-          ))}
-        </ul>
+    <div className="bg-[#141414] text-white min-h-screen grid grid-cols-3 auto-rows-min">
+      {/* Top Row: Profile Image */}
+      <div className="col-span-1 row-span-2 relative">
+        <img
+          src="/CaseStudyPfp.png"
+          alt="Profile Case Study"
+          className="w-full h-full object-contain sticky top-0"
+        />
       </div>
-    );
-  })}
-</div>
-        </div>
+
+      {/* Top Row: Intro Text */}
+      <div
+        ref={introRef}
+        className="col-span-2 row-span-2 flex flex-col justify-center px-16 py-32 border-l border-[#7b7b7b]/20"
+      >
+        <h1
+          className={`text-5xl font-bold mb-8 ${
+            activeStep === -1 ? "text-[#e62222]" : "text-[#7b7b7b]"
+          }`}
+        >
+          Design Process
+        </h1>
+        <p
+          className={`text-xl leading-relaxed text-[#7b7b7b] max-w-3xl ${
+            activeStep === -1 ? "text-[#e62222]" : "text-[#7b7b7b]"
+          }`}
+        >
+          Our design process followed a structured approach — starting from
+          understanding user needs, defining the key problems, ideating with
+          rapid sketches, and finally building interactive prototypes. Each step
+          was focused on balancing usability, efficiency, and scalability while
+          keeping agents' workflows at the center.
+        </p>
+      </div>
+
+      {/* Process Steps Section */}
+      <div className="col-span-1 relative">
+        <img
+          ref={monkeyRef}
+          src="/PoppingMonkey.png"
+          alt="Popping Monkey"
+          className="absolute top-0 left-0 w-[220px] z-50 pointer-events-none"
+          style={{ transform: "translateX(-120%)", opacity: 0 }}
+        />
+      </div>
+
+      <div
+        className="col-span-2 flex flex-col border-l border-[#7b7b7b]/20"
+        id="process-steps-container"
+      >
+        {processSteps.map((step, index) => (
+          <div
+            key={index}
+            ref={(el) => (stepsRef.current[index] = el)}
+            className={`min-h-[30vh] flex flex-col justify-center px-16 py-12 border-t border-[#7b7b7b]/20`}
+          >
+            <h2
+              className={`text-3xl font-bold mb-4 ${
+                activeStep === index ? "text-[#e62222]" : "text-[#7b7b7b]"
+              }`}
+            >
+              {step.title}
+            </h2>
+            <ul className="space-y-2">
+              {step.items.map((item, i) => (
+                <li
+                  key={i}
+                  className={`flex items-center ${
+                    activeStep === index ? "text-[#e62222]" : "text-[#7b7b7b]"
+                  }`}
+                >
+                  <span className="mr-3">•</span>
+                  <span className="leading-none">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );

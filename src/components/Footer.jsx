@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-50 pb-17">
+      <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-25 pb-17">
         {/* Contact Column */}
         <div>
           <h3 className="text-[#E52222] text-2xl pb-2 border-b border-[#E52222] mb-4">
