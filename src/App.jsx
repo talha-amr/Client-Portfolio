@@ -8,7 +8,7 @@ import CaseStudy from "./pages/CaseStudy";
 function App() {
   return (
     <Router>
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<Work />} />

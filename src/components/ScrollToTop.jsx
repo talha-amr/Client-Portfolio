@@ -5,10 +5,8 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Wait for next tick to ensure layout is rendered
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    });
+    // instantly jump to top on page change
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;

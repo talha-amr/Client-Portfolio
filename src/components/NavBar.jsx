@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar({ activePage }) {
-  // helper function to set link style
+  // helper function to set link style (removed nav-hover-btn)
   const linkClass = (page) =>
-    `nav-hover-btn text-sm 2xl:text-lg ${
+    `text-sm 2xl:text-lg ${
       activePage === page ? " text-[#E52222]" : ""
     }`;
 
@@ -28,35 +28,61 @@ export default function Navbar({ activePage }) {
           >
             ZB S.
           </Link>
-
           {/* Nav links */}
           <div className="hidden md:flex items-center space-x-8 font-regular">
-            <Link to="/work" className={linkClass("work")}>
-              Work
+            <Link to="/work" className="group">
+              <div className="relative overflow-hidden flex items-center">
+                <p className={`block transition-transform duration-500 group-hover:-translate-y-full ${linkClass("work")}`}>
+                  Work
+                </p>
+                <p className={`absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0 ${linkClass("work")}`}>
+                  Work
+                </p>
+              </div>
             </Link>
-            <Link to="/experience" className={linkClass("experience")}>
-              Experience
+            <Link to="/experience" className="group">
+              <div className="relative overflow-hidden flex items-center">
+                <p className={`block transition-transform duration-500 group-hover:-translate-y-full ${linkClass("experience")}`}>
+                  Experience
+                </p>
+                <p className={`absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0 ${linkClass("experience")}`}>
+                  Experience
+                </p>
+              </div>
             </Link>
           </div>
         </div>
-
         {/* Social links */}
         <div className="flex items-center space-x-6 font-bold text-sm 2xl:text-lg">
           <a
             href="https://www.linkedin.com"
             target="_blank"
             rel="noreferrer"
-            className="nav-hover-btn"
+            className="group"
           >
-            LinkedIn
+            <div className="relative overflow-hidden">
+              <p className="block transition-transform duration-500 group-hover:-translate-y-full">
+                LinkedIn
+              </p>
+              <p className="absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0">
+                LinkedIn
+              </p>
+            </div>
           </a>
           <a
             href="https://www.behance.net"
             target="_blank"
             rel="noreferrer"
-            className="nav-hover-btn"
+            className="group"
           >
-            Behance
+            <div className="relative overflow-hidden">
+              <p className="block transition-transform duration-500 group-hover:-translate-y-full">
+                Behance
+              </p>
+              <p className="absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0">
+                Behance
+              </p>
+            </div>
           </a>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,27 +55,35 @@ const Work = () => {
     ];
 
     // ScrollTrigger to update active project index
-    useGSAP(() => {
-        const sections = gsap.utils.toArray(".project-card");
+useGSAP(() => {
+    const sections = gsap.utils.toArray(".project-card");
+    const triggers = [];
 
-        sections.forEach((section, i) => {
-            ScrollTrigger.create({
-                trigger: section,
-                start: "top+=32% center",
-                end: "bottom center",
-                onEnter: () => setActiveIndex(i),
-                onEnterBack: () => setActiveIndex(i),
-            });
+    sections.forEach((section, i) => {
+        const trigger = ScrollTrigger.create({
+            trigger: section,
+            start: "top+=15% center",
+            end: "bottom center",
+          
+            onEnter: () => setActiveIndex(i),
+            onEnterBack: () => setActiveIndex(i),
         });
-    }, { scope: containerRef });
+        triggers.push(trigger);
+    });
+
+    // Cleanup manually
+    return () => {
+        triggers.forEach(t => t.kill());
+    };
+}, { scope: containerRef });
 
     return (
-        <div className="min-h-screen bg-[#f9f9f9]" ref={containerRef}>
+        <div className="min-h-screen bg-white" ref={containerRef}>
             <div className="w-full mx-auto md:px-1 lg:px-6 relative">
                 <div className="flex py-20">
 
                     {/* Left Side - Sticky Navigation */}
-                    <div className="w-1/4 bg-[#f9f9f9] sticky top-0 h-screen flex flex-col justify-center items-start">
+                    <div className="w-1/4 bg-white sticky top-0 h-screen flex flex-col justify-center items-start">
                         <div className="space-y-2 text-start">
                             {projects.map((project, index) => (
                                 <div key={project.id} className="nav-item">
