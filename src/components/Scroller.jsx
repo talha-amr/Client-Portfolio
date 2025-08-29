@@ -75,7 +75,7 @@ useGSAP(() => {
     return () => {
         triggers.forEach(t => t.kill());
     };
-}, { scope: containerRef });
+}, { scope: containerRef,dependencies: [] });
 
     return (
         <div className="min-h-screen bg-white" ref={containerRef}>
