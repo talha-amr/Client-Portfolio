@@ -59,7 +59,7 @@ const CaseStudyLayout = () => {
         toggleActions: "play none none reverse",
         pin: monkeyRef.current,
         pinSpacing: false,
-        markers:true
+        
       },
     });
 

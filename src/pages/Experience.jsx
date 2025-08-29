@@ -15,7 +15,7 @@ const Experience = () => {
                         <p className='text-2xl font-regular leading-tight'>In this role, I lead the design team and focus on creating user-centered and business-driven product experiences. My work involves conducting UX audits, building scalable design systems, collaborating with stakeholders, and ensuring design consistency across both small and large-scale digital products.</p>
                 </div>
             </div>
-            <Accordion title="nothing" content="nothing" />
+            <Accordion />
                 
                 <Footer/>
             </div>

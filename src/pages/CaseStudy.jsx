@@ -13,9 +13,9 @@ const CaseStudy = () => {
       <Navbar activePage={"caseStudy"} />
 
       {/* Hero Title & Tags */}
-      <div className="w-full px-6 md:px-12 lg:px-20 py-20">
+      <div className="w-full px-6  py-20">
         <div className="space-y-8 mt-8">
-          <p className="text-3xl md:text-4xl text-theme-red max-w-[80%] font-bold leading-tight">
+          <p className="text-3xl md:text-4xl text-theme-red max-w-[80%] font-regular leading-tight">
             ABN Global: Redesigned for Agents – AI-Powered Student Profiles in Just One Minute
           </p>
           <div className="flex flex-wrap justify-start gap-3 items-center">
@@ -34,10 +34,10 @@ const CaseStudy = () => {
       </div>
 
       {/* Project Overview */}
-      <div className="w-full px-6 md:px-12 lg:px-20 py-20">
+      <div className="w-full px-6  py-20">
         <div className="space-y-6">
           <p className="font-black text-theme-red text-4xl">Project Overview</p>
-          <p className="text-theme-red text-xl leading-tight">
+          <p className="text-theme-red text-2xl leading-none">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium explicabo voluptatum accusantium necessitatibus delectus illo. 
             Odit soluta cum qui dolor rem nobis deleniti consectetur minima adipisci quia, ab dolore. Sed, aliquid est tempore odit facere 
             quibusdam consequatur laudantium id autem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, architecto fuga ipsa 
