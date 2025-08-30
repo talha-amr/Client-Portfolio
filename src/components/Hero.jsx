@@ -38,8 +38,8 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="min-h-dvh w-screen bg-[#E52222] py-30" id='hero'>
-            <div className="w-full md:px-1 mx-auto lg:px-6 text-white">
+        <section className="min-h-dvh w-screen bg-[#E52222] py-[8vw]" id='hero'>
+            <div className="w-full  mx-auto px-6  text-white">
                 <div className="flex flex-col justify-start gap-5 leading-tight">
                 
                     <div className='flex items-center justify-start text-[20.4vw]  text-start  md:pt-2 lg:pt-5 uppercase font-black tracking-[-0.065em] leading-none text-white'>
@@ -54,11 +54,11 @@ const Hero = () => {
                         <span>ME</span>
                     </div>
 
-                    <p className='md:text-[1rem] lg:text-[1.5rem] font-bold max-w-120 text-start leading-tight '>
+                    <p className='md:text-[1rem] lg:text-[2.2vw] font-bold max-w-[33%] text-start leading-tight '>
                        <span className='italic'> Hi Zubair S. here</span><br />
                         Connecting Product Design × Design Systems × AI | Lead UX/UI Designer @Rozeegpt / Rozee.pk
                     </p>
-                    <p className='self-end md:text-[1rem] lg:text-[1.5rem] mt-3 font-bold max-w-[42%] anim leading-tight '>
+                    <p className='self-end md:text-[1rem] lg:text-[2.2vw] mt-3 font-bold max-w-[43%] anim leading-tight mr-8 '>
                         I'm a UX/UI Product Designer and Design Consultant with 6 years of experience in crafting user-
                         <br />
                         centered digital products, and a total of 10 years in the design and creative industry.

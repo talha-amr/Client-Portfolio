@@ -12,51 +12,62 @@ const CaseStudy = () => {
     <section className="min-h-dvh w-screen bg-[#f9f9f9]" id="CaseStudy">
       <Navbar activePage={"caseStudy"} />
 
+      {/* Spacer after navbar */}
+      <div className="py-[4vw]"></div>
+
       {/* Hero Title & Tags */}
-      <div className="w-full px-6  py-20">
-        <div className="space-y-8 mt-8">
-          <p className="text-3xl md:text-4xl text-theme-red max-w-[80%] font-regular leading-tight">
+      <div className="w-full px-6 mb-[6vw]">
+        <div className="space-y-[3vw]">
+          <p className="text-3xl md:text-[3vw] text-theme-red max-w-[80%] font-regular leading-none">
             ABN Global: Redesigned for Agents – AI-Powered Student Profiles in Just One Minute
           </p>
-          <div className="flex flex-wrap justify-start gap-3 items-center">
-            <CaseTag title={"Lorem"} />
-            <CaseTag title={"Ipsum"} />
-            <CaseTag title={"hero"} />
-            <CaseTag title={"section"} />
-            <CaseTag title={"Lorem"} />
+          <div className="flex flex-wrap gap-3">
+            <CaseTag title={"Idea to Product"} />
+            <CaseTag title={"Idea to Product"} />
+            <CaseTag title={"MVP Launch Strategy"} />
+            <CaseTag title={"UI/UX Design"} />
+            <CaseTag title={"Dashboard"} />
+            <CaseTag title={"Product Enhancements"} />
+            <CaseTag title={"Full ownership"} />
+            <CaseTag title={"UCD"} />
           </div>
         </div>
       </div>
 
       {/* Full-width image */}
-      <div className="w-full">
+      <div className="w-full mb-[6vw]">
         <img src="/image-1.png" alt="" className="w-full object-cover" />
       </div>
 
       {/* Project Overview */}
-      <div className="w-full px-6  py-20">
-        <div className="space-y-6">
-          <p className="font-black text-theme-red text-4xl">Project Overview</p>
-          <p className="text-theme-red text-2xl leading-none">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium explicabo voluptatum accusantium necessitatibus delectus illo. 
-            Odit soluta cum qui dolor rem nobis deleniti consectetur minima adipisci quia, ab dolore. Sed, aliquid est tempore odit facere 
-            quibusdam consequatur laudantium id autem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, architecto fuga ipsa 
-            pariatur optio libero obcaecati consectetur nemo dicta! Iure? Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus 
-            mollitia est laboriosam molestiae eveniet tenetur nobis! Ea sequi rerum fuga debitis nemo delectus modi voluptates enim necessitatibus 
-            aspernatur cum aperiam odio officia ipsa ullam vero, hic, nihil, distinctio voluptatem. Quisquam deserunt iure voluptates minus sit 
-            impedit consequatur eum officia provident!
+      <div className="w-full px-6 mb-[6vw]">
+        <div className="space-y-[2.5vw]">
+          <p className="font-bold text-theme-red text-[3.7vw]">Project Overview</p>
+          <p className="text-theme-red text-[2vw] font-light leading-snug">
+            The ABN Agent Dashboard is an internal platform used by ABN Global’s field agents to manage clients, tasks, and reporting.
+            While it played a critical role in day-to-day operations, the dashboard had become outdated and inefficient, leading to
+            frustration among agents and reduced productivity.<br /><br />
+
+            My responsibility was to redesign the dashboard end-to-end within a 20-day timeline, ensuring a balance between user-centered
+            research and a fast-track execution approach. This included conducting user interviews, auditing the existing product, aligning
+            with stakeholders, and creating a modern UI system with AI-powered features.<br /><br />
+
+            The redesigned dashboard not only improved visual consistency and usability, but also laid the foundation for AI-driven automation,
+            helping agents work faster and smarter.
           </p>
         </div>
       </div>
 
       {/* Process + Problems/Solutions + Footer */}
-      <CaseStudyProcess />
-      <ProblemsAndSolutions />
-      <ScreenShots/>
-      <NextProjectBtn/>
-      <div className="w-full px-6">
-      <Footer />
+      <div className="space-y-[8vw]">
+        <CaseStudyProcess />
+        <ProblemsAndSolutions />
+        <ScreenShots />
       </div>
+         <NextProjectBtn />
+         <div className="w-full px-6 mt-[8vw]">
+        <Footer />
+        </div>
     </section>
   )
 }

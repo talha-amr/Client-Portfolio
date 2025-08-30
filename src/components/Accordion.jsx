@@ -49,11 +49,11 @@ export default function Accordion() {
               onClick={() =>
                 setOpenIndex(isOpen ? null : index)
               }
-              className="w-full text-left py-1 2xl:py-2 flex justify-between items-center focus:outline-none"
+              className="w-full text-left  flex justify-between items-center focus:outline-none"
             >
               <div className="flex justify-between items-center w-full">
                 <p
-                  className="font-bold text-[2vw] text-[#E52222] transition-transform duration-300"
+                  className="font-bold text-[1.75vw] text-[#E52222] transition-transform duration-300"
                 >
                   {item.title}
                 </p>

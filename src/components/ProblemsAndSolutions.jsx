@@ -39,8 +39,8 @@ const ProblemsAndSolutions = () => {
         {/* Left Column - Problems */}
         <div className="border-r border-black/30 flex flex-col">
           <h2 className="flex items-center justify-start mb-4 pr-6 gap-4">
-            <img src="ProblemVector.png" alt="" className="w-5 h-5"/>
-            <p className="text-theme-red font-bold text-xl  ">Problems & Impact</p>
+            <img src="ProblemVector.png" alt="" className="w-[2vw] h-[2vw]" />
+            <p className="text-theme-red font-bold text-[2vw]">Problems & Impact</p>
           </h2>
           <div className="flex-1">
             {problems.map((problem, index) => (
@@ -51,8 +51,10 @@ const ProblemsAndSolutions = () => {
                 }`}
               >
                 <div className="py-4 pr-6">
-                  <h3 className="text-red-600 font-semibold mb-2">{problem.title}</h3>
-                  <p className="text-red-600 text-base">
+                  <h3 className="text-red-600 font-semibold mb-2 text-[1.3vw]">
+                    {problem.title}
+                  </h3>
+                  <p className="text-red-600 text-[1.1vw] leading-snug">
                     <span className="font-semibold">Impact:</span> {problem.impact}
                   </p>
                 </div>
@@ -64,8 +66,8 @@ const ProblemsAndSolutions = () => {
         {/* Right Column - Solutions */}
         <div className="flex flex-col">
           <h2 className="flex items-center justify-start mb-4 ml-5 gap-4">
-            <img src="SolutionVectorr.png" alt="" className="w-5 h-5"/>
-            <p className="text-[#07682f] font-bold text-xl  ">Problems & Impact</p>
+            <img src="SolutionVectorr.png" alt="" className="w-[2vw] h-[2vw]" />
+            <p className="text-[#07682f] font-bold text-[2vw]">Solutions</p>
           </h2>
           <div className="flex-1">
             {solutions.map((solution, index) => (
@@ -76,7 +78,9 @@ const ProblemsAndSolutions = () => {
                 }`}
               >
                 <div className="py-4 pl-6">
-                  <p className="text-[#07682f] text-base font-bold">{solution}</p>
+                  <p className="text-[#07682f] text-[1.2vw] font-semibold leading-snug">
+                    {solution}
+                  </p>
                 </div>
               </div>
             ))}

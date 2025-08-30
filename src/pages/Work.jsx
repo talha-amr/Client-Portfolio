@@ -19,7 +19,7 @@ const Work = () => {
     <div className="min-h-dvh w-screen bg-[#f9f9f9]">
       <Navbar activePage={"work"} />
 
-      <div className="pt-35"></div>
+      <div className="pt-[10vw]"></div>
 
       {/* Headline + absolute text + monkey inside container */}
       <div className="w-full px-6 relative">

@@ -5,45 +5,51 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CaseStudyLayout = () => {
-  const processSteps = [
-    {
-      title: "Understand the Users",
-      items: [
-        "Quick discovery sessions with stakeholders & agents",
-        "Collected pain points (manual work, outdated visuals, poor flows)",
-        "Defined primary goals: faster workflows, modern system, easy adoption",
-      ],
-    },
-    {
-      title: "Define the Problem",
-      items: [
-        "Converted findings into clear problem statements",
-        "Prioritized issues (automation, consistency, agent usability)",
-        "Created quick personas and user journey sketches",
-      ],
-    },
-    {
-      title: "Ideate & Sketch",
-      items: [
-        "Conducted fast brainstorming & sketching workshops",
-        "Explored multiple solution approaches in short design sprints",
-      ],
-    },
-    {
-      title: "Prototype",
-      items: ["Built rapid wireframes and clickable prototypes"],
-    },
-    {
-      title: "Test and Refine",
-      items: ["Built rapid wireframes and clickable prototypes"],
-    },
-    {
-      title: "Deliver",
-      items: ["Built rapid wireframes and clickable prototypes"],
-    },
-  ];
+const processSteps = [
+  {
+    title: "Understand the Users",
+    items: [
+      "Quick discovery sessions with stakeholders & agents",
+      "Collected pain points (manual work, outdated visuals, poor flows)",
+      "Defined primary goals: faster workflows, modern system, easy adoption",
+    ],
+  },
+  {
+    title: "Define the Problem",
+    items: [
+      "Converted findings into clear problem statements",
+      "Prioritized issues (automation, consistency, agent usability)",
+      "Created quick personas and user journey sketches",
+    ],
+  },
+  {
+    title: "Ideate & Sketch",
+    items: [
+      "Conducted fast brainstorming & sketching workshops",
+      "Explored multiple solution approaches in short design sprints",
+    ],
+  },
+  {
+    title: "Prototype",
+    items: ["Built rapid wireframes and clickable prototypes"],
+  },
+  {
+    title: "Test & Refine",
+    items: [
+      "Shared prototype with selected agents & managers",
+      "Gathered instant feedback via quick usability checks",
+    ],
+  },
+  {
+    title: "Deliver",
+    items: [
+      "Iterated small fixes immediately due to time limits",
+      "Handoff with clean documentation & assets to developers",
+    ],
+  },
+];
 
+const CaseStudyLayout = () => {
   const monkeyRef = useRef(null);
   const stepsRef = useRef([]);
   const [activeStep, setActiveStep] = useState(null);
@@ -59,7 +65,6 @@ const CaseStudyLayout = () => {
         toggleActions: "play none none reverse",
         pin: monkeyRef.current,
         pinSpacing: false,
-        
       },
     });
 
@@ -77,18 +82,16 @@ const CaseStudyLayout = () => {
 
   // ScrollTrigger for active steps including intro
   useEffect(() => {
-    // Track intro text as first step
     if (introRef.current) {
       ScrollTrigger.create({
         trigger: introRef.current,
         start: "top center",
         end: "bottom center",
-        onEnter: () => setActiveStep(-1), // use -1 for intro
+        onEnter: () => setActiveStep(-1),
         onEnterBack: () => setActiveStep(-1),
       });
     }
 
-    // Track process steps
     stepsRef.current.forEach((stepEl, index) => {
       ScrollTrigger.create({
         trigger: stepEl,
@@ -105,7 +108,7 @@ const CaseStudyLayout = () => {
 
   return (
     <div className="bg-[#141414] text-white min-h-screen grid grid-cols-3 auto-rows-min">
-      {/* Top Row: Profile Image */}
+      {/* Left: Profile Image */}
       <div className="col-span-1 row-span-2 relative">
         <img
           src="/CaseStudyPfp.png"
@@ -114,20 +117,20 @@ const CaseStudyLayout = () => {
         />
       </div>
 
-      {/* Top Row: Intro Text */}
+      {/* Intro Section */}
       <div
         ref={introRef}
         className="col-span-2 row-span-2 flex flex-col justify-center px-16 py-32 border-l border-[#7b7b7b]/20"
       >
         <h1
-          className={`text-5xl font-bold mb-8 ${
+          className={`text-[3.85vw] font-bold mb-8 leading-none ${
             activeStep === -1 ? "text-[#e62222]" : "text-[#7b7b7b]"
           }`}
         >
           Design Process
         </h1>
         <p
-          className={`text-xl leading-relaxed text-[#7b7b7b] max-w-3xl ${
+          className={`text-[2vw] leading-tight text-[#7b7b7b] max-w-[80%] ${
             activeStep === -1 ? "text-[#e62222]" : "text-[#7b7b7b]"
           }`}
         >
@@ -139,7 +142,7 @@ const CaseStudyLayout = () => {
         </p>
       </div>
 
-      {/* Process Steps Section */}
+      {/* Monkey */}
       <div className="col-span-1 relative">
         <img
           ref={monkeyRef}
@@ -150,6 +153,7 @@ const CaseStudyLayout = () => {
         />
       </div>
 
+      {/* Steps */}
       <div
         className="col-span-2 flex flex-col border-l border-[#7b7b7b]/20"
         id="process-steps-container"
@@ -158,28 +162,32 @@ const CaseStudyLayout = () => {
           <div
             key={index}
             ref={(el) => (stepsRef.current[index] = el)}
-            className={`min-h-[30vh] flex flex-col justify-center px-16 py-12 border-t border-[#7b7b7b]/20`}
+            className="min-h-[30vh] flex flex-col justify-center px-16 py-12 border-t border-[#7b7b7b]/20"
           >
             <h2
-              className={`text-3xl font-bold mb-4 ${
+              className={`text-[3vw] font-bold mb-4 ${
                 activeStep === index ? "text-[#e62222]" : "text-[#7b7b7b]"
               }`}
             >
               {step.title}
             </h2>
-            <ul className="space-y-2">
-              {step.items.map((item, i) => (
-                <li
-                  key={i}
-                  className={`flex items-center ${
-                    activeStep === index ? "text-[#e62222]" : "text-[#7b7b7b]"
-                  }`}
-                >
-                  <span className="mr-3">•</span>
-                  <span className="leading-none">{item}</span>
-                </li>
-              ))}
-            </ul>
+                      <ul className="space-y-3">
+            {step.items.map((item, i) => (
+              <li
+                key={i}
+                className={`flex items-center ${
+                  activeStep === index ? "text-[#e62222]" : "text-[#7b7b7b]"
+                }`}
+              >
+                {/* Bigger bullet with fixed width for alignment */}
+                <span className="mr-4 text-[2vw] leading-none w-[2vw] flex justify-center">
+                  •
+                </span>
+                <span className="leading-none text-[1.5vw] max-w-[70ch]">{item}</span>
+              </li>
+            ))}
+          </ul>
+
           </div>
         ))}
       </div>
