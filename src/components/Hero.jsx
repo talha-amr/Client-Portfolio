@@ -54,11 +54,11 @@ const Hero = () => {
                         <span>ME</span>
                     </div>
 
-                    <p className='md:text-[1rem] lg:text-[2.2vw] font-bold max-w-[33%] text-start leading-tight '>
+                    <p className='md:text-[1rem] lg:text-[2.1vw] font-bold max-w-[33%] text-start leading-tight '>
                        <span className='italic'> Hi Zubair S. here</span><br />
                         Connecting Product Design × Design Systems × AI | Lead UX/UI Designer @Rozeegpt / Rozee.pk
                     </p>
-                    <p className='self-end md:text-[1rem] lg:text-[2.2vw] mt-3 font-bold max-w-[43%] anim leading-tight mr-8 '>
+                    <p className='self-end md:text-[1rem] lg:text-[2.1vw] mt-3 font-bold max-w-[44%] anim leading-tight mr-6 '>
                         I'm a UX/UI Product Designer and Design Consultant with 6 years of experience in crafting user-
                         <br />
                         centered digital products, and a total of 10 years in the design and creative industry.
