@@ -2,18 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const handleClick =()=>{
-    window.open('https://www.linkedin.com/in/zubair-s-a4889a103/','_blank')
-  }
+  const handleClick = () => {
+    window.open(
+      "https://www.linkedin.com/in/zubair-s-a4889a103/",
+      "_blank"
+    );
+  };
+ const scroll = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
   return (
     <>
-      <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-[6vh] pb-[4vh]">
+      <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-[4vw] pb-[3vw]">
         {/* Contact Column */}
         <div>
-          <h3 className="text-[#E52222] text-[3vh] pb-[1.2vh] border-b border-[#E52222] mb-[2.5vh]">
+          <h3 className="text-[#E52222] text-[1.8vw] pb-[0.8vw] border-b border-[#E52222] mb-[1.5vw]">
             CONTACT
           </h3>
-          <ul className="space-y-[1.2vh] text-[2.4vh] text-[#E52222]">
+          <ul className="space-y-[0.8vw] text-[1.3vw] text-[#E52222]">
             <li className="group relative overflow-hidden w-fit">
               <a
                 href="https://www.linkedin.com/in/zubair-s-a4889a103/"
@@ -23,7 +33,7 @@ const Footer = () => {
                 LINKEDIN
               </a>
               <a
-              target="_blank"
+                target="_blank"
                 href="https://www.linkedin.com/in/zubair-s-a4889a103/"
                 className="absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0"
               >
@@ -51,11 +61,11 @@ const Footer = () => {
 
         {/* Pages Column */}
         <div className="col-span-2">
-          <h3 className="text-[#E52222] text-[3vh] pb-[1.2vh] border-b border-[#E52222] mb-[2.5vh]">
+          <h3 className="text-[#E52222] text-[1.8vw] pb-[0.8vw] border-b border-[#E52222] mb-[1.5vw]">
             PAGES
           </h3>
 
-          <ul className="space-y-[1.2vh] text-[#E52222] text-[2.4vh]">
+          <ul className="space-y-[0.8vw] text-[#E52222] text-[1.3vw]">
             <li className="flex justify-between items-center">
               <Link to="/" className="group relative overflow-hidden w-fit">
                 <p className="block transition-transform duration-500 group-hover:-translate-y-full">
@@ -66,13 +76,13 @@ const Footer = () => {
                 </p>
               </Link>
               <Link
-                to="/"
-                className="group relative overflow-hidden w-fit text-[2vh]"
+                to="#"
+                className="group relative overflow-hidden w-fit text-[1vw]"
               >
-                <p className="block transition-transform duration-500 group-hover:-translate-y-full">
+                <p className="block transition-transform duration-500 group-hover:-translate-y-full" onClick={scroll}>
                   BACK TO TOP ↑
                 </p>
-                <p className="absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0">
+                <p className="absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0" onClick={scroll}>
                   BACK TO TOP ↑
                 </p>
               </Link>
@@ -81,7 +91,7 @@ const Footer = () => {
             {/* Work */}
             <li>
               <Link to="/work" className="group w-fit">
-                <span className="relative block overflow-hidden h-[2.8vh] leading-[2.8vh]">
+                <span className="relative block overflow-hidden h-[1.6vw] leading-[1.6vw]">
                   <span className="block transition-transform duration-500 group-hover:-translate-y-full">
                     WORK
                   </span>
@@ -95,7 +105,7 @@ const Footer = () => {
             {/* Experience */}
             <li>
               <Link to="/experience" className="group w-fit">
-                <span className="relative block overflow-hidden h-[2.8vh] leading-[2.8vh]">
+                <span className="relative block overflow-hidden h-[1.6vw] leading-[1.6vw]">
                   <span className="block transition-transform duration-500 group-hover:-translate-y-full">
                     EXPERIENCE
                   </span>
@@ -110,13 +120,16 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="flex flex-col justify-center items-center h-[35vh] gap-[3vh] text-theme-red py-[5vh]">
-        <p className="text-[3.8vh] font-bold text-center leading-tight">
+      <div className="flex flex-col justify-center items-center h-[20vw] gap-[2vw] text-theme-red py-[3vw]">
+        <p className="text-[2vw] font-bold text-center leading-tight">
           <span className="font-black">Let’s Make</span>
           <br />
           Something Amazing Together!
         </p>
-        <button className="px-[5vh] py-[1.6vh] rounded-full border-2 border-[#E52222] text-[2.5vh] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold" onClick={handleClick}>
+        <button
+          className="px-[3vw] py-[1vw] rounded-full border-2 border-[#E52222] text-[1.4vw] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold"
+          onClick={handleClick}
+        >
           Let's Connect
         </button>
       </div>

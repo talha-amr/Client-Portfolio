@@ -79,7 +79,7 @@ useGSAP(() => {
 
     return (
         <div className="min-h-screen bg-white" ref={containerRef}>
-            <div className="w-full mx-auto md:px-1 lg:px-6 relative">
+            <div className="w-full mx-auto px-6 relative">
                 <div className="flex py-20">
 
                     {/* Left Side - Sticky Navigation */}
