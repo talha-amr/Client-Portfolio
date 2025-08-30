@@ -7,35 +7,38 @@ import { useGSAP } from '@gsap/react'
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hero = () => {
-    useGSAP(() => {
-        // Make sure the element exists before creating SplitText
+useGSAP(() => {
+    let split;
+    let ctx = gsap.context(() => {
         const animElement = document.querySelector(".anim");
         if (!animElement) return;
-        let split = new SplitText(".anim", { type: "words,chars" });
-
+        
+        split = new SplitText(animElement, { type: "chars" });
+        
         gsap.fromTo(
             split.chars,
-            {
-                opacity: 0.4
-            },
+            { opacity: 0.4 },
             {
                 opacity: 1,
                 scale: 1.09,
-                duration: 1, // Add duration for smoother animation
-                ease: "power2.out", // Add easing
+                duration: 1,
+                ease: "power2.out",
                 scrollTrigger: {
-                    trigger: ".anim", // Use the actual animated element as trigger
+                    trigger: ".anim",
                     start: "top 80%",
                     end: "bottom 60%",
-                    scrub: 1, // Make scrub smoother with a value instead of true
-                    // markers: true, // Uncomment this to debug scroll positions
+                    scrub: 1,
                 },
                 stagger: 0.06,
             }
         );
-        // Cleanup function
-        return () => split.revert();
-    }, []);
+    });
+    
+    return () => {
+        ctx.revert(); // This kills all GSAP animations in this context
+        if (split) split.revert(); // Clean up SplitText after GSAP cleanup
+    };
+}, []);
 
     return (
         <section className="min-h-dvh w-screen bg-[#E52222] py-[8vw]" id='hero'>

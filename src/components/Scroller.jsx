@@ -56,26 +56,24 @@ const Work = () => {
 
     // ScrollTrigger to update active project index
 useGSAP(() => {
-    const sections = gsap.utils.toArray(".project-card");
-    const triggers = [];
-
-    sections.forEach((section, i) => {
-        const trigger = ScrollTrigger.create({
-            trigger: section,
-            start: "top 60%",
-            end: "bottom center",
-          
-            onEnter: () => setActiveIndex(i),
-            onEnterBack: () => setActiveIndex(i),
+    let ctx = gsap.context(() => {
+        const sections = gsap.utils.toArray(".project-card");
+        
+        sections.forEach((section, i) => {
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top 60%",
+                end: "bottom center",
+                onEnter: () => setActiveIndex(i),
+                onEnterBack: () => setActiveIndex(i),
+            });
         });
-        triggers.push(trigger);
     });
-
-    // Cleanup manually
+    
     return () => {
-        triggers.forEach(t => t.kill());
+        ctx.revert(); // This will kill all ScrollTriggers created in this context
     };
-}, { scope: containerRef,dependencies: [] });
+}, { scope: containerRef, dependencies: [] });
 
     return (
         <div className="min-h-screen bg-white" ref={containerRef}>

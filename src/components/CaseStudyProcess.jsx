@@ -56,7 +56,9 @@ const CaseStudyLayout = () => {
   const introRef = useRef(null);
 
   // GSAP + ScrollTrigger: monkey animation
-  useGSAP(() => {
+useGSAP(() => {
+    if (!monkeyRef.current) return;
+    
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#process-steps-container",
@@ -67,44 +69,41 @@ const CaseStudyLayout = () => {
         pinSpacing: false,
       },
     });
-
+    
     tl.fromTo(
       monkeyRef.current,
       { x: "-120%", opacity: 0 },
       { x: "0%", opacity: 1, ease: "power3.out", duration: 0.6 }
     );
-
+    
     return () => {
       if (tl.scrollTrigger) tl.scrollTrigger.kill();
       tl.kill();
     };
-  }, []);
+}, []);
 
   // ScrollTrigger for active steps including intro
-  useEffect(() => {
-    if (introRef.current) {
-      ScrollTrigger.create({
-        trigger: introRef.current,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => setActiveStep(-1),
-        onEnterBack: () => setActiveStep(-1),
-      });
-    }
-
-    stepsRef.current.forEach((stepEl, index) => {
-      ScrollTrigger.create({
-        trigger: stepEl,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => setActiveStep(index),
-        onEnterBack: () => setActiveStep(index),
-      });
-    });
-
-    ScrollTrigger.refresh();
-    return () => ScrollTrigger.getAll().forEach((st) => st.kill());
-  }, []);
+ useGSAP(() => {
+   if (introRef.current) {
+     ScrollTrigger.create({
+       trigger: introRef.current,
+       start: "top center",
+       end: "bottom center",
+       onEnter: () => setActiveStep(-1),
+       onEnterBack: () => setActiveStep(-1),
+     });
+   }
+   stepsRef.current.forEach((stepEl, index) => {
+     ScrollTrigger.create({
+       trigger: stepEl,
+       start: "top center",
+       end: "bottom center",
+       onEnter: () => setActiveStep(index),
+       onEnterBack: () => setActiveStep(index),
+     });
+   });
+   ScrollTrigger.refresh();
+}, []);
 
   return (
     <div className="bg-[#141414] text-white min-h-screen grid grid-cols-3 auto-rows-min">
