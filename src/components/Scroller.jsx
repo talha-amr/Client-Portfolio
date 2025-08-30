@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "./Footer";
+import { useEffect } from "react";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,6 +13,15 @@ const Work = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const cardRefs = useRef([]);
     const btnRefs = useRef([]);
+    useEffect(() => {
+        // Force refresh when component mounts
+        const timer = setTimeout(() => {
+            ScrollTrigger.refresh();
+            console.log('ScrollTrigger refreshed for work component');
+        }, 100);
+        
+        return () => clearTimeout(timer);
+    }, []);
 
     // GSAP Magnetic Hover Effect
     useGSAP(() => {

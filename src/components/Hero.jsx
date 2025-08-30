@@ -2,11 +2,21 @@ import React from 'react'
 import gsap from 'gsap'
 import { SplitText, ScrollTrigger } from 'gsap/all'
 import { useGSAP } from '@gsap/react'
+import { useEffect } from 'react'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hero = () => {
+    useEffect(() => {
+        // Force refresh when component mounts
+        const timer = setTimeout(() => {
+            ScrollTrigger.refresh();
+            console.log('ScrollTrigger refreshed for Hero component');
+        }, 100);
+        
+        return () => clearTimeout(timer);
+    }, []);
 useGSAP(() => {
     let split;
     let ctx = gsap.context(() => {

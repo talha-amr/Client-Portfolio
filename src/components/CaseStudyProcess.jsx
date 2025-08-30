@@ -54,7 +54,15 @@ const CaseStudyLayout = () => {
   const stepsRef = useRef([]);
   const [activeStep, setActiveStep] = useState(null);
   const introRef = useRef(null);
-
+useEffect(() => {
+    // Force refresh when component mounts
+    const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+        console.log('ScrollTrigger refreshed for monkey component');
+    }, 100);
+    
+    return () => clearTimeout(timer);
+}, []);
   // GSAP + ScrollTrigger: monkey animation
 useGSAP(() => {
     if (!monkeyRef.current) return;
