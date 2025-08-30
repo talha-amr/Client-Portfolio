@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const handleClick =()=>{
+    window.open('https://www.linkedin.com/in/zubair-s-a4889a103/','_blank')
+  }
   return (
     <>
       <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-[6vh] pb-[4vh]">
@@ -113,7 +116,7 @@ const Footer = () => {
           <br />
           Something Amazing Together!
         </p>
-        <button className="px-[5vh] py-[1.6vh] rounded-full border-2 border-[#E52222] text-[2.5vh] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold">
+        <button className="px-[5vh] py-[1.6vh] rounded-full border-2 border-[#E52222] text-[2.5vh] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold" onClick={handleClick}>
           Let's Connect
         </button>
       </div>

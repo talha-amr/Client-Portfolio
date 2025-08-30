@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-// Helper so Tailwind doesn't purge dynamic col-span classes
 const spanClass = (span) => (span === 4 ? "col-span-4" : "col-span-2");
 
 const projects = [
@@ -50,47 +51,94 @@ const ProjectsGrid = () => {
             }`}
           >
             {col.items.map((item) => (
-              <div key={item.id} className="relative flex flex-col gap-[0.2px] group">
-                {/* Flip Text */}
-                <div className="relative h-6 overflow-hidden">
-                  <p className="absolute inset-0 text-black text-[0.7vw] tracking-[0.15em] uppercase transition-transform duration-500 group-hover:-translate-y-6">
-                    {item.id} / {item.hasCaseStudy ? "View Case Study" : "View Project"}
-                  </p>
-                  <p className="absolute inset-0 text-black text-[0.7vw] tracking-[0.15em] uppercase translate-y-6 transition-transform duration-500 group-hover:translate-y-0">
-                    {item.name}
-                  </p>
-                </div>
-
-                {/* Media */}
-                <div className="flex-1 overflow-hidden relative">
-                  {item.src.endsWith(".mov") ? (
-                    <video
-                      src={item.src}
-                      className="w-full h-full object-contain"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    />
-                  ) : (
-                    <img src={item.src} alt={`project-${item.id}`} className="w-full h-full object-contain" />
-                  )}
-
-                  {/* Glass Button (only visible on hover) */}
-                  <button
-                    onClick={() => handleClick(item)}
-                    className="absolute bottom-3 right-3 px-4 py-2 rounded-full text-xs font-semibold 
-                               text-white backdrop-blur-md bg-white/20 border border-white/30 shadow-md
-                               opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out
-                               hover:bg-white/30"
-                  >
-                    →
-                  </button>
-                </div>
-              </div>
+              <ProjectCard key={item.id} item={item} handleClick={handleClick} />
             ))}
           </div>
         ))}
+      </div>
+    </div>
+  );
+};
+
+const ProjectCard = ({ item, handleClick }) => {
+  const containerRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useGSAP(() => {
+    const container = containerRef.current;
+    const button = buttonRef.current;
+
+    if (!container || !button) return;
+
+    const moveBtn = (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      gsap.to(button, {
+        x: x - button.offsetWidth / 2,
+        y: y - button.offsetHeight / 2,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    };
+
+    container.addEventListener("mousemove", moveBtn);
+    container.addEventListener("mouseleave", () => {
+      gsap.to(button, {
+        opacity: 0,
+        duration: 0.3,
+      });
+    });
+    container.addEventListener("mouseenter", () => {
+      gsap.to(button, {
+        opacity: 1,
+        duration: 0.3,
+      });
+    });
+
+    return () => {
+      container.removeEventListener("mousemove", moveBtn);
+    };
+  }, []);
+
+  return (
+    <div className="relative flex flex-col gap-[0.2px] group">
+      {/* Flip Text */}
+      <div className="relative h-6 overflow-hidden">
+        <p className="absolute inset-0 text-black text-[0.7vw] tracking-[0.15em] uppercase transition-transform duration-500 group-hover:-translate-y-6">
+          {item.id} / {item.hasCaseStudy ? "View Case Study" : "View Project"}
+        </p>
+        <p className="absolute inset-0 text-black text-[0.7vw] tracking-[0.15em] uppercase translate-y-6 transition-transform duration-500 group-hover:translate-y-0">
+          {item.name}
+        </p>
+      </div>
+
+      {/* Media Container */}
+      <div ref={containerRef} className="flex-1 overflow-hidden relative">
+        {item.src.endsWith(".mov") ? (
+          <video
+            src={item.src}
+            className="w-full h-full object-contain"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        ) : (
+          <img src={item.src} alt={`project-${item.id}`} className="w-full h-full object-contain" />
+        )}
+
+        {/* Floating Glass Button */}
+        <button
+          ref={buttonRef}
+          onClick={() => handleClick(item)}
+          className="absolute top-0 left-0 px-4 py-2 rounded-full text-xs font-semibold 
+                     text-white backdrop-blur-md bg-white/20 border border-white/30 shadow-md
+                     opacity-0 pointer-events-auto"
+        >
+          View
+        </button>
       </div>
     </div>
   );
