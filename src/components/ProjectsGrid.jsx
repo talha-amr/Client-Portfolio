@@ -18,7 +18,7 @@ const projects = [
     ],
   },
   { span: 2, items: [{ id: 5, src: "/Work-video.mov", name: "RozeeGPT Seeker App", hasCaseStudy: false, link: "" }] },
-  { span: 4, items: [{ id: 6, src: "/image-grid-7.png", name: "PRC Consultin", hasCaseStudy: false, link: "https://www.prcksa.com" }] },
+  { span: 4, items: [{ id: 6, src: "/image-grid-7.png", name: "PRC Consulting", hasCaseStudy: false, link: "https://www.prcksa.com" }] },
 
   { span: 2, items: [{ id: 8, src: "/image-grid-8.png", name: "RIZQ Dashboard Redesign", hasCaseStudy: false, link: "" }] },
   { span: 4, items: [{ id: 9, src: "/image-grid-9.png", name: "Food App", hasCaseStudy: false, link: "" }] },
@@ -85,16 +85,10 @@ const ProjectCard = ({ item, handleClick }) => {
 
     container.addEventListener("mousemove", moveBtn);
     container.addEventListener("mouseleave", () => {
-      gsap.to(button, {
-        opacity: 0,
-        duration: 0.3,
-      });
+      gsap.to(button, { opacity: 0, duration: 0.3 });
     });
     container.addEventListener("mouseenter", () => {
-      gsap.to(button, {
-        opacity: 1,
-        duration: 0.3,
-      });
+      gsap.to(button, { opacity: 1, duration: 0.3 });
     });
 
     return () => {
@@ -102,12 +96,20 @@ const ProjectCard = ({ item, handleClick }) => {
     };
   }, []);
 
+  const isVideo = item.src.endsWith(".mov");
+  const isComingSoon = item.id === 5 || item.id === 7;
+
   return (
     <div className="relative flex flex-col gap-[0.2px] group">
       {/* Flip Text */}
       <div className="relative h-6 overflow-hidden">
         <p className="absolute inset-0 text-black text-[0.7vw] tracking-[0.15em] uppercase transition-transform duration-500 group-hover:-translate-y-6">
-          {item.id} / {item.hasCaseStudy ? "View Case Study" : "View Project"}
+          {item.id} /{" "}
+          {isComingSoon
+            ? "Coming Soon"
+            : item.hasCaseStudy
+            ? "View Case Study"
+            : "View Project"}
         </p>
         <p className="absolute inset-0 text-black text-[0.7vw] tracking-[0.15em] uppercase translate-y-6 transition-transform duration-500 group-hover:translate-y-0">
           {item.name}
@@ -116,7 +118,7 @@ const ProjectCard = ({ item, handleClick }) => {
 
       {/* Media Container */}
       <div ref={containerRef} className="flex-1 overflow-hidden relative">
-        {item.src.endsWith(".mov") ? (
+        {isVideo ? (
           <video
             src={item.src}
             className="w-full h-full object-contain"
@@ -126,22 +128,29 @@ const ProjectCard = ({ item, handleClick }) => {
             playsInline
           />
         ) : (
-          <img src={item.src} alt={`project-${item.id}`} className="w-full h-full object-contain" />
+          <img
+            src={item.src}
+            alt={`project-${item.id}`}
+            className="w-full h-full object-contain"
+          />
         )}
 
-        {/* Floating Glass Button */}
-        <button
-          ref={buttonRef}
-          onClick={() => handleClick(item)}
-          className="absolute top-0 left-0 px-4 py-2 rounded-full text-xs font-semibold 
-                     text-white backdrop-blur-md bg-white/20 border border-white/30 shadow-md
-                     opacity-0 pointer-events-auto"
-        >
-          View
-        </button>
+        {/* Floating Glass Button (hide if video OR coming soon) */}
+        {!isVideo && !isComingSoon && (
+          <button
+            ref={buttonRef}
+            onClick={() => handleClick(item)}
+            className="absolute top-0 left-0 px-4 py-2 rounded-full text-xs font-semibold 
+                       text-white backdrop-blur-md bg-white/20 border border-white/30 shadow-md
+                       opacity-0 pointer-events-auto"
+          >
+            View
+          </button>
+        )}
       </div>
     </div>
   );
 };
+
 
 export default ProjectsGrid;
