@@ -1,146 +1,141 @@
-import React, { useRef, useState } from "react";
-import { useGSAP } from "@gsap/react";
+import React, { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Footer from "./Footer";
 
+const spanClass = (span) => (span === 4 ? "col-span-4" : "col-span-2");
 
-gsap.registerPlugin(ScrollTrigger);
+const projects = [
+  { span: 4, items: [{ id: 1, src: "/image-1.png", name: "ABN Global", hasCaseStudy: true, link: "" }] },
+  { span: 2, items: [{ id: 2, src: "/image-grid-2.png", name: "Otomayt.ai", hasCaseStudy: false, link: "http://otomayt.ai" }] },
+  { span: 2, items: [{ id: 3, src: "/image-grid-3.png", name: "Rizq Financial App", hasCaseStudy: true, link: "" }] },
+  {
+    span: 2,
+    items: [
+      { id: 4, src: "/image-grid-4.png", name: "ABurger", hasCaseStudy: false, link: "" },
+      { id: 7, src: "/image-grid-5.png", name: "RIZQ HRMS", hasCaseStudy: false, link: "" },
+    ],
+  },
+  { span: 2, items: [{ id: 5, src: "/Work-video.mov", name: "RozeeGPT Seeker App", hasCaseStudy: false }] },
+  { span: 4, items: [{ id: 6, src: "/image-grid-7.png", name: "PRC Consultin", hasCaseStudy: false, link: "https://www.prcksa.com" }] },
+  { span: 2, items: [{ id: 8, src: "/image-grid-8.png", name: "RIZQ Dashboard Redesign", hasCaseStudy: false, link: "" }] },
+  { span: 4, items: [{ id: 9, src: "/image-grid-9.png", name: "Food App", hasCaseStudy: false }] },
+  { span: 2, items: [{ id: 10, src: "/image-grid-10.png", name: "Lahori Burger", hasCaseStudy: false }] },
+];
 
-const Work = () => {
-    const containerRef = useRef();
-    const [activeIndex, setActiveIndex] = useState(0);
-    const cardRefs = useRef([]);
-    const btnRefs = useRef([]);
+const ProjectsGrid = () => {
+  const navigate = useNavigate();
+  const cardRefs = useRef([]);
+  const btnRefs = useRef([]);
 
-    // GSAP Magnetic Hover Effect
-    useGSAP(() => {
-        cardRefs.current.forEach((card, i) => {
-            const btn = btnRefs.current[i];
-            if (!card || !btn) return;
+  useEffect(() => {
+    cardRefs.current.forEach((card, i) => {
+      const btn = btnRefs.current[i];
+      if (!card || !btn) return;
 
-            const move = (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+      const move = (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-                gsap.to(btn, {
-                    x: x - rect.width / 2,
-                    y: y - rect.height / 2,
-                    duration: 0.3,
-                    ease: "power3.out",
-                });
-            };
-
-            card.addEventListener("mousemove", move);
-
-            return () => {
-                card.removeEventListener("mousemove", move);
-            };
+        gsap.to(btn, {
+          x: x - rect.width / 2,
+          y: y - rect.height / 2,
+          duration: 0.3,
+          ease: "power3.out",
         });
-    }, { scope: containerRef });
+      };
 
-    const projects = [
-        {
-            id: 1,
-            title: "ABN GLOBAL",
-            image: "/image-1.png",
-            desc: "The ABN Agent Dashboard is an internal platform used by ABN Global’s field agents to manage clients, tasks, and reporting. While it played a critical role in day-to-day operations, the dashboard had become outdated and inefficient..."
-        },
-        { id: 2, title: "IMC HEALTH APP", image: "/image-2.png", desc: "Description for IMC HEALTH APP" },
-        { id: 3, title: "RIZQ FINANCIAL APP", image: "/image-3.png", desc: "Description for Rizq Financial App" },
-        { id: 4, title: "ASK TECHNOSE", image: "/image-4.png", desc: "Description for ASK TECHNOSE" },
-        { id: 5, title: "BSM DEVELOPER", image: "/image-5.png", desc: "Description for BSM Developer" },
-        { id: 6, title: "NEW METRO CITY", image: "image-6.png", desc: "Description for New Metro City" },
-    ];
+      card.addEventListener("mousemove", move);
+      card.addEventListener("mouseleave", () => {
+        gsap.to(btn, { x: 0, y: 0, duration: 0.3, ease: "power3.out" });
+      });
 
-    // ScrollTrigger to update active project index
-useGSAP(() => {
-    const sections = gsap.utils.toArray(".project-card");
-    const triggers = [];
-
-    sections.forEach((section, i) => {
-        const trigger = ScrollTrigger.create({
-            trigger: section,
-            start: "top 60%",
-            end: "bottom center",
-          
-            onEnter: () => setActiveIndex(i),
-            onEnterBack: () => setActiveIndex(i),
-        });
-        triggers.push(trigger);
+      return () => card.removeEventListener("mousemove", move);
     });
+  }, []);
 
-    // Cleanup manually
-    return () => {
-        triggers.forEach(t => t.kill());
-    };
-}, { scope: containerRef,dependencies: [] });
+  const handleClick = (item) => {
+    if (item.hasCaseStudy) {
+      navigate("/caseStudy");
+    } else if (item.link) {
+      window.open(item.link, "_blank");
+    } else {
+      window.open("https://www.behance.net/bluecladesigne", "_blank");
+    }
+  };
 
-    return (
-        <div className="min-h-screen bg-white" ref={containerRef}>
-            <div className="w-full mx-auto md:px-1 lg:px-6 relative">
-                <div className="flex py-20">
+  return (
+    <div className="w-full">
+      <p className="text-theme-red text-4xl py-10">SELECT WORK</p>
 
-                    {/* Left Side - Sticky Navigation */}
-                    <div className="w-1/4 bg-white sticky top-0 h-screen flex flex-col justify-center items-start">
-                        <div className="space-y-2 text-start">
-                            {projects.map((project, index) => (
-                                <div key={project.id} className="nav-item">
-                                    <h2
-                                        className={`text-[2.5vw] font-black  transition-all duration-500 leading-tight
-                      ${activeIndex === index
-                                                ? "text-[#E52222] scale-110 translate-x-5"
-                                                : "text-gray-400 scale-100 translate-x-0"}`}
-                                    >
-                                        {project.title}
-                                    </h2>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Right Side - Scrollable Content */}
-                    <div className="w-3/4 flex flex-col items-end">
-                        {projects.map((project, index) => (
-                            <div
-                                key={project.id}
-                                ref={(el) => (cardRefs.current[index] = el)}
-                                className={`project-card relative w-[90%] h-auto mb-10 group 
-                  transform transition-all duration-800 ease-in-out overflow-hidden
-                  ${activeIndex === index
-                                        ? "scale-103 -translate-x-8 z-10"
-                                        : "scale-100 translate-x-0 opacity-100"}`}
-                            >
-                                {/* Project Image */}
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover object-center"
-                                />
-
-                                {/* Glass Magnetic Button */}
-                                <div
-                                    ref={(el) => (btnRefs.current[index] = el)}
-                                    className="absolute top-1/2 left-1/2 opacity-0 group-hover:opacity-100 
-                    pointer-events-none transition-opacity duration-300"
-                                    style={{ transform: "translate(-50%, -50%)" }}
-                                >
-                                    <button className="w-20 h-20 flex items-center justify-center rounded-full 
-                    bg-white/20 backdrop-blur-md border border-white/40 text-white 
-                    text-sm font-semibold shadow-lg">
-                                        VIEW
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+      <div className="grid min-h-[90vh] grid-cols-8 gap-x-4 gap-y-18 w-full py-3">
+        {projects.map((col, idx) => (
+          <div
+            key={idx}
+            className={`${spanClass(col.span)} flex flex-col ${
+              col.items.length > 1 ? "justify-between" : "gap-2"
+            }`}
+          >
+            {col.items.map((item, index) => (
+              <div
+                key={item.id}
+                ref={(el) => (cardRefs.current[item.id] = el)}
+                className="relative flex flex-col gap-[0.2px] group"
+              >
+                {/* Flip Text */}
+                <div className="relative h-6 overflow-hidden">
+                  <p className="absolute inset-0 text-black text-[0.7vw] tracking-[0.15em] uppercase transition-transform duration-500 group-hover:-translate-y-6">
+                    {item.id} / {item.hasCaseStudy ? "View Case Study" : "View Project"}
+                  </p>
+                  <p className="absolute inset-0 text-black text-[0.7vw] tracking-[0.15em] uppercase translate-y-6 transition-transform duration-500 group-hover:translate-y-0">
+                    {item.name}
+                  </p>
                 </div>
 
-                   <Footer/>                 
-            </div>
-        </div>
-    );
+                {/* Media */}
+                <div className="flex-1 overflow-hidden relative">
+                  {item.src.endsWith(".mov") ? (
+                    <video
+                      src={item.src}
+                      className="w-full h-full object-contain cursor-pointer"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  ) : (
+                    <>
+                      <img
+                        src={item.src}
+                        alt={`project-${item.id}`}
+                        className="w-full h-full object-contain cursor-pointer"
+                      />
+                      {/* Glass Magnetic Button */}
+                      <div
+                        ref={(el) => (btnRefs.current[item.id] = el)}
+                        className="absolute top-1/2 left-1/2 opacity-0 group-hover:opacity-100 
+                          pointer-events-none transition-opacity duration-300"
+                        style={{ transform: "translate(-50%, -50%)" }}
+                      >
+                        <button
+                          onClick={() => handleClick(item)}
+                          className="w-16 h-16 flex items-center justify-center rounded-full 
+                          bg-white/20 backdrop-blur-md border border-white/40 text-white 
+                          text-xs font-semibold shadow-lg"
+                        >
+                          VIEW
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
-export default Work;
+export default ProjectsGrid;
