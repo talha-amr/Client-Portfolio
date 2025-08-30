@@ -39,7 +39,7 @@ const ProjectsGrid = () => {
 
   return (
     <div className="w-full">
-      <p className="text-theme-red text-4xl py-10">SELECT WORK</p>
+      <p className="text-theme-red text-[3.5vw] py-10">SELECT WORK</p>
 
       <div className="grid min-h-[90vh] grid-cols-8 gap-x-4 gap-y-18 w-full py-3">
         {projects.map((col, idx) => (
