@@ -51,7 +51,7 @@ const Work = () => {
       </div>
 
       {/* Held image outside container */}
-      <div className="relative w-full px-6">
+      <div className="relative ">
         <video
           src="/Project-video.mp4"
           autoPlay
@@ -59,7 +59,7 @@ const Work = () => {
           muted
           preload="auto"
           alt="Video"
-          className="w-full relative z-10 rounded-2xl shadow-md"
+          className="w-full relative z-10 "
           style={{ marginTop: `calc(-1.05vw - 0.20rem)` }}
         />
       </div>

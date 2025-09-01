@@ -17,10 +17,9 @@ const Experience = () => {
                     <p className='text-theme-red uppercase text-[1.4vw] leading-none'>Currently, I’m working at Rozee.pk / RozeeGPT</p>
                     <p className='text-[8.1vw] font-black text-theme-red uppercase leading-none'>Lead UX/UI Designer</p>
                 </div>
-
-                <Accordion />
             </div>
-            <div className="bg-black w-full min-h-[25vh] mt-[7vw] flex flex-col">
+                <Accordion />
+            <div className="bg-black w-full min-h-[30vh] mt-[7vw] flex flex-col">
                 {/* Top Partition */}
                 <div className="flex flex-1 justify-center items-center border-b border-white/30">
                     <p className="w-full text-center font-bold text-white text-[1.5vw] leading-none">
