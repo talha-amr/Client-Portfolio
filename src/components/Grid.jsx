@@ -64,23 +64,23 @@ const Grid = () => {
               <div className="flex whitespace-nowrap marquee-container">
                 {/* First set */}
                 <span className="flex items-center text-[2.3vw]">
-                  <span className="font-black text-[3vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                  <span className="font-black text-[3vw] mx-[5vw] leading-none relative -top-[0.15rem]">
                     •
                   </span>
                   MVP for Startups
-                  <span className="font-black text-[3vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                  <span className="font-black text-[3vw] mx-[5vw] leading-none relative -top-[0.15rem]">
                     •
                   </span>
                   User Research
-                  <span className="font-black text-[3vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                  <span className="font-black text-[3vw] mx-[5vw] leading-none relative -top-[0.15rem]">
                     •
                   </span>
                   Data-Driven Design
-                  <span className="font-black text-[3vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                  <span className="font-black text-[3vw] mx-[5vw] leading-none relative -top-[0.15rem]">
                     •
                   </span>
                   Brand Audit UX/UI
-                  <span className="font-black text-[3vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                  <span className="font-black text-[3vw] mx-[5vw] leading-none relative -top-[0.15rem]">
                     •
                   </span>
                   Design System
@@ -88,23 +88,23 @@ const Grid = () => {
 
                 {/* Second set for seamless loop */}
                 <span className="flex items-center text-[2vw]">
-                  <span className="font-black text-[3vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                  <span className="font-black text-[3vw] mx-[5vw] leading-none relative -top-[0.15rem]">
                     •
                   </span>
                   MVP for Startups
-                  <span className="font-black text-[3vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                  <span className="font-black text-[3vw] mx-[5vw] leading-none relative -top-[0.15rem]">
                     •
                   </span>
                   User Research
-                  <span className="font-black text-[3vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                  <span className="font-black text-[3vw] mx-[5vw] leading-none relative -top-[0.15rem]">
                     •
                   </span>
                   Data-Driven Design
-                  <span className="font-black text-[3vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                  <span className="font-black text-[3vw] mx-[5vw] leading-none relative -top-[0.15rem]">
                     •
                   </span>
                   Brand Audit UX/UI
-                  <span className="font-black text-[3vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                  <span className="font-black text-[3vw] mx-[5vw] leading-none relative -top-[0.15rem]">
                     •
                   </span>
                   Design System
