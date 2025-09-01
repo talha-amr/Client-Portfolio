@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 export default function Navbar({ activePage }) {
   // helper function to set link style
   const linkClass = (page) =>
-    `text-[1vw] ${activePage === page ? " text-[#000000] font-bold" : ""}`;
+    `text-[0.9vw] ${activePage === page ? " text-[#000000] font-bold" : ""}`;
 
   return (
     <nav
-      className={`font-inter absolute top-0 py-[2vw] left-0 w-full z-50 ${
+      className={`font-inter absolute top-0 py-[1.8vw] left-0 w-full z-50 ${
         activePage === "home"
           ? "bg-transparent text-white"
           : "bg-transparent text-[#000000]"
@@ -16,11 +16,11 @@ export default function Navbar({ activePage }) {
     >
       <div className="w-full mx-auto px-6 flex items-center justify-between">
         {/* Brand + Nav links */}
-        <div className="flex items-center space-x-[3vw]">
+        <div className="flex items-center space-x-[2.5vw]">
           {/* Brand */}
           <Link
             to="/"
-            className={`text-[2vw] font-black tracking-[-0.06em] italic ${
+            className={`text-[1.7vw] font-black tracking-[-0.06em] italic ${
               activePage === "home" ? "text-white" : "text-[#000000]"
             }`}
           >
@@ -28,7 +28,7 @@ export default function Navbar({ activePage }) {
           </Link>
 
           {/* Nav links */}
-          <div className=" flex items-center space-x-[2vw] font-regular">
+          <div className=" flex items-center space-x-[1.8vw] font-regular">
             <Link to="/work" className="group">
               <div className="relative overflow-hidden flex items-center">
                 <p
@@ -69,7 +69,7 @@ export default function Navbar({ activePage }) {
         </div>
 
         {/* Social links */}
-        <div className="flex items-center space-x-[2vw] font-bold text-[0.9vw]">
+        <div className="flex items-center space-x-[1.8vw] font-bold text-[0.8vw]">
           <a
             href="https://www.linkedin.com/in/zubair-s-a4889a103/"
             target="_blank"

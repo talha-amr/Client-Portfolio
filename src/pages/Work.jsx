@@ -25,7 +25,7 @@ const Work = () => {
       <div className="w-full px-6 relative">
         <div className="flex flex-col items-center relative">
           {/* Headline text */}
-          <p className="font-black text-red-600 text-[8.1vw]  text-center leading-none tracking-tighter z-0 whitespace-nowrap">
+          <p className="font-black text-red-600 text-[7.1vw] uppercase text-center leading-none tracking-tighter z-0 whitespace-nowrap">
             Every Pixel With Purpose
           </p>
 

@@ -8,13 +8,13 @@ const Experience = () => {
         <section className='min-h-dvh w-screen'>
             <Navbar activePage={"experience"} />
             <div className="w-full px-6 mx-auto">
-                <div className="flex flex-col w-full justify-start items-start py-[7.5vw] gap-4">
-                    <p className='font-medium max-w-[40%] text-theme-red text-[1.1vw]'>In this role, I lead the design team and focus on creating user-centered and business-driven product experiences. My work involves conducting UX audits, building scalable design systems, collaborating with stakeholders, and ensuring design consistency across both small and large-scale digital products.</p>
-                    <div className='w-[30%] h-auto self-end flex flex-col gap-3'>
+                <div className="flex flex-col w-full justify-start items-start py-[6vw] gap-4">
+                    <p className='font-medium max-w-[40%] text-theme-red text-[0.8vw]'>In this role, I lead the design team and focus on creating user-centered and business-driven product experiences. My work involves conducting UX audits, building scalable design systems, collaborating with stakeholders, and ensuring design consistency across both small and large-scale digital products.</p>
+                    <div className='w-[22vw] h-auto self-end flex flex-col gap-3'>
                         <img src="/portfoliopic-zubair.jpg" alt="" className='w-full h-full object-contain' />
                         <div className="flex items-center gap-3 self-end"><img src="/OnlineSymbol.png" alt="" className='w-[15px]' /><p className='uppercase text-[#178243]'>open to work</p></div>
                     </div>
-                    <p className='text-theme-red uppercase text-[1.4vw] leading-none'>Currently, I’m working at Rozee.pk / RozeeGPT</p>
+                    <p className='text-theme-red uppercase text-[1.2vw] leading-none'>Currently, I’m working at Rozee.pk / RozeeGPT</p>
                     <p className='text-[8.1vw] font-black text-theme-red uppercase leading-none'>Lead UX/UI Designer</p>
                 </div>
             </div>
