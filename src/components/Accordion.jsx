@@ -4,7 +4,7 @@ export default function Accordion() {
   const [openIndex, setOpenIndex] = useState(null);
   const contentRefs = useRef([]);
 
-   const items = [
+  const items = [
     {
       title: "Product UX / UI Design",
       content: [
@@ -46,7 +46,6 @@ export default function Accordion() {
             className={`w-full border-[#E52222] 
               ${index === 0 ? "border-t-2 border-b-2" : "border-b-2"}`}
           >
-            {/* Inner padded wrapper */}
             <div className="w-full px-6">
               {/* Header */}
               <button
@@ -63,29 +62,30 @@ export default function Accordion() {
                 </div>
               </button>
 
-              {/* Content wrapper with measured height */}
+              {/* Animated wrapper */}
               <div
                 ref={(el) => (contentRefs.current[index] = el)}
                 className="overflow-hidden transition-all duration-500 ease-in-out"
                 style={{
                   maxHeight: isOpen
-                    ? `${contentRefs.current[index]?.scrollHeight || 0}px`
+                    ? `${contentRefs.current[index]?.scrollHeight}px`
                     : "0px",
-                  paddingTop: isOpen ? "1.5rem" : "0rem",
-                  paddingBottom: isOpen ? "1.5rem" : "0rem",
                   opacity: isOpen ? 1 : 0,
                 }}
               >
-                <div className="text-gray-700 text-[1.5vw]">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-x-32 gap-y-6 w-full">
-                    {item.content.map((text, idx) => (
-                      <div
-                        key={idx}
-                        className="text-[1.2vw] text-[#E52222] text-start"
-                      >
-                        {text}
-                      </div>
-                    ))}
+                {/* Keep padding here so it only shows when open */}
+                <div className="pt-6 pb-6">
+                  <div className="text-gray-700 text-[1.5vw]">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-32 gap-y-6 w-full">
+                      {item.content.map((text, idx) => (
+                        <div
+                          key={idx}
+                          className="text-[1.2vw] text-[#E52222] text-start"
+                        >
+                          {text}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
