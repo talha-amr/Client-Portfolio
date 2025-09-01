@@ -9,7 +9,7 @@ const Experience = () => {
             <Navbar activePage={"experience"} />
             <div className="w-full px-6 mx-auto">
                 <div className="flex flex-col w-full justify-start items-start py-[6vw] gap-0">
-                    <p className='font-medium max-w-[40%] text-theme-red text-[0.9vw]'>In this role, I lead the design team and focus on creating user-centered and business-driven product experiences. My work involves conducting UX audits, building scalable design systems, collaborating with stakeholders, and ensuring design consistency across both small and large-scale digital products.</p>
+                    <p className='font-medium max-w-[27%] text-theme-red text-[0.9vw] leading-tight'>In this role, I lead the design team and focus on creating user-centered and business-driven product experiences. My work involves conducting UX audits, building scalable design systems, collaborating with stakeholders, and ensuring design consistency across both small and large-scale digital products.</p>
                     <div className='w-[25%]  self-end flex flex-col gap-3'>
                         <img src="/portfoliopic-zubair.jpg" alt="" className='w-full h-full object-contain' />
                         <div className="flex items-center gap-2 self-end"><img src="/OnlineSymbol.png" alt="" className='w-[0.9vw]' /><p className='uppercase text-[#178243] text-[0.9vw]'>open to work</p></div>
