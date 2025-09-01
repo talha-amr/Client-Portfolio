@@ -102,8 +102,9 @@ const Experience = () => {
             </div>
 
 
-
+        <div className="w-full px-6">
             <Footer />
+        </div>
         </section>
     )
 }
