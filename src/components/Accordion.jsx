@@ -4,7 +4,7 @@ export default function Accordion() {
   const [openIndex, setOpenIndex] = useState(null);
   const contentRefs = useRef([]);
 
-  const items = [
+   const items = [
     {
       title: "Product UX / UI Design",
       content: [
