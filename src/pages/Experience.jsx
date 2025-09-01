@@ -7,18 +7,104 @@ const Experience = () => {
     return (
         <section className='min-h-dvh w-screen'>
             <Navbar activePage={"experience"} />
-<div className="w-full px-6 mx-auto">
-            <div className="flex justify-start items-center py-[7.8vw] pb-10 border-b-2 border-[#e52222]">
-                
-                    <div className='text-[#e52222] max-w-[70%] space-y-6 '>
-                        <p className='text-[2.4vw] font-bold leading-none'>Currently, I’m working at Rozee.pk / RozeeGPT as a Product UX/UI Designer (Team Lead).</p>
-                        <p className='text-[1.8vw] font-regular leading-none'>In this role, I lead the design team and focus on creating user-centered and business-driven product experiences. My work involves conducting UX audits, building scalable design systems, collaborating with stakeholders, and ensuring design consistency across both small and large-scale digital products.</p>
+            <div className="w-full px-6 mx-auto">
+                <div className="flex flex-col w-full justify-start items-start py-[7.5vw] gap-4">
+                    <p className='font-medium max-w-[40%] text-theme-red text-[1.1vw]'>In this role, I lead the design team and focus on creating user-centered and business-driven product experiences. My work involves conducting UX audits, building scalable design systems, collaborating with stakeholders, and ensuring design consistency across both small and large-scale digital products.</p>
+                    <div className='w-[30%] h-auto self-end flex flex-col gap-3'>
+                        <img src="/portfoliopic-zubair.jpg" alt="" className='w-full h-full object-contain' />
+                        <div className="flex items-center gap-3 self-end"><img src="/OnlineSymbol.png" alt="" className='w-[15px]' /><p className='uppercase text-[#178243]'>open to work</p></div>
+                    </div>
+                    <p className='text-theme-red uppercase text-[1.4vw] leading-none'>Currently, I’m working at Rozee.pk / RozeeGPT</p>
+                    <p className='text-[8.1vw] font-black text-theme-red uppercase leading-none'>Lead UX/UI Designer</p>
+                </div>
+
+                <Accordion />
+            </div>
+            <div className="bg-black w-full min-h-[25vh] mt-[7vw] flex flex-col">
+                {/* Top Partition */}
+                <div className="flex flex-1 justify-center items-center border-b border-white/30">
+                    <p className="w-full text-center font-bold text-white text-[1.5vw] leading-none">
+                        I’ve been in various industries and domains. Working with design
+                    </p>
+                </div>
+
+                {/* Bottom Partition */}
+                <div className="flex flex-1 justify-center items-center">
+                    <div className="w-full px-35">
+                        <div className="w-full overflow-hidden h-full flex items-center marquee-wrapper text-white">
+                            <div className="flex whitespace-nowrap marquee-container">
+                                {/* First set */}
+                                <span className="flex items-center text-[1.3vw]">
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    SaaS
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    HRMS
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    Job Search
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    B2B
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    FinTech
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    Dashboard
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    Health
+                                </span>
+
+                                {/* Second set for seamless loop */}
+                                <span className="flex items-center text-[1.3vw]">
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    SaaS
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    HRMS
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    Job Search
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    B2B
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    FinTech
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    Dashboard
+                                    <span className="font-black text-[2vw] mx-[3vw] leading-none relative -top-[0.15rem]">
+                                        •
+                                    </span>
+                                    Health
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <Accordion />
-                
-                <Footer/>
-            </div>
+
+
+
+            <Footer />
         </section>
     )
 }

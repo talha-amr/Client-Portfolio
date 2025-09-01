@@ -127,7 +127,7 @@ const Footer = () => {
           Something Amazing Together!
         </p>
         <button
-          className="px-[3vw] py-[1vw] rounded-full border-2 border-[#E52222] text-[1.4vw] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold"
+          className="px-[3vw] py-[0.5vw] rounded-full border-2 border-[#E52222] text-[1.4vw] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold"
           onClick={handleClick}
         >
           Let's Connect

@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 export default function Navbar({ activePage }) {
   // helper function to set link style
   const linkClass = (page) =>
-    `text-[1vw] ${activePage === page ? " text-[#E52222] font-bold" : ""}`;
+    `text-[1vw] ${activePage === page ? " text-[#000000] font-bold" : ""}`;
 
   return (
     <nav
       className={`font-inter absolute top-0 py-[2vw] left-0 w-full z-50 ${
         activePage === "home"
           ? "bg-transparent text-white"
-          : "bg-transparent text-[#E52222]"
+          : "bg-transparent text-[#000000]"
       }`}
     >
       <div className="w-full mx-auto px-6 flex items-center justify-between">
@@ -21,7 +21,7 @@ export default function Navbar({ activePage }) {
           <Link
             to="/"
             className={`text-[2vw] font-black tracking-[-0.06em] italic ${
-              activePage === "home" ? "text-white" : "text-[#E52222]"
+              activePage === "home" ? "text-white" : "text-[#000000]"
             }`}
           >
             ZB S.

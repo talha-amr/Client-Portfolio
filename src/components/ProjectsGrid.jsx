@@ -6,9 +6,9 @@ import { useGSAP } from "@gsap/react";
 const spanClass = (span) => (span === 4 ? "col-span-4" : "col-span-2");
 
 const projects = [
-  { span: 4, items: [{ id: 1, src: "/image-1.png", name: "ABN Global", hasCaseStudy: true, link: "" }] },
+  { span: 4, items: [{ id: 1, src: "/image-1.png", name: "ABN Global", hasCaseStudy: false, link: "" }] },
   { span: 2, items: [{ id: 2, src: "/image-grid-2.png", name: "Otomayt.ai", hasCaseStudy: false, link: "http://otomayt.ai" }] },
-  { span: 2, items: [{ id: 3, src: "/image-grid-3.png", name: "Rizq Financial App", hasCaseStudy: true, link: "" }] },
+  { span: 2, items: [{ id: 3, src: "/image-grid-3.png", name: "Rizq Financial App", hasCaseStudy: false, link: "" }] },
 
   {
     span: 2,

@@ -23,7 +23,7 @@ useGSAP(() => {
         const animElement = document.querySelector(".anim");
         if (!animElement) return;
         
-        split = new SplitText(animElement, { type: "chars" });
+        split = new SplitText(animElement, { type: "words chars" });
         
         gsap.fromTo(
             split.chars,

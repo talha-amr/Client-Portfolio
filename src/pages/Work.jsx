@@ -25,16 +25,16 @@ const Work = () => {
       <div className="w-full px-6 relative">
         <div className="flex flex-col items-center relative">
           {/* Headline text */}
-          <p className="font-black text-red-600 text-[8.1vw] italic text-center leading-none tracking-tighter z-0 whitespace-nowrap">
+          <p className="font-black text-red-600 text-[8.1vw]  text-center leading-none tracking-tighter z-0 whitespace-nowrap">
             Every Pixel With Purpose
           </p>
 
           {/* Small text row above main content */}
               <div
-            className="flex justify-between items-center w-[60%] text-red-600 text-[0.9vw] font-light mb-8 absolute z-20"
+            className="flex justify-between items-center w-[55%] text-red-600 text-[0.9vw] font-light mb-8 absolute z-20"
             style={{ top: `calc(8.1vw + 10vw)` }}
           >
-            <span className="flex-shrink-0">AVAILABLE FOR WORK</span>
+            <div className="flex items-center gap-3"><img src="/OnlineSymbol.png" alt="" className='w-[15px]'/><p className='uppercase text-[#178243]'>open to work</p></div>
             <p className="flex-shrink-0">SCROLL TO VIEW MORE</p>
           </div>
 
@@ -45,7 +45,6 @@ const Work = () => {
               src="/Monkey-work1.png"
               alt="Monkey"
               className="w-[25vw] relative z-50"
-              style={{ marginTop: `calc(-2.5vw - 0.5rem)` }}
             />
           </div>
         </div>
