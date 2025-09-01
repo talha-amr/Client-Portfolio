@@ -67,7 +67,7 @@ useGSAP(() => {
                         <span>ME</span>
                     </div>
 
-                    <p className='md:text-[1rem] lg:text-[2.1vw] font-bold max-w-[33%] text-start leading-tight '>
+                    <p className='md:text-[1rem] lg:text-[2.1vw] font-bold max-w-[35%] text-start leading-tight '>
                        <span className='italic'> Hi Zubair S. here</span><br />
                         Connecting Product Design × Design Systems × AI | Lead UX/UI Designer @Rozeegpt / Rozee.pk
                     </p>

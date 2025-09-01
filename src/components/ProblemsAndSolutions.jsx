@@ -54,36 +54,38 @@ const ProblemsAndSolutions = () => {
       </div>
 
       {/* Rows with equal heights */}
-      <div className="grid grid-cols-2 divide-x divide-black/30">
-        {problems.map((problem, index) => (
-          <React.Fragment key={index}>
-            {/* Problem cell */}
-            <div
-              className={`flex flex-col justify-center pr-6 py-8 border-b border-black/30 ${
-                index === problems.length - 1 ? "border-b-0" : ""
-              }`}
-            >
-              <h3 className="text-red-600 font-semibold mb-3 text-[1.3vw]">
-                {problem.title}
-              </h3>
-              <p className="text-red-600 text-[1.1vw] leading-snug">
-                <span className="font-semibold">Impact:</span> {problem.impact}
-              </p>
-            </div>
-
-            {/* Solution cell */}
-            <div
-              className={`flex flex-col justify-center pl-6 py-8 border-b border-black/30 ${
-                index === problems.length - 1 ? "border-b-0" : ""
-              }`}
-            >
-              <p className="text-[#07682f] text-[1.2vw] font-semibold leading-snug">
-                {solutions[index]}
-              </p>
-            </div>
-          </React.Fragment>
-        ))}
+{/* Rows with equal heights */}
+<div className="grid grid-cols-2">
+  {problems.map((problem, index) => (
+    <React.Fragment key={index}>
+      {/* Problem cell */}
+      <div
+        className={`flex flex-col justify-center pr-6 py-8 border-b border-black/30 ${
+          index === problems.length - 1 ? "border-b-0" : ""
+        }`}
+      >
+        <h3 className="text-red-600 font-semibold mb-3 text-[1.3vw]">
+          {problem.title}
+        </h3>
+        <p className="text-red-600 text-[1.1vw] leading-snug">
+          <span className="font-semibold">Impact:</span> {problem.impact}
+        </p>
       </div>
+
+      {/* Solution cell */}
+      <div
+        className={`flex flex-col justify-center pl-6 py-8 border-b border-black/30 border-l border-black/30 ${
+          index === problems.length - 1 ? "border-b-0" : ""
+        }`}
+      >
+        <p className="text-[#07682f] text-[1.2vw] font-semibold leading-snug">
+          {solutions[index]}
+        </p>
+      </div>
+    </React.Fragment>
+  ))}
+</div>
+
     </section>
   );
 };
