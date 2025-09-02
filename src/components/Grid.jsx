@@ -4,16 +4,25 @@ const Grid = () => {
   return (
     <>
       <section className="min-h-screen bg-white" id="grid">
-        <div className="w-full mx-auto md:px:1 lg:px-6 text-[#E52222] relative">
+        <div className="w-full mx-auto px-6 text-[#E52222] relative">
           <div className="work-process">
-            {/* Hero text */}
-            <div className="flex h-[65vh] flex-row items-center border-b border-[#E52222]">
+            {/* Hero text - Mobile Version */}
+            <div className="flex md:hidden h-auto py-12 flex-col items-center text-start  px-0">
+              <p className="font-black text-3xl leading-tight">
+                Work Process<br />
+                Every project is unique, so I adapt my approach instead of
+                sticking to one fixed process.
+              </p>
+            </div>
+
+            {/* Hero text - Desktop Version (unchanged) */}
+            <div className="hidden md:flex h-[65vh] flex-row items-center border-b border-[#E52222]">
               <p className="font-black text-[3.5vw] max-w-[70%] leading-[3.2vw]">
                 Work Process<br />
                 Every project is unique, so I adapt my approach instead of
                 sticking to one fixed process.
               </p>
-              <div className="mr-5 animate-float">
+              <div className="mr-5 animate-float hidden md:block">
                 <img
                   src="/Ellipse-55.png"
                   alt="layer-blur"
@@ -22,8 +31,41 @@ const Grid = () => {
               </div>
             </div>
 
-            {/* Grid section */}
-            <div className="grid-container">
+            {/* Mobile Process Steps */}
+            <div className="md:hidden px-0">
+              <div className="py-8 border-b border-[#E52222]">
+                <h3 className="font-black text-xl uppercase mb-4">
+                  USER CENTRAL DESIGN (UCD)
+                </h3>
+                <p className="font-light text-base leading-relaxed">
+                  When there's enough time and scope, I follow a complete UCD
+                  process research, testing, and iteration.
+                </p>
+              </div>
+              
+              <div className="py-8 border-b border-[#E52222]">
+                <h3 className="font-black text-xl uppercase mb-4">
+                  Learn User Experience (UX)
+                </h3>
+                <p className="font-light text-base leading-relaxed">
+                  For fast-moving projects, I use Lean UX to quickly test ideas
+                  and refine them.
+                </p>
+              </div>
+              
+              <div className="py-8 border-b border-[#E52222]">
+                <h3 className="font-black text-xl uppercase mb-4">
+                  UI-First Approach
+                </h3>
+                <p className="font-light text-base leading-relaxed">
+                  In tight deadlines, I rely on my experience to design the UI
+                  directly, while keeping UX best practices in mind
+                </p>
+              </div>
+            </div>
+
+            {/* Desktop Grid section (unchanged) */}
+            <div className="grid-container hidden md:block mobile-hide">
               <div className="grid-item">
                 <h3 className="font-black text-[3.3vw] max-w-[80%] leading-[3.8vw] uppercase">
                   USER CENTRAL DESIGN (UCD)
@@ -59,8 +101,61 @@ const Grid = () => {
               </div>
             </div>
 
-            {/* Marquee */}
-            <div className="w-full overflow-hidden border-b border-[#E52222] h-[17vh] flex items-center marquee-wrapper">
+            {/* Mobile Marquee */}
+            <div className="md:hidden w-full overflow-hidden border-b border-[#E52222] h-20 flex items-center marquee-wrapper">
+              <div className="flex whitespace-nowrap marquee-container">
+                {/* First set */}
+                <span className="flex items-center text-lg">
+                  <span className="font-black text-xl mx-4 leading-none relative -top-1">
+                    •
+                  </span>
+                  MVP for Startups
+                  <span className="font-black text-xl mx-4 leading-none relative -top-1">
+                    •
+                  </span>
+                  User Research
+                  <span className="font-black text-xl mx-4 leading-none relative -top-1">
+                    •
+                  </span>
+                  Data-Driven Design
+                  <span className="font-black text-xl mx-4 leading-none relative -top-1">
+                    •
+                  </span>
+                  Brand Audit UX/UI
+                  <span className="font-black text-xl mx-4 leading-none relative -top-1">
+                    •
+                  </span>
+                  Design System
+                </span>
+
+                {/* Second set for seamless loop */}
+                <span className="flex items-center text-lg">
+                  <span className="font-black text-xl mx-4 leading-none relative -top-1">
+                    •
+                  </span>
+                  MVP for Startups
+                  <span className="font-black text-xl mx-4 leading-none relative -top-1">
+                    •
+                  </span>
+                  User Research
+                  <span className="font-black text-xl mx-4 leading-none relative -top-1">
+                    •
+                  </span>
+                  Data-Driven Design
+                  <span className="font-black text-xl mx-4 leading-none relative -top-1">
+                    •
+                  </span>
+                  Brand Audit UX/UI
+                  <span className="font-black text-xl mx-4 leading-none relative -top-1">
+                    •
+                  </span>
+                  Design System
+                </span>
+              </div>
+            </div>
+
+            {/* Desktop Marquee (unchanged) */}
+            <div className="hidden md:flex w-full overflow-hidden border-b border-[#E52222] h-[17vh] items-center marquee-wrapper">
               <div className="flex whitespace-nowrap marquee-container">
                 {/* First set */}
                 <span className="flex items-center text-[2.3vw]">
@@ -112,8 +207,10 @@ const Grid = () => {
               </div>
             </div>
 
-            {/* Projects */}
-            <div className="flex h-[50vh] pt-15 justify-start items-center">
+      
+
+            {/* Desktop Projects (unchanged) */}
+            <div className="hidden md:flex h-[50vh] pt-15 justify-start items-center">
               <h1 className="font-black text-[3vw] max-w-[70%] leading-[3.2vw]">
                 A selection of projects where I solved real problems and crafted
                 user-friendly, impactful designs.

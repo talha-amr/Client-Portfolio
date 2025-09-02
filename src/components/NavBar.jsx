@@ -105,7 +105,7 @@ export default function Navbar({ activePage }) {
           </div>
 
           {/* Mobile Brand + Hamburger */}
-          <div className="flex items-center justify-between w-full md:hidden py-4">
+          <div className="flex items-center justify-between w-full md:hidden py-4 ">
             {/* Brand (mobile) */}
             <Link
               to="/"
@@ -127,7 +127,7 @@ export default function Navbar({ activePage }) {
       {/* Mobile Fullscreen Menu */}
 {/* Mobile Fullscreen Menu */}
 {menuOpen && (
-  <div className="fixed inset-0 bg-black text-white font-bold z-[100] flex flex-col items-start justify-center space-y-8 text-[2.7rem] uppercase pl-5">
+  <div className="fixed inset-0 bg-black text-white font-bold z-[100] flex flex-col items-start justify-center space-y-8 text-[2rem] uppercase pl-5">
     {/* Close button with image */}
     <button
       onClick={() => setMenuOpen(false)}

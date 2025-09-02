@@ -103,3 +103,8 @@ body{
 .project-card {
   will-change: transform;
 }
+@media (max-width: 767px) {
+  .mobile-hide {
+    display: none !important;
+  }
+}
