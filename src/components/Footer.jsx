@@ -121,13 +121,13 @@ const Footer = () => {
 
       {/* Bottom Section */}
 <div className="flex flex-col justify-center items-center h-[20rem] md:h-[20vw] gap-8 text-theme-red py-3 md:py-[3vw]">
-  <p className="text-[1.7rem] md:text-[2vw] font-bold text-center leading-tight">
-    <span className="font-black">Let’s Make</span>
+  <p className="text-[1.7rem] md:text-[2vw] font-medium md:font-bold text-center leading-tight">
+    <span className="font-bold md:font-black">Let’s Make</span>
     <br />
     Something Amazing Together!
   </p>
   <button
-    className="px-6 py-2 md:px-[3vw] md:py-[0.5vw] rounded-full border-2 border-[#E52222] text-[1.4rem] md:text-[1.4vw] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold"
+    className="px-6 py-1 md:px-[3vw] md:py-[0.5vw] rounded-full border-2 border-[#E52222] text-[1.1rem] md:text-[1.4vw] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold"
     onClick={handleClick}
   >
     Let's Connect
