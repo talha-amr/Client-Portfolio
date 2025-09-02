@@ -44,7 +44,7 @@ useGSAP(() => {
             ease: "none",
             scrollTrigger: {
                 trigger: card,
-                start: "top 30%",
+                start: "top 40%",
                 end: "top 20%",
                 scrub: 0.5,
                 markers: false,
