@@ -160,7 +160,7 @@ export default function Navbar({ activePage }) {
       {/* Mobile Fullscreen Menu */}
       <div
         ref={menuRef}
-        className="fixed inset-0 bg-black text-white font-bold z-[100] translate-x-full"
+        className="fixed inset-0 bg-[#242424] text-white font-bold z-[100] translate-x-full"
       >
         {/* Container same as navbar */}
         <div className="w-full mx-auto px-6 h-full flex flex-col">
