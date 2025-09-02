@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ScrollerMobile = () => {
     const containerRef = useRef(null);
-
+    
     const projects = [
         { id: 1, title: "ABN GLOBAL", image: "/image-1.png" },
         { id: 2, title: "IMC HEALTH APP", image: "/image-2.png" },
@@ -20,41 +20,58 @@ const ScrollerMobile = () => {
 
     useGSAP(() => {
         const cards = containerRef.current.querySelectorAll(".project-card");
-
-        cards.forEach((card, i) => {
-            gsap.fromTo(
-                card,
-                { y: 100, opacity: 1 }, // start slightly lower & transparent
-                {
-                    y: 0,
-                    opacity: 1,
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 90%", // start before reaching top
-                        end: "top 10%",   // end near top
-                        scrub: 1.2,       // smooth transition
-                        markers: false,
-                    },
+        
+        cards.forEach((card, index) => {
+            // Set initial sticky positioning
+            gsap.set(card, { 
+                position: "sticky",
+                top: `${index * 20}px`, // Adjust this value to control stacking distance
+                zIndex: index + 1 // First card gets lowest z-index, last card gets highest
+            });
+            
+            // Scale animation when card gets "stuck"
+            gsap.to(card, {
+                scale: 0.95 - (index * 0.02), // Adjust scale reduction per card
+                ease: "none",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 20%",
+                    end: "top 10%", 
+                    scrub: 0.5, // Smooth animation
+                    markers: false,
                 }
-            );
+            });
         });
     }, []);
 
     return (
-        <section className="w-screen ">
+        <section className="w-screen">
             <div className="px-6">
                 <p className="text-theme-red font-black pt-15 text-4xl mb-8">Projects</p>
             </div>
-
-            <div ref={containerRef} className="flex flex-col gap-16">
-                {projects.map((project) => (
-                    <div key={project.id} className="project-card relative w-full">
-                        <img src={project.image} alt={project.title} className="w-full " />
-
-                        <div className="absolute bottom-0 h-[15%] w-full flex gap-2 items-center justify-center 
-              bg-white/20 backdrop-blur-md border-t border-white/30">
-                            <p className="text-theme-red text-center font-semibold">{project.title}</p>
-                            <CgArrowTopRight color="#e52222" size={24} />
+            
+            {/* Container for sticky cards */}
+            <div 
+                ref={containerRef} 
+                className="flex flex-col"
+                style={{ paddingBottom: `40vh` }} // Adjust scroll space
+            >
+                {projects.map((project, index) => (
+                    <div 
+                        key={project.id} 
+                        className="project-card relative w-full h-screen flex items-center justify-center "
+                    >
+                        <div className="relative w-full ">
+                            <img 
+                                src={project.image} 
+                                alt={project.title} 
+                                className="w-full  shadow-lg" 
+                            />
+                            <div className="absolute bottom-0 h-[15%] w-full flex gap-2 items-center justify-center
+                                bg-white/20 backdrop-blur-md border-t border-white/30 rounded-b-lg">
+                                <p className="text-theme-red text-center font-semibold">{project.title}</p>
+                                <CgArrowTopRight color="#e52222" size={24} />
+                            </div>
                         </div>
                     </div>
                 ))}
