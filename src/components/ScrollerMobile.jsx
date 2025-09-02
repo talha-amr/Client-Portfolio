@@ -23,29 +23,28 @@ const ScrollerMobile = () => {
     const cards = containerRef.current.querySelectorAll(".project-card");
 
     cards.forEach((card) => {
-      gsap.to(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "top top",
-          end: () => `+=${card.offsetHeight}`,
-          pin: true,
-          pinSpacing: true,
-          markers: false,
-        },
+      ScrollTrigger.create({
+        trigger: card,
+        start: "top-=200 top" ,
+        end: () => `+=${window.innerHeight * 1.5}`, // increase pin duration for slower scroll
+        pin: true,
+        pinSpacing: true,
+        scrub: 1, // smooth scrubbing
+        markers: false,
       });
     });
   }, []);
 
   return (
     <section className="w-screen">
-        <div className="w-full px-6">
-      <p className="text-theme-red font-black pt-15 text-4xl mb-8">Projects</p>
+      <div className="w-full px-6">
+        <p className="text-theme-red font-black pt-15 text-4xl mb-8">Projects</p>
       </div>
 
       <div ref={containerRef} className="flex flex-col gap-16">
         {projects.map((project) => (
           <div key={project.id} className="relative w-full project-card">
-            <img src={project.image} alt={project.title} className="w-full rounded-lg" />
+            <img src={project.image} alt={project.title} className="w-full " />
 
             <div className="absolute bottom-0 h-[15%] w-full flex gap-2 items-center justify-center 
               bg-white/20 backdrop-blur-md border-t border-white/30">
