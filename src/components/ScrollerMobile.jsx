@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useRef } from "react";
 import { CgArrowTopRight } from "react-icons/cg";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ScrollerMobile = () => {
+  const containerRef = useRef(null);
+
   const projects = [
     { id: 1, title: "ABN GLOBAL", image: "/image-1.png", desc: "The ABN Agent Dashboard is an internal platform..." },
     { id: 2, title: "IMC HEALTH APP", image: "/image-2.png", desc: "Description for IMC HEALTH APP" },
@@ -11,21 +18,37 @@ const ScrollerMobile = () => {
     { id: 6, title: "NEW METRO CITY", image: "/image-6.png", desc: "Description for New Metro City" },
   ];
 
-  return (
-    <section className="w-screen">
-      <div className="w-full px-6">
-        <p className="text-theme-red font-black pt-15 text-4xl">Projects</p>
-      </div>
+  // useGSAP hook
+  useGSAP(() => {
+    const cards = containerRef.current.querySelectorAll(".project-card");
 
-      <div className="flex flex-col gap-8 mt-6">
+    cards.forEach((card) => {
+      gsap.to(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top top",
+          end: () => `+=${card.offsetHeight}`,
+          pin: true,
+          pinSpacing: true,
+          markers: false,
+        },
+      });
+    });
+  }, []);
+
+  return (
+    <section className="w-screen px-6">
+      <p className="text-theme-red font-black pt-15 text-4xl mb-8">Projects</p>
+
+      <div ref={containerRef} className="flex flex-col gap-16">
         {projects.map((project) => (
-          <div key={project.id} className="relative w-full">
+          <div key={project.id} className="relative w-full project-card">
             <img src={project.image} alt={project.title} className="w-full rounded-lg" />
 
             <div className="absolute bottom-0 h-[15%] w-full flex gap-2 items-center justify-center 
               bg-white/20 backdrop-blur-md border-t border-white/30">
               <p className="text-theme-red text-center font-semibold">{project.title}</p>
-              <CgArrowTopRight color="#e52222" size={20} />
+              <CgArrowTopRight color="#e52222" size={24} />
             </div>
           </div>
         ))}
