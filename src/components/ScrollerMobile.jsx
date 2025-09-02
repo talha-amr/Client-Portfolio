@@ -37,8 +37,10 @@ const ScrollerMobile = () => {
   }, []);
 
   return (
-    <section className="w-screen px-6">
+    <section className="w-screen">
+        <div className="w-full px-6">
       <p className="text-theme-red font-black pt-15 text-4xl mb-8">Projects</p>
+      </div>
 
       <div ref={containerRef} className="flex flex-col gap-16">
         {projects.map((project) => (
