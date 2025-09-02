@@ -23,7 +23,7 @@ useGSAP(() => {
     // Make header sticky during card animations
     gsap.set(headerRef.current, {
         position: "sticky",
-        top: "70px",
+        top: "60px",
         zIndex: 100,
         backgroundColor: "transparent",
     });
