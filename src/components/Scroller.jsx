@@ -2,8 +2,6 @@ import React, { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Footer from "./Footer";
-import { useEffect } from "react";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,18 +11,19 @@ const Work = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const cardRefs = useRef([]);
     const btnRefs = useRef([]);
-    useEffect(() => {
-        // Force refresh when component mounts
-        const timer = setTimeout(() => {
-            ScrollTrigger.refresh();
-            console.log('ScrollTrigger refreshed for work component');
-        }, 100);
-        
-        return () => clearTimeout(timer);
-    }, []);
 
-    // GSAP Magnetic Hover Effect
+    const projects = [
+        { id: 1, title: "ABN GLOBAL", image: "/image-1.png", desc: "The ABN Agent Dashboard is an internal platform..." },
+        { id: 2, title: "IMC HEALTH APP", image: "/image-2.png", desc: "Description for IMC HEALTH APP" },
+        { id: 3, title: "RIZQ FINANCIAL APP", image: "/image-3.png", desc: "Description for Rizq Financial App" },
+        { id: 4, title: "ASK TECHNOSE", image: "/image-4.png", desc: "Description for ASK TECHNOSE" },
+        { id: 5, title: "BSM DEVELOPER", image: "/image-5.png", desc: "Description for BSM Developer" },
+        { id: 6, title: "NEW METRO CITY", image: "image-6.png", desc: "Description for New Metro City" },
+    ];
+
+    // GSAP animations for magnetic hover & sticky scroll
     useGSAP(() => {
+        // ---- Magnetic Hover Effect ----
         cardRefs.current.forEach((card, i) => {
             const btn = btnRefs.current[i];
             if (!card || !btn) return;
@@ -44,46 +43,50 @@ const Work = () => {
 
             card.addEventListener("mousemove", move);
 
-            return () => {
-                card.removeEventListener("mousemove", move);
-            };
+            return () => card.removeEventListener("mousemove", move);
         });
-    }, { scope: containerRef });
 
-    const projects = [
-        {
-            id: 1,
-            title: "ABN GLOBAL",
-            image: "/image-1.png",
-            desc: "The ABN Agent Dashboard is an internal platform used by ABN Global’s field agents to manage clients, tasks, and reporting. While it played a critical role in day-to-day operations, the dashboard had become outdated and inefficient..."
-        },
-        { id: 2, title: "IMC HEALTH APP", image: "/image-2.png", desc: "Description for IMC HEALTH APP" },
-        { id: 3, title: "RIZQ FINANCIAL APP", image: "/image-3.png", desc: "Description for Rizq Financial App" },
-        { id: 4, title: "ASK TECHNOSE", image: "/image-4.png", desc: "Description for ASK TECHNOSE" },
-        { id: 5, title: "BSM DEVELOPER", image: "/image-5.png", desc: "Description for BSM Developer" },
-        { id: 6, title: "NEW METRO CITY", image: "image-6.png", desc: "Description for New Metro City" },
-    ];
+        // ---- Sticky Scroll Animation (activeIndex update) ----
+        const images = containerRef.current.querySelectorAll("img");
+        let loadedCount = 0;
 
-    // ScrollTrigger to update active project index
-useGSAP(() => {
-    let ctx = gsap.context(() => {
-        const sections = gsap.utils.toArray(".project-card");
-        
-        sections.forEach((section, i) => {
-            ScrollTrigger.create({
-                trigger: section,
-                start: "top 60%",
-                end: "bottom center",
-                onEnter: () => setActiveIndex(i),
-                onEnterBack: () => setActiveIndex(i),
+        const handleLoad = () => {
+            loadedCount++;
+            if (loadedCount === images.length) {
+                // All images loaded → setup ScrollTrigger
+                const ctx = gsap.context(() => {
+                    const sections = gsap.utils.toArray(".project-card");
+
+                    sections.forEach((section, i) => {
+                        ScrollTrigger.create({
+                            trigger: section,
+                            start: "top 60%",
+                            end: "bottom center",
+                            onEnter: () => setActiveIndex(i),
+                            onEnterBack: () => setActiveIndex(i),
+                        });
+                    });
+                }, containerRef);
+
+                return () => ctx.revert();
+            }
+        };
+
+        images.forEach((img) => {
+            if (img.complete) handleLoad();
+            else {
+                img.addEventListener("load", handleLoad);
+                img.addEventListener("error", handleLoad);
+            }
+        });
+
+        return () => {
+            images.forEach((img) => {
+                img.removeEventListener("load", handleLoad);
+                img.removeEventListener("error", handleLoad);
             });
-        });
-    });
-    
-    return () => {
-        ctx.revert(); // This will kill all ScrollTriggers created in this context
-    };
-}, { scope: containerRef, dependencies: [] });
+        };
+    }, { scope: containerRef });
 
     return (
         <div className="min-h-screen bg-white" ref={containerRef}>
@@ -96,10 +99,10 @@ useGSAP(() => {
                             {projects.map((project, index) => (
                                 <div key={project.id} className="nav-item">
                                     <h2
-                                        className={`text-[2.5vw] font-black  transition-all duration-500 leading-tight
+                                        className={`text-[2.5vw] font-black transition-all duration-500 leading-tight
                       ${activeIndex === index
-                                                ? "text-[#E52222] scale-110 translate-x-5"
-                                                : "text-gray-400 scale-100 translate-x-0"}`}
+                          ? "text-[#E52222] scale-110 translate-x-5"
+                          : "text-gray-400 scale-100 translate-x-0"}`}
                                     >
                                         {project.title}
                                     </h2>
@@ -117,8 +120,8 @@ useGSAP(() => {
                                 className={`project-card relative w-[90%] h-auto mb-10 group 
                   transform transition-all duration-800 ease-in-out overflow-hidden
                   ${activeIndex === index
-                                        ? "scale-103 -translate-x-8 z-10"
-                                        : "scale-100 translate-x-0 opacity-100"}`}
+                      ? "scale-103 -translate-x-8 z-10"
+                      : "scale-100 translate-x-0 opacity-100"}`}
                             >
                                 {/* Project Image */}
                                 <img
@@ -145,7 +148,7 @@ useGSAP(() => {
                     </div>
                 </div>
 
-                   <Footer/>                 
+                
             </div>
         </div>
     );

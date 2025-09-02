@@ -40,7 +40,7 @@ const Experience = () => {
                                 Currently, I’m working at Rozee.pk / RozeeGPT
                             </p>
 
-                            <p className="text-[8.1vw] max-md:text-[4rem] font-black text-theme-red uppercase tracking-tight leading-none">
+                            <p className="text-[8.1vw] max-md:text-[3.7rem] font-black text-theme-red uppercase tracking-tight leading-none">
                                 Lead UX/UI Designer
                             </p>
                         </div>

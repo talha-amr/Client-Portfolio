@@ -120,7 +120,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-<div className="flex flex-col justify-center items-center h-[20rem] md:h-[20vw] gap-8 text-theme-red py-3 md:py-[3vw]">
+<div className="flex flex-col justify-center items-center h-[20rem] md:h-[20vw] gap-8 text-theme-red py-1 md:py-[3vw]">
   <p className="text-[1.7rem] md:text-[2vw] font-medium md:font-bold text-center leading-tight">
     <span className="font-bold md:font-black">Let’s Make</span>
     <br />
