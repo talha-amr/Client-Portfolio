@@ -25,8 +25,8 @@ const Grid = () => {
             {/* Grid section */}
             <div className="grid-container">
               <div className="grid-item">
-                <h3 className="font-black text-[3.3vw] max-w-[80%] leading-[3.8vw]">
-                  USER CENTERAL DESIGN (UCD)
+                <h3 className="font-black text-[3.3vw] max-w-[80%] leading-[3.8vw] uppercase">
+                  USER CENTRAL DESIGN (UCD)
                 </h3>
               </div>
               <div className="grid-item border-s border-[#E52222] span-cols-2">
@@ -42,12 +42,12 @@ const Grid = () => {
                 </p>
               </div>
               <div className="grid-item border-s border-[#E52222]">
-                <h3 className="font-black text-[3.3vw] max-w-[80%] leading-[3.8vw]">
+                <h3 className="font-black text-[3.3vw] max-w-[80%] leading-[3.8vw] uppercase">
                   Learn User Experience (UX)
                 </h3>
               </div>
               <div className="grid-item">
-                <h3 className="font-black text-[3.3vw] max-w-[80%] leading-[3.8vw]">
+                <h3 className="font-black text-[3.3vw] max-w-[80%] leading-[3.8vw] uppercase">
                   UI-First Approach
                 </h3>
               </div>
