@@ -151,7 +151,7 @@ export default function Navbar({ activePage }) {
             {/* Hamburger */}
             {/* Hamburger */}
             <button onClick={() => setMenuOpen(true)}>
-              <MenuIcon size={32} color={activePage === "home" ? "#ffffff" : "#000000"} />
+              <MenuIcon size={37} color={activePage === "home" ? "#ffffff" : "#000000"} />
             </button>
 
           </div>
@@ -178,7 +178,7 @@ export default function Navbar({ activePage }) {
 
             {/* Close button on right */}
             <button onClick={() => setMenuOpen(false)}>
-              <CloseIcon size={32} color="#ffffff" />
+              <CloseIcon size={37} color="#ffffff" />
             </button>
 
           </div>
