@@ -151,7 +151,7 @@ export default function Navbar({ activePage }) {
             {/* Hamburger */}
             {/* Hamburger */}
             <button onClick={() => setMenuOpen(true)}>
-              <MenuIcon size={37} color={activePage === "home" ? "#ffffff" : "#000000"} />
+              <MenuIcon size={37} color={activePage === "home" ? "#ffffff" : "#e52222"} />
             </button>
 
           </div>

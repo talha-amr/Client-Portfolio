@@ -50,13 +50,13 @@ export default function Accordion() {
               {/* Header */}
               <button
                 onClick={() => setOpenIndex(isOpen ? null : index)}
-                className="w-full text-left flex justify-between items-center focus:outline-none"
+                className="w-full text-left flex justify-between items-center focus:outline-none max-md:py-3"
               >
                 <div className="flex justify-between items-center w-full">
-                  <p className="font-bold text-[1.75vw] text-[#E52222]">
+                  <p className="font-bold text-[1.75vw] max-md:text-[1.5rem] text-[#E52222]">
                     {item.title}
                   </p>
-                  <p className="font-thin text-[#E52222] text-[4vw]">
+                  <p className="font-thin text-[#E52222] text-[4vw] max-md:text-[1.95rem]">
                     {isOpen ? "-" : "+"}
                   </p>
                 </div>
@@ -73,14 +73,14 @@ export default function Accordion() {
                   opacity: isOpen ? 1 : 0,
                 }}
               >
-                {/* Keep padding here so it only shows when open */}
-                <div className="pt-6 pb-6">
-                  <div className="text-gray-700 text-[1.5vw]">
+                {/* Content */}
+                <div className="pt-6 pb-6 max-md:pt-8 max-md:pb-8">
+                  <div className="text-gray-700 text-[1.5vw] max-md:text-[1rem]">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-x-32 gap-y-6 w-full">
                       {item.content.map((text, idx) => (
                         <div
                           key={idx}
-                          className="text-[1.2vw] text-[#E52222] text-start"
+                          className="text-[1.2vw] max-md:text-[0.95rem] text-[#E52222] text-start"
                         >
                           {text}
                         </div>
