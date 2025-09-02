@@ -1,11 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function Navbar({ activePage }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const tl = useRef(null);
 
   const linkClass = (page) =>
     `text-[0.9vw] ${activePage === page ? " text-[#000000] font-bold" : ""}`;
+
+  // Setup GSAP animation
+  useGSAP(() => {
+    if (menuRef.current) {
+      tl.current = gsap.timeline({ paused: true })
+        .fromTo(
+          menuRef.current,
+          { x: "100%" },
+          { x: "0%", duration: 0.6, ease: "power3.out" }
+        )
+        .fromTo(
+          menuRef.current.querySelectorAll("a"),
+          { x: 50, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: "power2.out" },
+          "-=0.3"
+        );
+    }
+  }, []);
+
+  // Play or reverse animation based on menuOpen
+  useEffect(() => {
+    if (tl.current) {
+      if (menuOpen) {
+        tl.current.play();
+      } else {
+        tl.current.reverse();
+      }
+    }
+  }, [menuOpen]);
 
   return (
     <>
@@ -125,42 +158,56 @@ export default function Navbar({ activePage }) {
       </nav>
 
       {/* Mobile Fullscreen Menu */}
-{/* Mobile Fullscreen Menu */}
-{menuOpen && (
-  <div className="fixed inset-0 bg-black text-white font-bold z-[100] flex flex-col items-start justify-center space-y-8 text-[2rem] uppercase pl-5">
-    {/* Close button with image */}
-    <button
-      onClick={() => setMenuOpen(false)}
-      className="absolute top-6 right-6"
-    >
-      <img src="/MenuClose.png" alt="close" className="w-9 h-9" />
-    </button>
+      <div
+        ref={menuRef}
+        className="fixed inset-0 bg-black text-white font-bold z-[100] translate-x-full"
+      >
+        {/* Container same as navbar */}
+        <div className="w-full mx-auto px-6 h-full flex flex-col">
+          {/* Top bar with Logo + Close */}
+          <div className="flex justify-between items-center w-full py-6">
+            {/* Logo on left */}
+            <Link
+              to="/"
+              className="text-[1.7rem] font-black tracking-[-0.06em] italic text-white"
+              onClick={() => setMenuOpen(false)}
+            >
+              ZB S.
+            </Link>
 
-    <Link to="/work" onClick={() => setMenuOpen(false)}>
-      Work
-    </Link>
-    <Link to="/experience" onClick={() => setMenuOpen(false)}>
-      Experience
-    </Link>
-    <a
-      href="https://www.linkedin.com/in/zubair-s-a4889a103/"
-      target="_blank"
-      rel="noreferrer"
-      onClick={() => setMenuOpen(false)}
-    >
-      LinkedIn
-    </a>
-    <a
-      href="https://www.behance.net/bluecladesigne"
-      target="_blank"
-      rel="noreferrer"
-      onClick={() => setMenuOpen(false)}
-    >
-      Behance
-    </a>
-  </div>
-)}
+            {/* Close button on right */}
+            <button onClick={() => setMenuOpen(false)}>
+              <img src="/MenuClose.png" alt="close" className="w-9 h-9" />
+            </button>
+          </div>
 
+          {/* Menu links */}
+          <div className="flex flex-col items-start justify-center flex-grow space-y-8 text-[2rem] uppercase">
+            <Link to="/work" onClick={() => setMenuOpen(false)}>
+              Work
+            </Link>
+            <Link to="/experience" onClick={() => setMenuOpen(false)}>
+              Experience
+            </Link>
+            <a
+              href="https://www.linkedin.com/in/zubair-s-a4889a103/"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setMenuOpen(false)}
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://www.behance.net/bluecladesigne"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setMenuOpen(false)}
+            >
+              Behance
+            </a>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
