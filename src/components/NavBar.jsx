@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import MenuIcon from "./MenuIcon";
+import CloseIcon from "./CloseIcon";
 
 export default function Navbar({ activePage }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,11 +45,10 @@ export default function Navbar({ activePage }) {
   return (
     <>
       <nav
-        className={`font-inter absolute top-0 py-[1.8vw] left-0 w-full z-50 ${
-          activePage === "home"
+        className={`font-inter absolute top-0 py-[1.8vw] left-0 w-full z-50 ${activePage === "home"
             ? "bg-transparent text-white"
             : "bg-transparent text-[#000000]"
-        }`}
+          }`}
       >
         <div className="w-full mx-auto px-6 flex items-center justify-between">
           {/* Brand + Nav links */}
@@ -55,9 +56,8 @@ export default function Navbar({ activePage }) {
             {/* Brand */}
             <Link
               to="/"
-              className={`text-[1.7vw] font-black tracking-[-0.06em] italic ${
-                activePage === "home" ? "text-white" : "text-[#000000]"
-              }`}
+              className={`text-[1.7vw] font-black tracking-[-0.06em] italic ${activePage === "home" ? "text-white" : "text-[#000000]"
+                }`}
             >
               ZB S.
             </Link>
@@ -142,17 +142,18 @@ export default function Navbar({ activePage }) {
             {/* Brand (mobile) */}
             <Link
               to="/"
-              className={`text-[1.7rem] font-black tracking-[-0.06em] italic ${
-                activePage === "home" ? "text-white" : "text-[#000000]"
-              }`}
+              className={`text-[1.7rem] font-black tracking-[-0.06em] italic ${activePage === "home" ? "text-white" : "text-[#000000]"
+                }`}
             >
               ZB S.
             </Link>
 
             {/* Hamburger */}
+            {/* Hamburger */}
             <button onClick={() => setMenuOpen(true)}>
-              <img src="/hamburger.png" alt="menu" className="w-9 h-9" />
+              <MenuIcon size={32} color={activePage === "home" ? "#ffffff" : "#000000"} />
             </button>
+
           </div>
         </div>
       </nav>
@@ -177,8 +178,9 @@ export default function Navbar({ activePage }) {
 
             {/* Close button on right */}
             <button onClick={() => setMenuOpen(false)}>
-              <img src="/MenuClose.png" alt="close" className="w-9 h-9" />
+              <CloseIcon size={32} color="#ffffff" />
             </button>
+
           </div>
 
           {/* Menu links */}
