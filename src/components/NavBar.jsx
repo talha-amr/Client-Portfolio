@@ -133,7 +133,7 @@ export default function Navbar({ activePage }) {
       onClick={() => setMenuOpen(false)}
       className="absolute top-6 right-6"
     >
-      <img src="/MenuClose.png" alt="close" className="w-6 h-6" />
+      <img src="/MenuClose.png" alt="close" className="w-9 h-9" />
     </button>
 
     <Link to="/work" onClick={() => setMenuOpen(false)}>

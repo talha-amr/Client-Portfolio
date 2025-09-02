@@ -172,23 +172,23 @@ const Grid = () => {
               <div className="flex whitespace-nowrap marquee-container">
                 {/* First set */}
                 <span className="flex items-center text-lg">
-                  <span className="font-black text-xl mx-7 leading-none relative -top-0">
+                  <span className="font-black text-4xl mx-10 leading-none relative -top-0.5">
                     •
                   </span>
                   MVP for Startups
-                  <span className="font-black text-xl mx-7 leading-none relative -top-0">
+                  <span className="font-black text-4xl mx-10 leading-none relative -top-0.5">
                     •
                   </span>
                   User Research
-                  <span className="font-black text-xl mx-7 leading-none relative -top-0">
+                  <span className="font-black text-4xl mx-10 leading-none relative -top-0.5">
                     •
                   </span>
                   Data-Driven Design
-                  <span className="font-black text-xl mx-7 leading-none relative -top-0">
+                  <span className="font-black text-4xl mx-10 leading-none relative -top-0.5">
                     •
                   </span>
                   Brand Audit UX/UI
-                  <span className="font-black text-xl mx-7 leading-none relative -top-0">
+                  <span className="font-black text-4xl mx-10 leading-none relative -top-0.5">
                     •
                   </span>
                   Design System
@@ -196,23 +196,23 @@ const Grid = () => {
 
                 {/* Second set for seamless loop */}
                 <span className="flex items-center text-lg">
-                  <span className="font-black text-xl mx-7 leading-none relative -top-0">
+                  <span className="font-black text-4xl mx-10 leading-none relative -top-0.5">
                     •
                   </span>
                   MVP for Startups
-                  <span className="font-black text-xl mx-7 leading-none relative -top-0">
+                  <span className="font-black text-4xl mx-10 leading-none relative -top-0.5">
                     •
                   </span>
                   User Research
-                  <span className="font-black text-xl mx-7 leading-none relative -top-0">
+                  <span className="font-black text-4xl mx-10 leading-none relative -top-0.5">
                     •
                   </span>
                   Data-Driven Design
-                  <span className="font-black text-xl mx-7 leading-none relative -top-0">
+                  <span className="font-black text-4xl mx-10 leading-none relative -top-0.5">
                     •
                   </span>
                   Brand Audit UX/UI
-                  <span className="font-black text-xl mx-7 leading-none relative -top-0">
+                  <span className="font-black text-4xl mx-10 leading-none relative -top-0.5">
                     •
                   </span>
                   Design System

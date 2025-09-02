@@ -98,7 +98,7 @@ const Hero = () => {
 
                     {/* Intro Text */}
                     <p className="text-[1.1rem] font-bold text-center leading-tight max-w-[90%]">
-                        <span className="italic">Hi Zubair S. here</span><br />
+                        <span className="">Hi Zubair S. here</span><br />
                         Connecting Product Design × Design Systems × AI  Lead UX/UI Designer @Rozeegpt / Rozee.pk
                     </p>
 

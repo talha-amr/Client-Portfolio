@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-[4vw] pb-[3vw]">
+      <div className="hidden md:grid md:grid-cols-3 gap-8 w-full border-b border-[#E52222] pt-[4vw] pb-[3vw]  ">
         {/* Contact Column */}
         <div>
           <h3 className="text-[#E52222] text-[1.8vw] pb-[0.8vw] border-b border-[#E52222] mb-[1.5vw]">
@@ -120,19 +120,19 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="flex flex-col justify-center items-center h-[20vw] gap-[2vw] text-theme-red py-[3vw]">
-        <p className="text-[2vw] font-bold text-center leading-tight">
-          <span className="font-black">Let’s Make</span>
-          <br />
-          Something Amazing Together!
-        </p>
-        <button
-          className="px-[3vw] py-[0.5vw] rounded-full border-2 border-[#E52222] text-[1.4vw] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold"
-          onClick={handleClick}
-        >
-          Let's Connect
-        </button>
-      </div>
+<div className="flex flex-col justify-center items-center h-[20rem] md:h-[20vw] gap-8 text-theme-red py-3 md:py-[3vw]">
+  <p className="text-[1.7rem] md:text-[2vw] font-bold text-center leading-tight">
+    <span className="font-black">Let’s Make</span>
+    <br />
+    Something Amazing Together!
+  </p>
+  <button
+    className="px-6 py-2 md:px-[3vw] md:py-[0.5vw] rounded-full border-2 border-[#E52222] text-[1.4rem] md:text-[1.4vw] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold"
+    onClick={handleClick}
+  >
+    Let's Connect
+  </button>
+</div>
     </>
   );
 };
