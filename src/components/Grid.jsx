@@ -7,8 +7,8 @@ const Grid = () => {
         <div className="w-full mx-auto px-6 text-[#E52222] relative">
           <div className="work-process">
             {/* Hero text - Mobile Version */}
-            <div className="flex md:hidden h-auto py-12 flex-col items-center text-start ">
-              <p className="font-black text-3xl leading-tight">
+            <div className="flex md:hidden h-auto pt-12 pb-5 flex-col items-center text-start ">
+              <p className="font-black text-3xl leading-none">
                 Work Process<br />
                 Every project is unique, so I adapt my approach instead of
                 sticking to one fixed process.
@@ -32,32 +32,32 @@ const Grid = () => {
             </div>
 
             {/* Mobile Process Steps */}
-            <div className="md:hidden px-0">
-              <div className="py-8 border-b border-[#E52222]">
-                <h3 className="font-black text-xl uppercase mb-4">
+            <div className="md:hidden ">
+              <div className="py-4 border-b border-[#E52222]">
+                <h3 className="font-black text-xl uppercase mb-1">
                   USER CENTRAL DESIGN (UCD)
                 </h3>
-                <p className="font-light text-base leading-relaxed">
+                <p className="font-light text-base leading-tight">
                   When there's enough time and scope, I follow a complete UCD
                   process research, testing, and iteration.
                 </p>
               </div>
               
-              <div className="py-8 border-b border-[#E52222]">
-                <h3 className="font-black text-xl uppercase mb-4">
+              <div className="py-4 border-b border-[#E52222]">
+                <h3 className="font-black text-xl uppercase mb-1">
                   Learn User Experience (UX)
                 </h3>
-                <p className="font-light text-base leading-relaxed">
+                <p className="font-light text-base leading-tight">
                   For fast-moving projects, I use Lean UX to quickly test ideas
                   and refine them.
                 </p>
               </div>
               
-              <div className="py-8 ">
-                <h3 className="font-black text-xl uppercase mb-4">
+              <div className="py-4 ">
+                <h3 className="font-black text-xl uppercase mb-1">
                   UI-First Approach
                 </h3>
-                <p className="font-light text-base leading-relaxed">
+                <p className="font-light text-base leading-tight">
                   In tight deadlines, I rely on my experience to design the UI
                   directly, while keeping UX best practices in mind
                 </p>

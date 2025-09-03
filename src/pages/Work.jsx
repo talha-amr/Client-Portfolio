@@ -74,10 +74,10 @@ const Work = () => {
       className="w-full h-auto"
     />
   </div>
-  <p className="font-black text-red-600 text-[3.5rem] -mt-4 uppercase text-start leading-none ">
+  <p className="font-black text-red-600 text-[3.5rem] -mt-2.5 uppercase text-start leading-[0.8] ">
     EVERY <br/> PIXEL WITH PURPOSE
   </p>
-  <p className="mt-4 text-lg font-light text-red-600">
+  <p className="mt-4 text-lg font-light text-red-600 leading-none">
     SCROLL TO VIEW MORE
   </p>
 

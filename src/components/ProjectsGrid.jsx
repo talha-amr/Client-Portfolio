@@ -148,7 +148,7 @@ const ProjectCard = ({ item, handleClick }) => {
 
 
       {/* Media Container */}
-      <div ref={containerRef} className="max-md:h-[45vh] md:flex-1 overflow-hidden relative w-full">
+      <div ref={containerRef} className="max-md:h-[45vh] md:flex-1 overflow-hidden relative max-md:w-full">
         {isVideo ? (
           <video
             src={item.src}
