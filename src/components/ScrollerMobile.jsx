@@ -35,8 +35,8 @@ const ScrollerMobile = () => {
             gsap.fromTo(card, 
                 {
                     y: 100,
-                    opacity: 0,
-                    scale: 0.9
+                    opacity: 0.7,
+                    scale: 0.8
                 },
                 {
                     y: 0,
@@ -64,11 +64,11 @@ const ScrollerMobile = () => {
             </div>
            
             {/* Container for cards */}
-            <div ref={containerRef} className="w-full">
+            <div ref={containerRef} className="w-full space-y-2">
                 {projects.map((project, index) => (
                     <div
                         key={project.id}
-                        className="project-card w-full flex items-center justify-center"
+                        className="project-card w-full"
                     >
                         <div className="relative w-full">
                             <img
@@ -76,7 +76,7 @@ const ScrollerMobile = () => {
                                 alt={project.title}
                                 className="w-full h-auto shadow-lg"
                             />
-                            <div className="absolute bottom-0 h-[20%] w-full flex gap-2 items-center justify-center
+                            <div className="absolute bottom-0 h-[15%] w-full flex gap-2 items-center justify-center
                                 bg-white/20 backdrop-blur-md border-t border-white/30">
                                 <p className="text-theme-red text-center font-semibold">{project.title}</p>
                                 <CgArrowTopRight color="#e52222" size={24} />
