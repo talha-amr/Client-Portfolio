@@ -76,7 +76,7 @@ const ScrollerMobile = () => {
                                 alt={project.title}
                                 className="w-full h-auto shadow-lg"
                             />
-                            <div className="absolute bottom-0 h-[15%] w-full flex gap-2 items-center justify-center
+                            <div className="absolute bottom-0 h-[20%] w-full flex gap-2 items-center justify-center
                                 bg-white/20 backdrop-blur-md border-t border-white/30">
                                 <p className="text-theme-red text-center font-semibold">{project.title}</p>
                                 <CgArrowTopRight color="#e52222" size={24} />
