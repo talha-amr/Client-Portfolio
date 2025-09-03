@@ -19,11 +19,11 @@ const Work = () => {
     <div className="min-h-dvh w-screen bg-[#f9f9f9]">
       <Navbar activePage={"work"} />
 
-      <div className="pt-[10vw]"></div>
+      <div className="pt-[10vw] max-md:py-10"></div>
 
       {/* Headline + absolute text + monkey inside container */}
       <div className="w-full px-6 relative">
-        <div className="flex flex-col items-center relative">
+        <div className="md:flex flex-col items-center relative hidden">
           {/* Headline text */}
           <p className="font-black text-red-600 text-[7.1vw] uppercase text-center leading-none tracking-tighter z-0 whitespace-nowrap">
             Every Pixel With Purpose
@@ -51,7 +51,7 @@ const Work = () => {
       </div>
 
       {/* Held image outside container */}
-      <div className="relative ">
+      <div className="relative hidden md:block">
         <video
           src="/Project-video.mp4"
           autoPlay
@@ -63,7 +63,29 @@ const Work = () => {
           style={{ marginTop: `calc(-1.05vw - 0.20rem)` }}
         />
       </div>
+<div className="w-full px-6">
+<div className="flex md:hidden flex-col items-start  relative w-full pt-5">
+  {/* Headline */}
+    {/* Monkey image above "EVERY" */}
+  <div className="w-[10rem] h-auto  flex justify-center z-50">
+    <img
+      src="/Monkey-work1.png"
+      alt="Monkey"
+      className="w-full h-auto"
+    />
+  </div>
+  <p className="font-black text-red-600 text-[3.5rem] -mt-4 uppercase text-start leading-none max-w-[90%] ">
+    EVERY <br/> PIXEL WITH PURPOSE
+  </p>
+  <p className="mt-4 text-lg font-light text-red-600">
+    SCROLL TO VIEW MORE
+  </p>
 
+
+</div>
+
+ 
+</div>
       {/* Projects grid inside container below held image */}
       <div className="w-full px-6 py-10">
         <ProjectsGrid />

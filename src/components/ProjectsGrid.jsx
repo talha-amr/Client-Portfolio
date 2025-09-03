@@ -39,24 +39,44 @@ const ProjectsGrid = () => {
   };
 
   return (
-    <div className="w-full">
-      <p className="text-theme-red text-[3.5vw] py-10">SELECT WORK</p>
+<div className="w-full">
+  {/* Desktop Header */}
+  <p className="hidden md:block text-theme-red text-[3.5vw] py-10">SELECT WORK</p>
 
-      <div className="grid min-h-[90vh] grid-cols-8 gap-x-4 gap-y-18 w-full py-3">
-        {projects.map((col, idx) => (
-          <div
-            key={idx}
-            className={`${spanClass(col.span)} flex flex-col ${
-              col.items.length > 1 ? "justify-between" : "gap-2"
-            }`}
-          >
-            {col.items.map((item) => (
-              <ProjectCard key={item.id} item={item} handleClick={handleClick} />
-            ))}
-          </div>
+  {/* Desktop Grid */}
+  <div className="hidden md:grid min-h-[90vh] grid-cols-8 gap-x-4 gap-y-18 w-full py-3">
+    {projects.map((col, idx) => (
+      <div
+        key={idx}
+        className={`${spanClass(col.span)} flex flex-col ${
+          col.items.length > 1 ? "justify-between" : "gap-2"
+        }`}
+      >
+        {col.items.map((item) => (
+          <ProjectCard key={item.id} item={item} handleClick={handleClick} />
         ))}
       </div>
-    </div>
+    ))}
+  </div>
+
+  {/* ----------------- Mobile Grid ----------------- */}
+  <div className="flex flex-wrap md:hidden -mx-2">
+    {projects.map((col, idx) =>
+      col.items.map((item, i) => {
+        // Determine width for first and last items
+        let wClass = "w-1/2 px-2 mb-4"; // default half width
+        if (idx === 0 || idx === projects.length - 1) wClass = "w-full px-2 mb-4"; // first & last full width
+
+        return (
+          <div key={item.id} className={wClass}>
+            <ProjectCard item={item} handleClick={handleClick} />
+          </div>
+        );
+      })
+    )}
+  </div>
+</div>
+
   );
 };
 
@@ -102,19 +122,24 @@ const ProjectCard = ({ item, handleClick }) => {
   return (
     <div className="relative flex flex-col gap-[0.2px] group">
       {/* Flip Text */}
-      <div className="relative h-6 overflow-hidden">
-        <p className="absolute inset-0 text-black text-[0.7vw] tracking-[0.15em] uppercase transition-transform duration-500 group-hover:-translate-y-6">
-          {item.id} /{" "}
-          {isComingSoon
-            ? "Coming Soon"
-            : item.hasCaseStudy
-            ? "View Case Study"
-            : "View Project"}
-        </p>
-        <p className="absolute inset-0 text-black text-[0.7vw] tracking-[0.15em] uppercase translate-y-6 transition-transform duration-500 group-hover:translate-y-0">
-          {item.name}
-        </p>
-      </div>
+   {/* Flip Text */}
+<div className="relative overflow-hidden 
+                h-[1.5rem] md:h-[1.8vw]">
+  <p className="absolute inset-0 text-black text-[0.65rem] md:text-[0.7vw] tracking-[0.15em] uppercase 
+                transition-transform duration-500 group-hover:-translate-y-full">
+    {item.id} /{" "}
+    {isComingSoon
+      ? "Coming Soon"
+      : item.hasCaseStudy
+      ? "View Case Study"
+      : "View Project"}
+  </p>
+  <p className="absolute inset-0 text-black text-[0.65rem] md:text-[0.7vw] tracking-[0.15em] uppercase 
+                translate-y-full transition-transform duration-500 group-hover:translate-y-0">
+    {item.name}
+  </p>
+</div>
+
 
       {/* Media Container */}
       <div ref={containerRef} className="flex-1 overflow-hidden relative">
