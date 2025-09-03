@@ -86,7 +86,7 @@ const Hero = () => {
                 </div>
 
                 {/* Mobile Layout */}
-                <div className="flex flex-col items-center justify-center gap-3 text-center md:hidden mt-0 min-h-svh">
+                <div className="flex flex-col items-center justify-center gap-3 text-center md:hidden pt-10 min-h-svh">
                     {/* Image */}
                     <div className="w-40 h-40 rounded-full overflow-hidden ">
                         <img
