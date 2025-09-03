@@ -64,7 +64,7 @@ const ScrollerMobile = () => {
             </div>
            
             {/* Container for cards */}
-            <div ref={containerRef} className="w-full space-y-2">
+            <div ref={containerRef} className="w-full space-y-4">
                 {projects.map((project, index) => (
                     <div
                         key={project.id}
