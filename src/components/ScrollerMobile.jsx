@@ -47,7 +47,7 @@ const ScrollerMobile = () => {
                     scrollTrigger: {
                         trigger: card,
                         start: "top 80%",
-                        end: "top 20%",
+                        end: "top 30%",
                         scrub: 1,
                         markers: false,
                     }
