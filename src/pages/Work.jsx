@@ -74,7 +74,7 @@ const Work = () => {
       className="w-full h-auto"
     />
   </div>
-  <p className="font-black text-red-600 text-[3.5rem] -mt-4 uppercase text-start leading-none max-w-[90%] ">
+  <p className="font-black text-red-600 text-[3.5rem] -mt-4 uppercase text-start leading-none ">
     EVERY <br/> PIXEL WITH PURPOSE
   </p>
   <p className="mt-4 text-lg font-light text-red-600">
