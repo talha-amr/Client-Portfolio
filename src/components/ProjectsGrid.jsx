@@ -61,20 +61,26 @@ const ProjectsGrid = () => {
 
   {/* ----------------- Mobile Grid ----------------- */}
   <div className="flex flex-wrap md:hidden -mx-2">
-    {projects.map((col, idx) =>
-      col.items.map((item, i) => {
-        // Determine width for first and last items
-        let wClass = "w-1/2 px-2 mb-4"; // default half width
-        if (idx === 0 || idx === projects.length - 1) wClass = "w-full px-2 mb-4"; // first & last full width
+  {projects.flatMap((col, idx) =>
+    col.items.map((item, i) => {
+      const isFirst = idx === 0 && i === 0;
+      const isLast =
+        idx === projects.length - 1 && i === col.items.length - 1;
 
-        return (
-          <div key={item.id} className={wClass}>
+      const wClass = isFirst || isLast ? "w-full" : "w-1/2";
+
+      return (
+        <div key={item.id} className={`${wClass} px-2 mb-4`}>
+          {/* ✅ Consistent height for every row */}
+          <div className="w-full  overflow-hidden">
             <ProjectCard item={item} handleClick={handleClick} />
           </div>
-        );
-      })
-    )}
-  </div>
+        </div>
+      );
+    })
+  )}
+</div>
+
 </div>
 
   );
@@ -142,11 +148,11 @@ const ProjectCard = ({ item, handleClick }) => {
 
 
       {/* Media Container */}
-      <div ref={containerRef} className="flex-1 overflow-hidden relative">
+      <div ref={containerRef} className="max-md:h-[45vh] md:flex-1 overflow-hidden relative w-full">
         {isVideo ? (
           <video
             src={item.src}
-            className="w-full h-full object-contain"
+            className="w-full h-full  object-cover object-center md:object-contain"
             autoPlay
             loop
             muted
@@ -156,7 +162,7 @@ const ProjectCard = ({ item, handleClick }) => {
           <img
             src={item.src}
             alt={`project-${item.id}`}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover object-center md:object-contain"
           />
         )}
 
