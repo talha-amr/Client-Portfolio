@@ -126,12 +126,17 @@ const Footer = () => {
     <br />
     Something Amazing Together!
   </p>
-  <button
-    className="px-8 py-1 md:px-[3vw] md:py-[0.5vw] rounded-full border-2 border-[#E52222] text-[1.1rem] md:text-[1.4vw] text-[#E52222] tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white transition font-bold"
-    onClick={handleClick}
-  >
-    Let's Connect
-  </button>
+<button
+  className="w-[70vw] md:w-auto mx-auto 
+             px-8 py-2 md:px-[3vw] md:py-[0.5vw] 
+             rounded-full border-2 border-[#E52222] 
+             text-[1.4rem] md:text-[1.4vw] text-[#E52222] 
+             tracking-wide bg-transparent hover:bg-[#E52222] hover:text-white 
+             transition font-bold flex justify-center"
+  onClick={handleClick}
+>
+  Let's Connect
+</button>
 </div>
     </>
   );

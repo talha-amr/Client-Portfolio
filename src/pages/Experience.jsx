@@ -11,7 +11,7 @@ const Experience = () => {
             {/* Container for all except Accordion + Marquee */}
             <div className="w-full px-6">
                 {/* Top Section */}
-                <div className="py-[6vw] max-md:py-22">
+                <div className="py-[6vw] max-md:py-25">
                     <div className="flex flex-col max-md:gap-8 w-full justify-start items-start gap-0">
                         <p className="font-medium max-w-[27%] max-md:max-w-[70%] text-theme-red text-[0.9vw] max-md:text-[0.9rem] leading-tight">
                             In this role, I lead the design team and focus on creating user-centered and business-driven product experiences. My work involves conducting UX audits, building scalable design systems, collaborating with stakeholders, and ensuring design consistency across both small and large-scale digital products.
@@ -40,7 +40,7 @@ const Experience = () => {
                                 Currently, I’m working at Rozee.pk / RozeeGPT
                             </p>
 
-                            <p className="text-[8.1vw] max-md:text-[3.7rem] font-black text-theme-red uppercase tracking-tight leading-none">
+                            <p className="text-[8.1vw] max-md:text-[3.7rem] max-md:mt-1 font-black text-theme-red uppercase tracking-tight leading-none">
                                 Lead UX/UI Designer
                             </p>
                         </div>
@@ -139,7 +139,7 @@ const Experience = () => {
             </div>
 
             {/* Footer */}
-            <div className="py-[6vw] max-md:py-12 w-full px-6">
+            <div className="py-[6vw] max-md:pb-12 w-full px-6">
                 <Footer />
             </div>
         </section>
