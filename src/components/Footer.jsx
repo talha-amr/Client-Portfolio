@@ -121,7 +121,7 @@ const Footer = () => {
 
       {/* Bottom Section */}
 <div className="flex flex-col justify-center items-center h-[20rem] md:h-[20vw] gap-8 text-theme-red py-0 md:py-[3vw]">
-  <p className="text-[2.5rem] md:text-[2vw] font-medium md:font-bold text-center leading-tight">
+  <p className="text-[2.25rem] md:text-[2vw] font-medium md:font-bold text-center leading-tight max-md:tracking-tighter">
     <span className="font-bold md:font-black">Let’s Make</span>
     <br />
     Something Amazing Together!
