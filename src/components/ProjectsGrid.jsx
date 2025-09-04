@@ -148,7 +148,7 @@ const ProjectCard = ({ item, handleClick }) => {
     <div className="relative flex flex-col gap-[0.2px] group">
       {/* Flip Text */}
       <div className="relative overflow-hidden h-[1.5rem] md:h-[1.8vw]">
-        <p className="absolute inset-0 text-black text-[0.65rem] md:text-[0.7vw] tracking-[0.15em] uppercase transition-transform duration-500 group-hover:-translate-y-full">
+        <p className="absolute inset-0 text-black  max-md:px-6 text-[0.65rem] md:text-[0.7vw] tracking-[0.15em] uppercase transition-transform duration-500 group-hover:-translate-y-full">
           {item.id} /{" "}
           {isComingSoon
             ? "Coming Soon"
