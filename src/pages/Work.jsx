@@ -87,7 +87,7 @@ const Work = () => {
  
 </div>
       {/* Projects grid inside container below held image */}
-      <div className="w-full px-6 py-10">
+      <div className="w-full max-md:px-0 px-6 py-10">
         <ProjectsGrid />
         <Footer />
       </div>
