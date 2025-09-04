@@ -142,7 +142,7 @@ export default function Navbar({ activePage }) {
             {/* Brand (mobile) */}
             <Link
               to="/"
-              className={`text-[1.7rem] font-black tracking-[-0.06em] italic ${activePage === "home" ? "text-white" : "text-[#000000]"
+              className={`text-[2rem] font-black tracking-[-0.06em] italic ${activePage === "home" ? "text-white" : "text-theme-red"
                 }`}
             >
               ZB S.
@@ -170,7 +170,7 @@ export default function Navbar({ activePage }) {
             {/* Logo on left */}
             <Link
               to="/"
-              className="text-[1.7rem] font-black tracking-[-0.06em] italic text-white"
+              className="text-[2rem] font-black tracking-[-0.06em] italic text-white"
               onClick={() => setMenuOpen(false)}
             >
               ZB S.
