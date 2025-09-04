@@ -3,7 +3,7 @@ import React from 'react'
 const Grid = () => {
   return (
     <>
-      <section className="min-h-screen bg-white" id="grid">
+      <section className="md:min-h-screen bg-white" id="grid">
         <div className="w-full mx-auto px-6 text-[#E52222] relative">
           <div className="work-process">
             {/* Hero text - Mobile Version */}

@@ -57,9 +57,9 @@ const ScrollerMobile = () => {
     }, []);
 
     return (
-        <section className="w-full">
+        <section className="w-full pt-4">
             {/* Sticky header */}
-            <div ref={headerRef} className="px-6 py-2 bg-white">
+            <div ref={headerRef} className="px-6 py-3 bg-white">
                 <p className="text-theme-red font-black text-4xl">Projects</p>
             </div>
            
