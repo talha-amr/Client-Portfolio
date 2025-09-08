@@ -8,26 +8,33 @@ import gsap from 'gsap';
 const Work = () => {
   const videoRef = useRef(null);
 
-  useGSAP(() => {
-    // Do nothing until video is ready
-    if (!videoRef.current) return;
+useGSAP(() => {
+  if (!videoRef.current) return;
 
-    const handleVideoLoaded = () => {
-      const tl = gsap.timeline();
+  const handleVideoLoaded = () => {
+    const tl = gsap.timeline();
 
-      // Start with monkey behind the image
-      tl.set('#image', { zIndex: 5 })
-        .from('#image', { yPercent: 100, duration: 0.6, ease: 'power2.out' })
-        .set('#image', { zIndex: 50 });
-    };
+    tl.set('#image', { zIndex: 5 }) // still opacity:0 from Tailwind
+      .to('#image', { 
+        opacity: 1, 
+        duration: 0.4, 
+        ease: 'power2.out' 
+      })
+      .from('#image', { 
+        yPercent: 100, 
+        duration: 0.6, 
+        ease: 'power2.out' 
+      }, "<")
+      .set('#image', { zIndex: 50 });
+  };
 
-    // listen for video load
-    videoRef.current.addEventListener("loadeddata", handleVideoLoaded);
+  videoRef.current.addEventListener("loadeddata", handleVideoLoaded);
 
-    return () => {
-      videoRef.current?.removeEventListener("loadeddata", handleVideoLoaded);
-    };
-  }, []);
+  return () => {
+    videoRef.current?.removeEventListener("loadeddata", handleVideoLoaded);
+  };
+}, []);
+
 
   return (
     <div className="min-h-dvh w-screen bg-[#f9f9f9]">
@@ -49,7 +56,7 @@ const Work = () => {
             style={{ top: `calc(8.1vw + 10vw)` }}
           >
             <div className="flex items-center gap-3">
-              <img src="/OnlineSymbol.png" alt="" className='w-[15px]'/>
+              <img src="/OnlineSymbol.png" alt="" className='w-[15px]' />
               <p className='uppercase text-[#178243]'>open to work</p>
             </div>
             <p className="flex-shrink-0">SCROLL TO VIEW MORE</p>
@@ -61,7 +68,7 @@ const Work = () => {
               id='image'
               src="/Monkey-work1.png"
               alt="Monkey"
-              className="w-[25vw] relative z-50"
+              className="w-[25vw] relative z-50 opacity-0"  // 👈 start invisible
             />
           </div>
         </div>
@@ -88,7 +95,7 @@ const Work = () => {
             <img src="/Monkey-work1.png" alt="Monkey" className="w-full h-auto" />
           </div>
           <p className="font-black text-red-600 text-[3.5rem] -mt-2.5 uppercase text-start leading-[0.8] ">
-            EVERY <br/> PIXEL WITH PURPOSE
+            EVERY <br /> PIXEL WITH PURPOSE
           </p>
           <p className="mt-4 text-lg font-light text-red-600 leading-none">
             SCROLL TO VIEW MORE
