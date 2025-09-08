@@ -51,7 +51,7 @@ const Hero = () => {
       <div className="w-full mx-auto px-6 text-white">
         {/* Desktop Layout */}
         <div className="hidden md:flex flex-col justify-start gap-5 leading-none">
-          <div className="flex items-center justify-start text-[20.4vw] text-start md:pt-2 lg:pt-5 uppercase font-black tracking-[-0.065em] leading-none text-white">
+          <div className="flex items-center justify-start text-[19.9vw] lg:text-[20.4vw] text-start md:pt-2 lg:pt-5 uppercase font-black tracking-[-0.065em] leading-none text-white">
             <span>WELC</span>
             <div className="inline-block aspect-square w-[0.8em] -mx-[0.12em] flex-shrink-0 rounded-full bg-white overflow-hidden relative z-10 animate-float">
               <img
@@ -63,14 +63,14 @@ const Hero = () => {
             <span>ME</span>
           </div>
 
-          <p className="md:text-[1rem] lg:text-[2.1vw] font-bold max-w-[35%] text-start leading-tight">
+          <p className="text-[1rem] lg:text-[2.1vw] font-bold max-w-[35%] text-start leading-tight">
             <span className="italic">Hi Zubair S. here</span>
             <br />
             Connecting Product Design × Design Systems × AI | Lead UX/UI Designer @Rozeegpt /
             Rozee.pk
           </p>
 
-          <p className="self-end md:text-[1rem] lg:text-[2.1vw] mt-3 font-bold max-w-[44%] anim leading-tight mr-6">
+          <p className="self-end text-[1rem] lg:text-[2.1vw] mt-3 font-bold max-w-[44%] anim leading-tight mr-6">
             I'm a UX/UI Product Designer and Design Consultant with 6 years of experience in crafting
             user-
             <br />
