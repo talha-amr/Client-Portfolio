@@ -9,14 +9,14 @@ const ScrollerMobile = () => {
   const containerRef = useRef(null);
   const headerRef = useRef(null);
 
-  const projects = [
-    { id: 1, title: "ABN GLOBAL", image: "/image-1.png" },
-    { id: 2, title: "IMC HEALTH APP", image: "/image-2.png" },
-    { id: 3, title: "RIZQ FINANCIAL APP", image: "/image-3.png" },
-    { id: 4, title: "ASK TECHNOSE", image: "/image-4.png" },
-    { id: 5, title: "BSM DEVELOPER", image: "/image-5.png" },
-    { id: 6, title: "NEW METRO CITY", image: "/image-6.png" },
-  ];
+    const projects = [
+        { id: 1, title: "ABN GLOBAL", image: "/image-1.png", desc: "The ABN Agent Dashboard is an internal platform..." ,link:"https://www.behance.net/gallery/232967507/ABN-Global-Dashboard-Design-(CaseStudy)-(COPY) "},
+        { id: 2, title: "IMC HEALTH APP", image: "/image-2.png", desc: "Description for IMC HEALTH APP" ,link:"https://www.behance.net/gallery/232967369/CaseStudy-IMC-Health-App-(COPY) "},
+        { id: 3, title: "RIZQ FINANCIAL APP", image: "/image-3.png", desc: "Description for Rizq Financial App",link:"https://www.behance.net/gallery/232967157/Rizq-Financial-App-CaseStudy " },
+        { id: 4, title: "ASK TECHNOSE", image: "/image-4.png", desc: "Description for ASK TECHNOSE",link:"https://www.behance.net/gallery/232967255/Redesign-Ask-Technos " },
+        { id: 5, title: "BSM DEVELOPER", image: "/image-5.png", desc: "Description for BSM Developer",link:"https://www.bsmdevelopers.com/ " },
+        { id: 6, title: "NEW METRO CITY", image: "image-6.png", desc: "Description for New Metro City",link:"https://www.newmetrocity.com.pk/ " },
+    ];
 
   useGSAP(() => {
     // Sticky header
@@ -52,35 +52,42 @@ const ScrollerMobile = () => {
   }, []);
 
   return (
-    <section className="w-full pt-4">
-      {/* Sticky header */}
-      <div ref={headerRef} className="px-6 py-3 bg-white">
-        <p className="text-theme-red font-black text-4xl">Projects</p>
-      </div>
+<section className="w-full pt-4">
+  {/* Sticky header */}
+  <div ref={headerRef} className="px-6 py-3 bg-white">
+    <p className="text-theme-red font-black text-4xl">Projects</p>
+  </div>
 
-      {/* Project list */}
-      <div ref={containerRef} className="w-full space-y-10">
-        {projects.map((project,idx) => (
-          <div key={project.id} className="project-card w-full">
-            {/* Project label */}
-            <div className="px-6 mb-2">
-              <p className="text-black text-[0.65rem]  tracking-[0.15em] uppercase">
-                {idx+1} / View Project / {project.title}
-              </p>
-            </div>
+  {/* Project list */}
+  <div ref={containerRef} className="w-full space-y-10">
+    {projects.map((project, idx) => (
+      <a
+        key={project.id}
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block project-card w-full"
+      >
+        {/* Project label */}
+        <div className="px-6 mb-2">
+          <p className="text-black text-[0.65rem] tracking-[0.15em] uppercase">
+            {idx + 1} / View Project / {project.title}
+          </p>
+        </div>
 
-            {/* Project image */}
-            <div className="relative w-full">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-auto shadow-lg"
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+        {/* Project image */}
+        <div className="relative w-full">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-auto shadow-lg"
+          />
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
   );
 };
 

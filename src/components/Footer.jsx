@@ -66,27 +66,29 @@ const Footer = () => {
           </h3>
 
           <ul className="space-y-[0.8vw] text-[#E52222] text-[1.3vw]">
-            <li className="flex justify-between items-center">
-              <Link to="/" className="group relative overflow-hidden w-fit">
-                <p className="block transition-transform duration-500 group-hover:-translate-y-full">
-                  HOME
-                </p>
-                <p className="absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0">
-                  HOME
-                </p>
-              </Link>
-              <Link
-                to="#"
-                className="group relative overflow-hidden w-fit text-[1vw]"
-              >
-                <p className="block transition-transform duration-500 group-hover:-translate-y-full" onClick={scroll}>
-                  BACK TO TOP ↑
-                </p>
-                <p className="absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0" onClick={scroll}>
-                  BACK TO TOP ↑
-                </p>
-              </Link>
-            </li>
+ <li className="flex justify-between items-center">
+  <Link to="/" className="group relative overflow-hidden w-fit">
+    <p className="block transition-transform duration-500 group-hover:-translate-y-full">
+      HOME
+    </p>
+    <p className="absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0">
+      HOME
+    </p>
+  </Link>
+
+  {/* Back to top button */}
+  <button
+    onClick={scroll}
+    className="group relative overflow-hidden w-fit text-[1vw]"
+  >
+    <p className="block transition-transform duration-500 group-hover:-translate-y-full">
+      BACK TO TOP ↑
+    </p>
+    <p className="absolute top-0 left-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0">
+      BACK TO TOP ↑
+    </p>
+  </button>
+</li>
 
             {/* Work */}
             <li>

@@ -13,12 +13,12 @@ const Work = () => {
     const btnRefs = useRef([]);
 
     const projects = [
-        { id: 1, title: "ABN GLOBAL", image: "/image-1.png", desc: "The ABN Agent Dashboard is an internal platform..." },
-        { id: 2, title: "IMC HEALTH APP", image: "/image-2.png", desc: "Description for IMC HEALTH APP" },
-        { id: 3, title: "RIZQ FINANCIAL APP", image: "/image-3.png", desc: "Description for Rizq Financial App" },
-        { id: 4, title: "ASK TECHNOSE", image: "/image-4.png", desc: "Description for ASK TECHNOSE" },
-        { id: 5, title: "BSM DEVELOPER", image: "/image-5.png", desc: "Description for BSM Developer" },
-        { id: 6, title: "NEW METRO CITY", image: "image-6.png", desc: "Description for New Metro City" },
+        { id: 1, title: "ABN GLOBAL", image: "/image-1.png", desc: "The ABN Agent Dashboard is an internal platform..." ,link:"https://www.behance.net/gallery/232967507/ABN-Global-Dashboard-Design-(CaseStudy)-(COPY) "},
+        { id: 2, title: "IMC HEALTH APP", image: "/image-2.png", desc: "Description for IMC HEALTH APP" ,link:"https://www.behance.net/gallery/232967369/CaseStudy-IMC-Health-App-(COPY) "},
+        { id: 3, title: "RIZQ FINANCIAL APP", image: "/image-3.png", desc: "Description for Rizq Financial App",link:"https://www.behance.net/gallery/232967157/Rizq-Financial-App-CaseStudy " },
+        { id: 4, title: "ASK TECHNOSE", image: "/image-4.png", desc: "Description for ASK TECHNOSE",link:"https://www.behance.net/gallery/232967255/Redesign-Ask-Technos " },
+        { id: 5, title: "BSM DEVELOPER", image: "/image-5.png", desc: "Description for BSM Developer",link:"https://www.bsmdevelopers.com/ " },
+        { id: 6, title: "NEW METRO CITY", image: "image-6.png", desc: "Description for New Metro City",link:"https://www.newmetrocity.com.pk/ " },
     ];
 
     // GSAP animations for magnetic hover & sticky scroll
@@ -134,15 +134,22 @@ const Work = () => {
                                 <div
                                     ref={(el) => (btnRefs.current[index] = el)}
                                     className="absolute top-1/2 left-1/2 opacity-0 group-hover:opacity-100 
-                    pointer-events-none transition-opacity duration-300"
+                                    transition-opacity duration-300"
                                     style={{ transform: "translate(-50%, -50%)" }}
                                 >
-                                    <button className="w-20 h-20 flex items-center justify-center rounded-full 
-                    bg-white/20 backdrop-blur-md border border-white/40 text-white 
-                    text-sm font-semibold shadow-lg">
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-20 h-20 flex items-center justify-center rounded-full 
+                                        bg-white/20 backdrop-blur-md border border-white/40 text-white 
+                                        text-sm font-semibold shadow-lg transition-transform duration-300 
+                                        hover:scale-110"
+                                    >
                                         VIEW
-                                    </button>
+                                    </a>
                                 </div>
+
                             </div>
                         ))}
                     </div>

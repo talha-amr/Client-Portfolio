@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Navbar from '../components/NavBar';
 import ProjectsGrid from '../components/ProjectsGrid';
 import Footer from '../components/Footer';
@@ -6,13 +6,27 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
 const Work = () => {
-  useGSAP(() => {
-    const tl = gsap.timeline();
+  const videoRef = useRef(null);
 
-    // Start with monkey behind the image
-    tl.set('#image', { zIndex: 5 })
-      .from('#image', { yPercent: 100, duration: 0.6, ease: 'power2.out' })
-      .set('#image', { zIndex: 50 });
+  useGSAP(() => {
+    // Do nothing until video is ready
+    if (!videoRef.current) return;
+
+    const handleVideoLoaded = () => {
+      const tl = gsap.timeline();
+
+      // Start with monkey behind the image
+      tl.set('#image', { zIndex: 5 })
+        .from('#image', { yPercent: 100, duration: 0.6, ease: 'power2.out' })
+        .set('#image', { zIndex: 50 });
+    };
+
+    // listen for video load
+    videoRef.current.addEventListener("loadeddata", handleVideoLoaded);
+
+    return () => {
+      videoRef.current?.removeEventListener("loadeddata", handleVideoLoaded);
+    };
   }, []);
 
   return (
@@ -30,11 +44,14 @@ const Work = () => {
           </p>
 
           {/* Small text row above main content */}
-              <div
+          <div
             className="flex justify-between items-center w-[55%] text-red-600 text-[0.9vw] font-light mb-8 absolute z-20"
             style={{ top: `calc(8.1vw + 10vw)` }}
           >
-            <div className="flex items-center gap-3"><img src="/OnlineSymbol.png" alt="" className='w-[15px]'/><p className='uppercase text-[#178243]'>open to work</p></div>
+            <div className="flex items-center gap-3">
+              <img src="/OnlineSymbol.png" alt="" className='w-[15px]'/>
+              <p className='uppercase text-[#178243]'>open to work</p>
+            </div>
             <p className="flex-shrink-0">SCROLL TO VIEW MORE</p>
           </div>
 
@@ -53,46 +70,37 @@ const Work = () => {
       {/* Held image outside container */}
       <div className="relative hidden md:block">
         <video
+          ref={videoRef}
           src="/Project-video.mp4"
           autoPlay
           loop
           muted
           preload="auto"
-          alt="Video"
-          className="w-full relative z-10 "
+          className="w-full relative z-10"
           style={{ marginTop: `calc(-1.05vw - 0.20rem)` }}
         />
       </div>
-<div className="w-full px-6">
-<div className="flex md:hidden flex-col items-start  relative w-full pt-5">
-  {/* Headline */}
-    {/* Monkey image above "EVERY" */}
-  <div className="w-[10rem] h-auto  flex justify-center z-50">
-    <img
-      src="/Monkey-work1.png"
-      alt="Monkey"
-      className="w-full h-auto"
-    />
-  </div>
-  <p className="font-black text-red-600 text-[3.5rem] -mt-2.5 uppercase text-start leading-[0.8] ">
-    EVERY <br/> PIXEL WITH PURPOSE
-  </p>
-  <p className="mt-4 text-lg font-light text-red-600 leading-none">
-    SCROLL TO VIEW MORE
-  </p>
 
+      {/* Mobile monkey + headline */}
+      <div className="w-full px-6">
+        <div className="flex md:hidden flex-col items-start relative w-full pt-5">
+          <div className="w-[10rem] h-auto flex justify-center z-50">
+            <img src="/Monkey-work1.png" alt="Monkey" className="w-full h-auto" />
+          </div>
+          <p className="font-black text-red-600 text-[3.5rem] -mt-2.5 uppercase text-start leading-[0.8] ">
+            EVERY <br/> PIXEL WITH PURPOSE
+          </p>
+          <p className="mt-4 text-lg font-light text-red-600 leading-none">
+            SCROLL TO VIEW MORE
+          </p>
+        </div>
+      </div>
 
-</div>
-
- 
-</div>
       {/* Projects grid inside container below held image */}
       <div className="w-full max-md:px-0 px-6 py-10">
         <ProjectsGrid />
         <Footer />
       </div>
-
-
     </div>
   );
 };

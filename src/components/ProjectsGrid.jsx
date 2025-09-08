@@ -9,21 +9,21 @@ gsap.registerPlugin(ScrollTrigger);
 const spanClass = (span) => (span === 4 ? "col-span-4" : "col-span-2");
 
 const projects = [
-  { span: 4, items: [{ id: 1, src: "/image-1.png", name: "ABN Global", hasCaseStudy: false, link: "" }] },
+  { span: 4, items: [{ id: 1, src: "/image-1.png", name: "ABN Global", hasCaseStudy: false, link: "https://www.behance.net/gallery/232967507/ABN-Global-Dashboard-Design-(CaseStudy)-(COPY) " }] },
   { span: 2, items: [{ id: 2, src: "/image-grid-2.png", name: "Otomayt.ai", hasCaseStudy: false, link: "http://otomayt.ai" }] },
-  { span: 2, items: [{ id: 3, src: "/image-grid-3.png", name: "Rizq Financial App", hasCaseStudy: false, link: "" }] },
+  { span: 2, items: [{ id: 3, src: "/image-grid-3.png", name: "Rizq Financial App", hasCaseStudy: false, link: "https://www.behance.net/gallery/232967157/Rizq-Financial-App-CaseStudy " }] },
   {
     span: 2,
     items: [
-      { id: 4, src: "/image-grid-4.png", name: "ABurger", hasCaseStudy: false, link: "" },
-      { id: 7, src: "/image-grid-5.png", name: "RIZQ HRMS", hasCaseStudy: false, link: "" },
+      { id: 4, src: "/image-grid-4.png", name: "ABurger", hasCaseStudy: false, link: "https://www.behance.net/gallery/223450313/ABurger-Website-Design " },
+      { id: 7, src: "/image-grid-5.png", name: "RIZQ HRMS", hasCaseStudy: false, link: "https://www.behance.net/gallery/218161177/HRMS-Dashboard-Design " },
     ],
   },
   { span: 2, items: [{ id: 5, src: "/Work-video.mov", name: "RozeeGPT Seeker App", hasCaseStudy: false, link: "" }] },
   { span: 4, items: [{ id: 6, src: "/image-grid-7.png", name: "PRC Consulting", hasCaseStudy: false, link: "https://www.prcksa.com" }] },
-  { span: 2, items: [{ id: 8, src: "/image-grid-8.png", name: "RIZQ Dashboard Redesign", hasCaseStudy: false, link: "" }] },
-  { span: 4, items: [{ id: 9, src: "/image-grid-9.png", name: "Food App", hasCaseStudy: false, link: "" }] },
-  { span: 2, items: [{ id: 10, src: "/image-grid-10.png", name: "Lahori Burger", hasCaseStudy: false, link: "" }] },
+  { span: 2, items: [{ id: 8, src: "/image-grid-8.png", name: "RIZQ Dashboard Redesign", hasCaseStudy: false, link: "https://www.behance.net/gallery/223883641/RIZQ-Redesign-Dashboard-UI " }] },
+  { span: 4, items: [{ id: 9, src: "/image-grid-9.png", name: "Food App", hasCaseStudy: false, link: "https://www.behance.net/gallery/217913171/Food-App-Splash-Scree " }] },
+  { span: 2, items: [{ id: 10, src: "/image-grid-10.png", name: "Lahori Burger", hasCaseStudy: false, link: "https://www.behance.net/gallery/223358887/Lahori-Burger-(New-Project-Coming-Soon) " }] },
 ];
 
 const ProjectsGrid = () => {
@@ -33,10 +33,8 @@ const ProjectsGrid = () => {
   const handleClick = (item) => {
     if (item.hasCaseStudy) {
       navigate("/caseStudy");
-    } else if (item.link) {
-      window.open(item.link, "_blank");
     } else {
-      window.open("https://www.behance.net/bluecladesigne", "_blank");
+      window.open(item.link, "_blank");
     }
   };
 
@@ -91,15 +89,14 @@ const ProjectsGrid = () => {
 
       {/* ----------------- Mobile Grid ----------------- */}
       <div ref={mobileContainerRef} className="flex flex-wrap md:hidden -mx-2">
-        {projects.flatMap((col) =>
-          col.items.map((item) => (
-            <div key={item.id} className="project-card w-full px-2 mb-4">
-              <div className="w-full overflow-hidden">
-                <ProjectCard item={item} handleClick={handleClick} />
-              </div>
+        {projects.flatMap((col) => col.items).map((item, idx) => (
+          <div key={item.id} className="project-card w-full px-2 mb-4">
+            <div className="w-full overflow-hidden">
+              {/* pass displayIndex for clean numbering */}
+              <ProjectCard item={{ ...item, displayIndex: idx + 1 }} handleClick={handleClick} />
             </div>
-          ))
-        )}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -144,12 +141,15 @@ const ProjectCard = ({ item, handleClick }) => {
   const isVideo = item.src.endsWith(".mov");
   const isComingSoon = item.id === 5 || item.id === 7;
 
+  // ✅ use displayIndex for mobile numbering if available
+  const displayNumber = item.displayIndex || item.id;
+
   return (
     <div className="relative flex flex-col gap-[0.2px] group">
       {/* Flip Text */}
       <div className="relative overflow-hidden h-[1.5rem] md:h-[1.8vw]">
-        <p className="absolute inset-0 text-black  max-md:px-6 text-[0.65rem] md:text-[0.7vw] tracking-[0.15em] uppercase transition-transform duration-500 group-hover:-translate-y-full">
-          {item.id} /{" "}
+        <p className="absolute inset-0 text-black max-md:px-6 text-[0.65rem] md:text-[0.7vw] tracking-[0.15em] uppercase transition-transform duration-500 group-hover:-translate-y-full">
+          {displayNumber} /{" "}
           {isComingSoon
             ? "Coming Soon"
             : item.hasCaseStudy
@@ -162,7 +162,10 @@ const ProjectCard = ({ item, handleClick }) => {
       </div>
 
       {/* Media Container */}
-      <div ref={containerRef} className="max-md:h-[45vh] md:flex-1 overflow-hidden relative max-md:w-full">
+      <div
+        ref={containerRef}
+        className="max-md:h-[45vh] md:flex-1 overflow-hidden relative max-md:w-full"
+      >
         {isVideo ? (
           <video
             src={item.src}
