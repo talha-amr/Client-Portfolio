@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import MenuIcon from "./MenuIcon";
 import CloseIcon from "./CloseIcon";
+import Logo from "./Logo"; // ✅ Import the logo component
 
 export default function Navbar({ activePage }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,21 +46,18 @@ export default function Navbar({ activePage }) {
   return (
     <>
       <nav
-        className={`font-inter absolute top-0 py-[1.8vw] left-0 w-full z-50 ${activePage === "home"
+        className={`font-inter absolute top-0 py-[1.8vw] left-0 w-full z-50 ${
+          activePage === "home"
             ? "bg-transparent text-white"
             : "bg-transparent text-[#000000]"
-          }`}
+        }`}
       >
         <div className="w-full mx-auto px-6 flex items-center justify-between">
           {/* Brand + Nav links */}
-          <div className="flex items-center space-x-[2.5vw] max-md:hidden">
+          <div className="flex items-center space-x-[1.9vw] max-md:hidden">
             {/* Brand */}
-            <Link
-              to="/"
-              className={`text-[1.7vw] font-black tracking-[-0.06em] italic ${activePage === "home" ? "text-white" : "text-[#000000]"
-                }`}
-            >
-              ZB S.
+            <Link to="/" className="flex items-center">
+              <Logo variant={activePage === "home" ? "red" : "white"} mobile={false} />
             </Link>
 
             {/* Nav links */}
@@ -140,20 +138,17 @@ export default function Navbar({ activePage }) {
           {/* Mobile Brand + Hamburger */}
           <div className="flex items-center justify-between w-full md:hidden py-4 ">
             {/* Brand (mobile) */}
-            <Link
-              to="/"
-              className={`text-[2.2rem] font-black tracking-[-0.06em] italic ${activePage === "home" ? "text-white" : "text-theme-red"
-                }`}
-            >
-              ZB S.
+            <Link to="/" onClick={() => setMenuOpen(false)}>
+              <Logo variant={activePage === "home" ? "red" : "white"} mobile={true} />
             </Link>
 
             {/* Hamburger */}
-            {/* Hamburger */}
             <button onClick={() => setMenuOpen(true)}>
-              <MenuIcon size={45} color={activePage === "home" ? "#ffffff" : "#e52222"} />
+              <MenuIcon
+                size={45}
+                color={activePage === "home" ? "#ffffff" : "#e52222"}
+              />
             </button>
-
           </div>
         </div>
       </nav>
@@ -168,19 +163,14 @@ export default function Navbar({ activePage }) {
           {/* Top bar with Logo + Close */}
           <div className="flex justify-between items-center w-full py-6">
             {/* Logo on left */}
-            <Link
-              to="/"
-              className="text-[2.2rem] font-black tracking-[-0.06em] italic text-white"
-              onClick={() => setMenuOpen(false)}
-            >
-              ZB S.
+            <Link to="/" onClick={() => setMenuOpen(false)}>
+              <Logo variant="white" size={45} />
             </Link>
 
             {/* Close button on right */}
             <button onClick={() => setMenuOpen(false)}>
               <CloseIcon size={45} color="#ffffff" />
             </button>
-
           </div>
 
           {/* Menu links */}

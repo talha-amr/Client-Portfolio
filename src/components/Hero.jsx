@@ -51,7 +51,7 @@ const Hero = () => {
       <div className="w-full mx-auto px-6 text-white">
         {/* Desktop Layout */}
         <div className="hidden md:flex flex-col justify-start gap-5 leading-none">
-          <div className="flex items-center justify-start text-[19.9vw] lg:text-[20.4vw] text-start md:pt-2 lg:pt-5 uppercase font-black tracking-[-0.065em] leading-none text-white">
+          <div className="flex items-center justify-start text-[19.9vw] lg:text-[20.2vw] text-start md:pt-2 lg:pt-5 uppercase font-black tracking-[-0.065em] leading-none text-white">
             <span>WELC</span>
             <div className="inline-block aspect-square w-[0.8em] -mx-[0.12em] flex-shrink-0 rounded-full bg-white overflow-hidden relative z-10 animate-float">
               <img
