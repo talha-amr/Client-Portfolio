@@ -1,16 +1,27 @@
 import React from "react";
 
 export default function Logo({ variant = "red", mobile = false }) {
-  const src = variant === "red" ? "/ZB-Red.svg" : "/ZB-White.svg";
+  let src;
+
+  switch (variant) {
+    case "white":
+      src = "/ZB-White.svg";
+      break;
+    case "transparent":
+      src = "/ZB-Transparent.svg";
+      break;
+    case "red":
+    default:
+      src = "/ZB-Red.svg";
+      break;
+  }
 
   return (
     <img
       src={src}
       alt="ZB Logo"
       className={`${
-        mobile
-          ? "w-[3rem]"       // ✅ fixed size for mobile
-          : "w-[3.5vw] " // ✅ responsive for desktop
+        mobile ? "w-[3rem]" : "w-[3.5vw]"
       } h-auto`}
     />
   );

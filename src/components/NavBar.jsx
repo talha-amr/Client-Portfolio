@@ -164,7 +164,7 @@ export default function Navbar({ activePage }) {
           <div className="flex justify-between items-center w-full py-6">
             {/* Logo on left */}
             <Link to="/" onClick={() => setMenuOpen(false)}>
-              <Logo variant="white" size={45} />
+              <Logo variant="transparent" mobile={true} />
             </Link>
 
             {/* Close button on right */}
