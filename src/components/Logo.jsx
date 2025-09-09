@@ -9,7 +9,7 @@ export default function Logo({ variant = "red", mobile = false }) {
       alt="ZB Logo"
       className={`${
         mobile
-          ? "w-[3.1rem]"       // ✅ fixed size for mobile
+          ? "w-[3rem]"       // ✅ fixed size for mobile
           : "w-[3.5vw] " // ✅ responsive for desktop
       } h-auto`}
     />
